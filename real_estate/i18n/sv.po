@@ -1,0 +1,493 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* real_estate
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0-20240730\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-08-26 03:13+0000\n"
+"PO-Revision-Date: 2024-08-26 03:13+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: real_estate
+#: model:ir.actions.report,print_report_name:real_estate.property_report_action
+msgid "(object._get_report_base_filename())"
+msgstr ""
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.report_estate_property_document
+msgid "<strong>Adate:</strong>"
+msgstr "Ngay Hoat Dong"
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.report_estate_property_document
+msgid "<strong>Type:</strong>"
+msgstr "The Loai"
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.report_estate_property_document
+msgid "<strong>expected price:</strong>"
+msgstr "Gia"
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.report_estate_property_document
+msgid "<strong>garage:</strong>"
+msgstr "Ga Ra"
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.report_estate_property_document
+msgid "<strong>phone:</strong>"
+msgstr "SDT"
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.report_estate_property_document
+msgid "<strong>postcode:</strong>"
+msgstr "ma post"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_estate_property__adate
+msgid "ADate"
+msgstr "ngay hoat dong"
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.estate_property_form_view
+msgid "Accept"
+msgstr "xac nhan"
+
+#. module: real_estate
+#: model:ir.model.fields.selection,name:real_estate.selection__estate_property_offer__status__accepted
+msgid "Accepted"
+msgstr "da xac nhan"
+
+#. module: real_estate
+#: model:ir.ui.menu,name:real_estate.menu_property_ads
+msgid "Ads"
+msgstr "quang cao"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_estate_property__bed_rooms
+msgid "Bedrooms"
+msgstr "phong ngu"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_estate_property__buyer_id
+msgid "Buyer"
+msgstr "nguoi mua"
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.estate_property_form_view
+msgid "Cancel"
+msgstr "huy"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_estate_property_tag__color
+msgid "Color"
+msgstr "mau"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_estate_property_offer__create_date
+msgid "Create Date"
+msgstr "ngay tao"
+
+#. module: real_estate
+#: model_terms:ir.actions.act_window,help:real_estate.action_property
+#: model_terms:ir.actions.act_window,help:real_estate.action_property_offer
+#: model_terms:ir.actions.act_window,help:real_estate.action_property_type
+msgid "Create a Property to Advertise"
+msgstr "tao 1 thuoc tinh de quang cao !!!"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_estate_property__create_uid
+#: model:ir.model.fields,field_description:real_estate.field_estate_property_offer__create_uid
+#: model:ir.model.fields,field_description:real_estate.field_estate_property_tag__create_uid
+#: model:ir.model.fields,field_description:real_estate.field_estate_property_type__create_uid
+msgid "Created by"
+msgstr "duoc tao boi"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_estate_property__create_date
+#: model:ir.model.fields,field_description:real_estate.field_estate_property_tag__create_date
+#: model:ir.model.fields,field_description:real_estate.field_estate_property_type__create_date
+msgid "Created on"
+msgstr "duoc tao vao"
+
+#. module: real_estate
+#. odoo-javascript
+#: code:addons/real_estate/static/src/xml/my_custom_tag.xml:0
+#, python-format
+msgid "Custom Actions"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.actions.client,name:real_estate.action_custom_client_action
+msgid "Custom Client Action"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_estate_property_offer__partner_id
+#: model_terms:ir.ui.view,arch_db:real_estate.report_estate_property_document
+msgid "Customer"
+msgstr "khach hang"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_estate_property__date
+msgid "Date"
+msgstr "ngay"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_estate_property_offer__deadline
+#: model_terms:ir.ui.view,arch_db:real_estate.report_estate_property_document
+msgid "Deadline"
+msgstr "han"
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.estate_property_form_view
+msgid "Decline"
+msgstr "tu choi"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_estate_property__description
+#: model:ir.model.fields,field_description:real_estate.field_estate_property_offer__name
+#: model_terms:ir.ui.view,arch_db:real_estate.estate_property_form_view
+msgid "Description"
+msgstr "mo ta"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_estate_property__display_name
+#: model:ir.model.fields,field_description:real_estate.field_estate_property_offer__display_name
+#: model:ir.model.fields,field_description:real_estate.field_estate_property_tag__display_name
+#: model:ir.model.fields,field_description:real_estate.field_estate_property_type__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields.selection,name:real_estate.selection__estate_property__garden_orientation__east
+msgid "East"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model,name:real_estate.model_estate_property
+msgid "Estate Property"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model,name:real_estate.model_estate_property_offer
+msgid "Estate Property Offer"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model,name:real_estate.model_estate_property_tag
+msgid "Estate Property Tag"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model,name:real_estate.model_estate_property_type
+msgid "Estate Property Type"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_estate_property__expected_price
+msgid "Expected Price"
+msgstr "gia mong muon"
+
+#. module: real_estate
+#: model:ir.actions.server,name:real_estate.action_extend_offer_deadline
+msgid "Extend Deadline"
+msgstr "no rong ngay han"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_estate_property__garage
+msgid "Garage"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_estate_property__garage_area
+msgid "Garage Area"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_estate_property__garden
+msgid "Garden"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_estate_property__garden_orientation
+msgid "Garden Orientation"
+msgstr ""
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.estate_property_search_view
+msgid "Group By"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.module.category,description:real_estate.module_category_real_estate
+msgid "Helps you handle propertise, and offers"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_estate_property__id
+#: model:ir.model.fields,field_description:real_estate.field_estate_property_offer__id
+#: model:ir.model.fields,field_description:real_estate.field_estate_property_tag__id
+#: model:ir.model.fields,field_description:real_estate.field_estate_property_type__id
+msgid "ID"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_estate_property__write_uid
+#: model:ir.model.fields,field_description:real_estate.field_estate_property_offer__write_uid
+#: model:ir.model.fields,field_description:real_estate.field_estate_property_tag__write_uid
+#: model:ir.model.fields,field_description:real_estate.field_estate_property_type__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_estate_property__write_date
+#: model:ir.model.fields,field_description:real_estate.field_estate_property_offer__write_date
+#: model:ir.model.fields,field_description:real_estate.field_estate_property_tag__write_date
+#: model:ir.model.fields,field_description:real_estate.field_estate_property_type__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_estate_property__living_rooms
+msgid "Living Rooms"
+msgstr ""
+
+#. module: real_estate
+#: model:res.groups,name:real_estate.group_property_manager
+msgid "Manager: Manage own property"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_estate_property__name
+#: model:ir.model.fields,field_description:real_estate.field_estate_property_tag__name
+#: model:ir.model.fields,field_description:real_estate.field_estate_property_type__name
+msgid "Name"
+msgstr "ten"
+
+#. module: real_estate
+#: model:ir.model.fields.selection,name:real_estate.selection__estate_property__state__new
+msgid "New"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields.selection,name:real_estate.selection__estate_property__garden_orientation__north
+msgid "North"
+msgstr ""
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.estate_property_form_view
+msgid "Offer"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields.selection,name:real_estate.selection__estate_property__state__accepted
+msgid "Offer Accepted"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_estate_property__offer_count
+msgid "Offer Count"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields.selection,name:real_estate.selection__estate_property__state__received
+msgid "Offer Received"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.actions.server,name:real_estate.ir_cron_extend_offer_deadline_ir_actions_server
+msgid "Offer: Extend Deadline Everyday"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_estate_property__offer_id
+#: model_terms:ir.ui.view,arch_db:real_estate.estate_property_form_view
+#: model_terms:ir.ui.view,arch_db:real_estate.estate_property_kanban_view
+msgid "Offers"
+msgstr ""
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.estate_property_form_view
+msgid "Other Informatiom"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_estate_property__phone
+msgid "Phone"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_estate_property__postcode
+msgid "Postcode"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_estate_property__price
+#: model:ir.model.fields,field_description:real_estate.field_estate_property_offer__price
+#: model_terms:ir.ui.view,arch_db:real_estate.report_estate_property_document
+msgid "Price"
+msgstr ""
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.estate_property_calendar_view
+msgid "Properties"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.actions.act_window,name:real_estate.action_property
+#: model:ir.actions.act_window,name:real_estate.action_property_view_offer
+#: model:ir.model.fields,field_description:real_estate.field_estate_property_offer__property_id
+#: model:ir.ui.menu,name:real_estate.menu_property
+msgid "Property"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.ui.menu,name:real_estate.menu_root_property_ads
+msgid "Property Ads"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.actions.act_window,name:real_estate.action_property_offer
+#: model:ir.ui.menu,name:real_estate.menu_property_offer
+msgid "Property Offers"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.actions.report,name:real_estate.property_report_action
+msgid "Property Report Action"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_estate_property__tag_id
+msgid "Property Tag"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.ui.menu,name:real_estate.menu_property_tag
+msgid "Property Tags"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.actions.act_window,name:real_estate.action_property_type
+#: model:ir.model.fields,field_description:real_estate.field_estate_property__type_id
+msgid "Property Type"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.ui.menu,name:real_estate.menu_property_type
+msgid "Property Types"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.actions.act_window,name:real_estate.action_property_tag
+msgid "Property tag"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.module.category,name:real_estate.module_category_real_estate
+msgid "Real Estate"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields.selection,name:real_estate.selection__estate_property_offer__status__refuse
+msgid "Refuse"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_estate_property__sales_id
+msgid "Salesman"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.ui.menu,name:real_estate.menu_property_ads_settings
+msgid "Settings"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields.selection,name:real_estate.selection__estate_property__state__sold
+#: model_terms:ir.ui.view,arch_db:real_estate.estate_property_form_view
+#: model_terms:ir.ui.view,arch_db:real_estate.estate_property_search_view
+msgid "Sold"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields.selection,name:real_estate.selection__estate_property__garden_orientation__south
+msgid "South"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_estate_property__state
+msgid "State"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_estate_property_offer__status
+#: model_terms:ir.ui.view,arch_db:real_estate.estate_property_search_view
+#: model_terms:ir.ui.view,arch_db:real_estate.report_estate_property_document
+msgid "Status"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.ui.menu,name:real_estate.menu_test_client_action
+msgid "Test Client Action"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_estate_property__total_area
+msgid "Total Area"
+msgstr ""
+
+#. module: real_estate
+#: model:res.groups,name:real_estate.group_property_user
+msgid "User: Manage own property"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_estate_property_offer__validity
+msgid "Validity"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields.selection,name:real_estate.selection__estate_property__garden_orientation__west
+msgid "West"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.constraint,message:real_estate.constraint_estate_property_offer_check_validity
+msgid "XXXXXXXXXXXXXXXXXXXXXX"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_estate_property__aaa
+msgid "aaa"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields.selection,name:real_estate.selection__estate_property__state__cancel
+msgid "cancel"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_estate_property__ddd
+msgid "ddd"
+msgstr ""
+
+#. module: real_estate
+#. odoo-python
+#: code:addons/real_estate/models/property_offer.py:0
+#, python-format
+msgid "deadline cant be before create date"
+msgstr ""
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.report_estate_property_document
+msgid "validity"
+msgstr ""

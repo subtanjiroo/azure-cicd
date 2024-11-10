@@ -1,0 +1,18 @@
+/* .navbar,
+.o_footer_copyright,
+#footer,
+.o_frontend_to_backend_nav {
+    display: none !important;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+} */
+.zxczx{
+    background-color: rgba(202, 201, 201, 0.39);
+    font-family: Arial, Helvetica, sans-serif;
+    scroll-snap-type: x mandatory;
+    border: 1px rgba(202, 201, 201, 0.39) dotted;
+    transform: scale(2);
+}

@@ -1,6 +1,0 @@
-<!-- <?xml version="1.0" encoding="UTF-8"?>
-<odoo>
-    <menuitem id="menu_root_chatbox" name="CRM DATA">
-        <menuitem id="menu_custom_customers" name="Custom Customers" action="action_custom_customer"/>
-    </menuitem>
-</odoo> -->

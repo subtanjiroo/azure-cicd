@@ -1,0 +1,221 @@
+<odoo>
+    <data>
+        <template id="Details_Page" name="Details Page">
+            <t t-call="website.layout">
+                <link rel="stylesheet" href="/tomishow/static/src/css/Details_Style/menuside_style.css"/>
+                <link rel="stylesheet" href="/tomishow/static/src/css/Details_Style/navigation_bar.css"/>
+                <link rel="stylesheet" href="/tomishow/static/src/css/Details_Style/banner.css"/>
+                <link rel="stylesheet" href="/tomishow/static/src/css/Details_Style/footer.css"/>
+                <link rel="stylesheet" href="/tomishow/static/src/css/Details_Style/content.css"/>
+
+
+
+            
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOM2bw6xElppNFaTZg3F8K5J1JgG0hwRXE9MFEJk" crossorigin="anonymous"/>
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"/>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+
+                <!-- color and body style -->
+                <style>
+                    :root {
+                        --main_color: #7b5a14;
+                        --secondary_color: rgb(6,16,32);
+                        --third_color: none;
+                        --head_color: #333333;
+                        --text1: #7F7F7F; 
+                        --text2: white;
+                        
+                    }
+                    .navbar,
+                    .o_footer_copyright,
+                    #footer,
+                    .o_frontend_to_backend_nav {
+                        display: none !important;
+                    }
+                    #wrapwrap {
+                        overflow-x: hidden;
+                    }
+                    body {
+                        margin: 0;
+                        padding: 0;
+                    }
+                </style>
+                <!-- navigation bar -->
+                <div id="nav_bar" class="navigation_bar">
+                    <div class="navLogo">
+                        <img src="/tomishow/static/imgs/canhcam_logo.png"/>
+                    </div>
+                    <div class="menuItems">
+                        <span id="menuItems1" class="menu-item">Về chúng tôi</span>
+                        <span id="menuItems2" class="menu-item">Lĩnh vực chuyên môn</span>
+                        <span id="menuItems3" class="menu-item">Dịch vụ</span>
+                        <span id="menuItems4" class="menu-item">Luật sư của chúng tôi</span>
+                        <span id="menuItems5" class="menu-item">Quy trình</span>
+                        <span id="menuItems6" class="menu-item">Liên Hệ</span>
+                    </div>
+                    <div class="PhoneNumber">
+                        <div class="phone-row">
+                            <i class="fas fa-phone"></i>
+                            <p class="phone-number">028 6273 0815</p>
+                        </div>
+                        <p class="consult-text">Tư vấn miễn phí 24/7</p>
+                    </div>
+                    <div class="PhoneMenu" onclick="toggleMenu()">Menu</div>
+                </div>
+                <!-- Side Menu -->
+                <div id="dark_overlay"></div>
+                <div class="side-menu" id="sideMenu">
+                    <div class="close-btn" onclick="toggleMenu()">X</div>
+                    <div class="SidemenuItems">
+                        <span id="menuItems1" onclick="toggleMenu()" class="menu-item">Về chúng tôi</span>
+                        <span id="menuItems2" onclick="toggleMenu()" class="menu-item">Lĩnh vực chuyên môn</span>
+                        <span id="menuItems3" onclick="toggleMenu()" class="menu-item">Dịch vụ</span>
+                        <span id="menuItems4" onclick="toggleMenu()" class="menu-item">Luật sư của chúng tôi</span>
+                        <span id="menuItems5" onclick="toggleMenu()" class="menu-item">Quy trình</span>
+                        <span id="menuItems6" onclick="toggleMenu()" class="menu-item">Liên Hệ</span>
+                    </div>
+                </div>
+                <!-- banner -->
+                <div class="banner">
+                    <h1 class="banner_h1">Chi Tiết Dự Án</h1>
+                </div>
+                <!-- content -->
+                <div class="content">
+                    <p class="content_head">About Legal Service</p>
+                    <!-- demo data -->
+                    Lv4MR0sA0FfDOM2bw6xElppNFaTZg3F8K5J1JgG0hwRXE9MFEJk
+                    zxczxczxcxzcx<img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2018/01/bg-law-section-13-220x220.jpg" alt="img"/><br/>zxczxczxczxczxc
+                    xczxczxczzzczxcxczczxczxcz
+                </div>
+                <!-- content footer -->
+                <div class="footer">
+                    <div class="footer_content">
+                        <div class="footer_contact">
+                            <div class="footer_items">
+                                <h6>GỌI CHÚNG TÔI</h6>
+                                <p>028 6273 0815</p>
+                                <p>028 6273 0815 (Miễn phí)</p>
+                            </div>
+                            <div class="footer_items">
+                                <h6>ĐỊA CHỈ</h6>
+                                <p>156 Nguyễn Văn Thủ, phường Đa Kao, quận 1</p>
+                            </div>
+                            <div class="footer_items">
+                                <h6>MAIL</h6>
+                                <p>info@canhcam.com</p>
+                            </div>
+                            <div class="footer_items">
+                                <h6>GIỜ HÀNH CHÍNH</h6>
+                                <p>Mở cửa 24/7</p>
+                            </div>
+                            <div class="footer_items">
+                                <div class="social_logo">
+                                    <i class="fa-solid fa-graduation-cap"></i>
+                                    <i class="fa-solid fa-graduation-cap"></i>
+                                    <i class="fa-solid fa-graduation-cap"></i>
+                                    <i class="fa-solid fa-graduation-cap"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="footer_daiary">
+                            <h6>Nhật ký của chúng tôi</h6>
+                            <div class="daiary_items">
+                                <div class="daiary_imgs">
+                                    <img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2023/01/olia-gozha-J4kK8b9Fgj8-unsplash-120x120.jpg"/>
+                                </div>
+                                <div class="daiary_text_box">
+                                    <p class="daiary_text">Thủ tục đăng ký đi nước ngoài làm việc như thế nào?</p>
+                                    <p class="daiary_date">January 3, 2023</p>
+                                </div>
+                            </div>
+                            <div class="daiary_items">
+                                <div class="daiary_imgs">
+                                    <img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2023/01/olia-gozha-J4kK8b9Fgj8-unsplash-120x120.jpg"/>
+                                </div>
+                                <div class="daiary_text">
+                                    <p class="daiary_text">Người lao động Việt Nam có thể đi làm việc ở nước ngoài không?</p>
+                                    <p class="daiary_date">January 30, 2018</p>
+                                </div>
+                            </div>
+                            <div class="daiary_items">
+                                <div class="daiary_imgs">
+                                    <img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2023/01/olia-gozha-J4kK8b9Fgj8-unsplash-120x120.jpg"/>
+                                </div>
+                                <div class="daiary_text_box">
+                                    <p class="daiary_text">Những lưu ý khi giao kết hợp đồng lao động với người sử dụng lao động nước ngoài</p>
+                                    <p class="daiary_date">January 30, 2018</p>
+                                </div>
+                            </div>
+                            <div class="daiary_items">
+                                <div class="daiary_imgs">
+                                    <img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2023/01/olia-gozha-J4kK8b9Fgj8-unsplash-120x120.jpg"/>
+                                </div>
+                                <div class="daiary_text_box">
+                                    <p class="daiary_text">Điều kiện để người Việt Nam đi nước ngoài làm việc</p>
+                                    <p class="daiary_date">January 30, 2018</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slider_comment">
+                            <h6>Lời nhận xét</h6>
+                            <div class="comment_slider_carousel">
+                                <div id="carousel3" class="comment_slider_owl-carousel owl-theme">
+                                    <!-- items -->  
+                                    <div class="comment_sections">
+                                        <div class="comment_text">Nếu cơ quan điều tra có căn cứ xác định chủ cơ sở đã không thực hiện hoặc thực hiện không đúng các qui định về phòng cháy chữa cháy để dẫn tới hậu quả làm nhiều người chết….</div>
+                                        <div class="comment_info">
+                                            <div class="comment_info_img">
+                                                <img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2016/05/luat-su-120x120.webp"/>
+                                            </div>
+                                            <div class="comment_info_text">
+                                                <p>Luật sư Nguyễn Anh Thơm</p>
+                                                <p>Nhà kinh doanh </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="comment_sections">
+                                        <div class="comment_text">Nếu cơ quan điều tra có căn cứ xác định chủ cơ sở đã không thực hiện hoặc thực hiện không đúng các qui định về phòng cháy chữa cháy để dẫn tới hậu quả làm nhiều người chết….</div>
+                                        <div class="comment_info">
+                                            <div class="comment_info_img">
+                                                <img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2016/05/luat-su-120x120.webp"/>
+                                            </div>
+                                            <div class="comment_info_text">
+                                                <p>Luật sư Nguyễn Anh Thơm</p>
+                                                <p>Nhà kinh doanh </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="comment_sections">
+                                        <div class="comment_text">Nếu cơ quan điều tra có căn cứ xác định chủ cơ sở đã không thực hiện hoặc thực hiện không đúng các qui định về phòng cháy chữa cháy để dẫn tới hậu quả làm nhiều người chết….</div>
+                                        <div class="comment_info">
+                                            <div class="comment_info_img">
+                                                <img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2016/05/luat-su-120x120.webp"/>
+                                            </div>
+                                            <div class="comment_info_text">
+                                                <p>Luật sư Nguyễn Anh Thơm</p>
+                                                <p>Nhà kinh doanh </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="copyright">
+                        <div class="footer_hr"></div>
+                        <div class="copyright_items">
+                            <div class="copyright_logo"><img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2023/01/CANHCAMLAW.png" alt="copyright_logo"/></div>
+                            <div class="copyright_text">© Canhcam 2018. Đã đăng ký Bản quyền.</div>
+                        </div>
+                    </div>
+
+                </div>
+                <script type="text/javascript" src="/tomishow/static/src/js/Details.js"></script>
+            </t>
+        </template>
+    </data>
+</odoo>

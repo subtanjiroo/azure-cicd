@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_form_cms_div6" model="ir.ui.view">
+        <field name="name">cms.div6.form</field>
+        <field name="model">cms.div6</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="main_title"/>
+                        <field name="title"/>
+                        <notebook>
+                            <page string="Quá trình">
+                                <field name="process_ids">
+                                    <list>
+                                        <field name="text"/>
+                                    </list>
+                                </field>
+                            </page>
+                            <page string="Quy định">
+                                <field name="rule_ids">
+                                    <list>
+                                        <field name="icon"/>
+                                        <field name="title"/>
+                                        <field name="text"/>
+                                    </list>
+                                </field>
+                            </page>
+
+                        </notebook>
+                    </group>
+
+
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_cms_div6" model="ir.actions.act_window">
+        <field name="name">Div 6</field>
+        <field name="res_model">cms.div6</field>
+        <field name="view_mode">form</field>
+        <field name="res_id">1</field>
+        <field name="view_id" ref="view_form_cms_div6"/>
+        <field name="target">main</field>
+    </record>
+</odoo> 

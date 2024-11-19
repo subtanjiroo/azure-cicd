@@ -1,0 +1,87 @@
+/* <!-- css content 6 --> */
+
+.content6{
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    padding: 10vh 0;
+}
+.content6_text1 p{
+    font-size:3rem;
+    color: black;
+    font-weight:bold;
+    text-align: center;
+}
+.content6_text1{
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.content6_text1 h2{
+    font-weight: bold;
+    font-size: 2rem;
+}
+.Lawer_slider{
+    width: 90%;
+    height:auto;
+}
+.Lawer_slider_btn{
+    background-color: var(--secondary_color);
+    padding: 5px 10px;
+    color: var(--text2);
+    font-weight: bold;
+    text-shadow: 0 0 8px rgba(255, 255, 255,0.5);
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+.Lawer_slider_text{
+    text-align: center;
+}
+.Lawer_slider_texting{
+    font-size: 15px;
+    font-family: Arial;
+    color: var(--text1);
+}
+.Lawer_slider_heading{
+    color:black;
+    font-size: 24px;
+    font-family: Arial;
+    font-weight: bold;
+    margin-bottom: 0 !important;
+    margin-top: 10px !important;
+}
+.Lawer_slider_imgs img{
+    border-radius: 500px;
+    width: 220px;
+    height: 220px;
+}
+.Lawer_slider_items{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    background: rgb(244, 244, 244);
+    margin-left: 10px;
+}
+.Lawer_slider_subtext{
+    margin-bottom: 10px;
+    font-size: 15px;
+    line-height: 28px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #7B5A14;
+}
+@media (max-width: 400px) {
+    .content6_text1 h2{
+        font-size: 2rem;
+    }
+    
+}

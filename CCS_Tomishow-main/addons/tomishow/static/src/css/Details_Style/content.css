@@ -1,0 +1,17 @@
+/* <!-- content style --> */
+
+.content{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10vh 5vw;
+
+}
+.content_head{
+    font-size: 1.6rem;
+    color: var(--head_color);
+    font-weight: bold;
+}

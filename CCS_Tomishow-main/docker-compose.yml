@@ -1,0 +1,52 @@
+version: '3'
+services:
+  odoo:
+    image: odoo:18.0_custom
+    build:
+      context: .
+      dockerfile: "./Dockerfile.odoo_18"
+    restart: unless-stopped
+    env_file: .env
+    depends_on:
+      - postgres
+    ports:
+      - "127.0.0.1:8070:8069"
+      - "127.0.0.1:8072:8072"
+    volumes:
+      - odoo_data:/var/lib/odoo
+      - ./addons:/mnt/extra-addons
+      - ./config/odoo.conf:/etc/odoo/odoo.conf
+    networks:
+      - odoo_network
+    command: ['-u','tomishow']
+
+  postgres:
+    image: postgres:15
+    restart: always
+    env_file: .env
+
+
+    volumes:
+      - db_data:/var/lib/postgresql/data/pgdata
+    networks:
+      - odoo_network
+
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin_production
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    ports:
+      - "5051:81"
+    networks:
+      - odoo_network
+
+volumes:
+  odoo_data:
+  db_data:
+
+networks:
+  odoo_network:
+

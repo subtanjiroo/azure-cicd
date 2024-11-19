@@ -1,0 +1,10 @@
+FROM odoo:18.0
+USER root
+RUN apt-get -y update && apt-get install xmlsec1 -y
+RUN pip3 install --break-system-packages python-jose openpyxl
+
+RUN chmod -R 777 /var/lib/odoo && \
+    mkdir -p /opt/temp/cms && \
+    chmod -R 777 /opt/temp/cms
+
+USER odoo

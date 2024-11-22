@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_form_cms_div6" model="ir.ui.view">
+        <field name="name">cms.div6.form</field>
+        <field name="model">cms.div6</field>
+        <field name="arch" type="xml">
+            <form create="false" delete="false">
+                <sheet>
+                    <group>
+                        <field name="main_title"/>
+                        <notebook>
+                            <page string="Con người">
+                                <field name="people_ids">
+                                    <list string="People" context="{'form_view_ref':'tomishow.view_form_cms_div6_people'}">
+                                        <field name="name"/>
+                                        <field name="position"/>
+                                        <field name="text"/>
+                                    </list>
+                                </field>
+                            </page>
+
+                        </notebook>
+
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_cms_div6" model="ir.actions.act_window">
+        <field name="name">Div 6</field>
+        <field name="res_model">cms.div6</field>
+        <field name="view_mode">form</field>
+        <field name="res_id">1</field>
+        <field name="view_id" ref="view_form_cms_div6"/>
+        <field name="target">main</field>
+    </record>
+</odoo> 

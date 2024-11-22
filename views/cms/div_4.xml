@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_form_cms_div4" model="ir.ui.view">
+        <field name="name">cms.div4.form</field>
+        <field name="model">cms.div4</field>
+        <field name="arch" type="xml">
+            <form create="false" delete="false">
+                <sheet>
+                    <group>
+                        <field name="main_title"/>
+
+                        <notebook>
+                            <page string="Dự án">
+                                <field name="project_ids" context="{'form_view_ref': 'tomishow.view_form_cms_div4_project'}">
+                                    <list string="Projects">
+                                        <field name="title"/>
+                                        <field name="small_text"/>
+                                    </list>
+                                </field>
+                            </page>
+                        </notebook>
+
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_cms_div4" model="ir.actions.act_window">
+        <field name="name">Div 4</field>
+        <field name="res_model">cms.div4</field>
+        <field name="view_mode">form</field>
+        <field name="res_id">1</field>
+        <field name="view_id" ref="view_form_cms_div4"/>
+        <field name="target">main</field>
+    </record>
+</odoo> 

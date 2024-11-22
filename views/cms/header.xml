@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id ="view_cms_header_form" model="ir.ui.view">
+        <field name="name">cms.header.form</field>
+        <field name="model">cms.header</field>
+        <field name="arch" type="xml">
+            <form string="Header" create="false" delete="false">
+                <sheet>
+
+                    <group>
+                        <field name="logo" widget="image" class="logo"/>
+                    </group>
+                    <group>
+
+                        <group>
+                            <field name="logo_left_text"/>
+                            <field name="big_title" class="big_title"/>
+                        </group>
+                        <group>
+                            <field name="logo_right_text"/>
+                            <field name="small_title" class="small_title"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="phone_number"/>
+
+                        <field name="back_ground" widget="image" class="header_background" />
+
+                    </group>
+
+
+
+
+
+
+
+
+
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id ="action_cms_header" model="ir.actions.act_window">
+        <field name="name">Header</field>
+        <field name="res_model">cms.header</field>
+        <field name="view_mode">form</field>
+        <field name="res_id">1</field>
+        <field name="view_id" ref="view_cms_header_form"/>
+        <field name="target">main</field>
+
+    </record>
+</odoo> 

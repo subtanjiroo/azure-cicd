@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_form_cms_div5" model="ir.ui.view">
+        <field name="name">cms.div5.form</field>
+        <field name="model">cms.div5</field>
+        <field name="arch" type="xml">
+            <form create="false" delete="false">
+                <sheet>
+                    <group>
+                        <field name="quote"/>
+                        <field name="author"/>
+                        <field name="title"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_cms_div5" model="ir.actions.act_window">
+        <field name="name">Div 5</field>
+        <field name="res_model">cms.div5</field>
+        <field name="view_mode">form</field>
+        <field name="res_id">1</field>
+        <field name="view_id" ref="view_form_cms_div5"/>
+        <field name="target">main</field>
+    </record>
+</odoo> 

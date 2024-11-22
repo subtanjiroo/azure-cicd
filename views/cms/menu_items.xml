@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_root_chatbox" name="Cms">
+        <menuitem id="menu_item_header" name="Header" action="action_cms_header"/>
+        <!--        <menuitem id="menu_item_footer" name="Footer" action="action_view_footer"/>-->
+        <menuitem id="menu_item_div_1" name="Div 1" action="action_cms_div1"/>
+        <menuitem id="menu_item_div_2" name="Div 2" action="action_cms_div2"/>
+        <menuitem id="menu_item_div_3" name="Div 3" action="action_cms_div3"/>
+        <menuitem id="menu_item_div_4" name="Div 4" action="action_cms_div4"/>
+        <menuitem id="menu_item_div_5" name="Div 5" action="action_cms_div5"/>
+        <menuitem id="menu_item_div_6" name="Div 6" action="action_cms_div6"/>
+        <menuitem id="menu_item_div_7" name="Div 7" action="action_cms_div7"/>
+
+    </menuitem>
+</odoo>

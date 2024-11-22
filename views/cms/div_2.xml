@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_form_cms_div2" model="ir.ui.view">
+        <field name="name">cms.div2.form</field>
+        <field name="model">cms.div2</field>
+        <field name="arch" type="xml">
+            <form create="false" delete="false">
+                <sheet>
+                    <group>
+                        <field name="main_title"/>
+                        <field name="main_text"/>
+                    </group>
+
+                    <div style="height:30px;"/>
+                    <notebook>
+                        <page string="Text">
+
+                            <group>
+                                <group class ="bolder_div">
+                                    <div class="bold-title">Text 1</div>
+                                    <field name="title_1"/>
+                                    <field name="text_1"/>
+                                </group>
+                                <group class ="bolder_div">
+                                    <div class="bold-title">Text 2</div>
+                                    <field name="title_2"/>
+                                    <field name="text_2"/>
+                                </group>
+                            </group>
+                            <group>
+                                <group class ="bolder_div">
+                                    <div class="bold-title">Text 3</div>
+                                    <field name="title_3"/>
+                                    <field name="text_3"/>
+                                </group>
+                                <group class ="bolder_div">
+                                    <div class="bold-title">Text 4</div>
+                                    <field name="title_4"/>
+                                    <field name="text_4"/>
+                                </group>
+                            </group>
+
+                        </page>
+                        <page string="Bảng lật">
+                            <group class="bolder_div">
+                                <div class="bold-title">Bảng lật 1</div>
+                                <field name="flip_board_1_title_not_flipped"/>
+                                <field name="flip_board_1_text_not_flipped"/>
+                                <field name="flip_board_1_title_flipped"/>
+                                <field name="flip_board_1_text_flipped"/>
+                                <field name="flip_board_1_background_image" widget="image"/>
+                            </group>
+                            <group class="bolder_div">
+                                <div class="bold-title">Bảng lật 2</div>
+                                <field name="flip_board_2_title_not_flipped"/>
+                                <field name="flip_board_2_text_not_flipped"/>
+                                <field name="flip_board_2_title_flipped"/>
+                                <field name="flip_board_2_text_flipped"/>
+                                <field name="flip_board_2_background_image" widget="image"/>
+                            </group>
+                            <group class="bolder_div">
+                                <div class="bold-title">Bảng lật 3</div>
+                                <field name="flip_board_3_title_not_flipped"/>
+                                <field name="flip_board_3_text_not_flipped"/>
+                                <field name="flip_board_3_title_flipped"/>
+                                <field name="flip_board_3_text_flipped"/>
+                                <field name="flip_board_3_background_image" widget="image"/>
+                            </group>
+
+                        </page>
+                    </notebook>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+
+    <record id="action_cms_div2" model="ir.actions.act_window">
+        <field name="name">Div 2</field>
+        <field name="res_model">cms.div2</field>
+        <field name="view_mode">form</field>
+        <field name="res_id">1</field>
+        <field name="view_id" ref="view_form_cms_div2"/>
+        <field name="target">main</field>
+    </record>
+</odoo> 

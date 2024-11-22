@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_form_cms_div1" model="ir.ui.view">
+        <field name="name">cms_div1_form</field>
+        <field name="model">cms.div1</field>
+        <field name="arch" type="xml">
+            <form create="false" delete="false">
+                <sheet >
+                    <group>
+                        <field name="main_title"/>
+                        <field name="main_text"/>
+                    </group>
+<!--                    for displaying three group-->
+
+                    <notebook>
+                        <page string = "Ô bên trái">
+                            <group>
+                                <field name="left_icon" widget="image" />
+                                <field name="left_title"/>
+                                <field name="left_text"/>
+                            </group>
+                        </page>
+                        <page string = "Ô giữa">
+                            <group>
+                                <field name="mid_icon" widget="image" />
+                                <field name="mid_title"/>
+                                <field name="mid_text"/>
+                            </group>
+                        </page>
+                        <page string = "Ô bên phải">
+                            <group>
+                                <field name="right_icon" widget="image" />
+                                <field name="right_title"/>
+                                <field name="right_text"/>
+                            </group>
+                        </page>
+                    </notebook>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_cms_div1" model="ir.actions.act_window">
+        <field name="name">Div 1</field>
+        <field name="res_model">cms.div1</field>
+        <field name="view_mode">form</field>
+        <field name="res_id">1</field>
+        <field name="view_id" ref="view_form_cms_div1"/>
+        <field name="target">main</field>
+    </record>
+</odoo> 

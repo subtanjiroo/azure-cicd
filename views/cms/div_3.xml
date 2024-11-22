@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_form_cms_div3" model="ir.ui.view">
+        <field name="name">cms.div3.form</field>
+        <field name="model">cms.div3</field>
+        <field name="arch" type="xml">
+            <form create="false" delete="false">
+                <sheet>
+
+                    <group>
+                        <field name="main_title"/>
+                        <field name="text"/>
+                        <notebook>
+                            <page string="Icon và Text">
+                                <field name="icon_and_text" context="{'form_view_ref': 'tomishow.view_form_cms_div3_iconandtext'}">
+                                    <list>
+                                        <field name="icon"/>
+                                        <field name="text"/>
+                                        <field name="div_3_id" column_invisible="1"/>
+                                    </list>
+                                </field>
+                            </page>
+                        </notebook>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_cms_div3" model="ir.actions.act_window">
+        <field name="name">Div 3</field>
+        <field name="res_model">cms.div3</field>
+        <field name="view_mode">form</field>
+        <field name="res_id">1</field>
+        <field name="view_id" ref="view_form_cms_div3"/>
+        <field name="target">main</field>
+    </record>
+</odoo> 

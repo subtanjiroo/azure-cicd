@@ -1,0 +1,974 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="Home_Page" name="Home Page">
+            <t t-call="website.layout">
+                
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOM2bw6xElppNFaTZg3F8K5J1JgG0hwRXE9MFEJk" crossorigin="anonymous"/>
+                <!-- Swiper CSS -->
+                <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+                <!-- Swiper JS -->
+                <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+                
+                <link rel="stylesheet" href="/tomishow/static/src/css/Home_Style/content1.css"/>
+                <link rel="stylesheet" href="/tomishow/static/src/css/Home_Style/content2.css"/>
+                <link rel="stylesheet" href="/tomishow/static/src/css/Home_Style/content3.css"/>
+                <link rel="stylesheet" href="/tomishow/static/src/css/Home_Style/content4.css"/>
+                <link rel="stylesheet" href="/tomishow/static/src/css/Home_Style/content5.css"/>
+                <link rel="stylesheet" href="/tomishow/static/src/css/Home_Style/content6.css"/>
+                <link rel="stylesheet" href="/tomishow/static/src/css/Home_Style/content7.css"/>
+                <link rel="stylesheet" href="/tomishow/static/src/css/Home_Style/content8.css"/>
+                <link rel="stylesheet" href="/tomishow/static/src/css/Home_Style/menuside_style.css"/>
+                <link rel="stylesheet" href="/tomishow/static/src/css/Home_Style/navigation_bar.css"/>
+                <link rel="stylesheet" href="/tomishow/static/src/css/Home_Style/banner_style.css"/>
+                <link rel="stylesheet" href="/tomishow/static/src/css/Home_Style/footer.css"/>
+                <!-- color and body style -->
+                <style>
+                    :root {
+                        --main_color: red;
+                        --secondary_color: #7b5a14;
+                        --third_color: rgb(6,16,32);
+                        --head_color: #333333;
+                        --text1: #7F7F7F; 
+                        --text2: white;
+                        
+                    }
+                    .navbar,
+                    .o_footer_copyright,
+                    #footer,
+                    .o_frontend_to_backend_nav {
+                        display: none !important;
+                    }
+                    #wrapwrap {
+                        overflow-x: hidden;
+                    }
+                    body {
+                        margin: 0;
+                        padding: 0;
+                    }
+                    .swiper-container {
+                        width: 100%;
+                        padding: 20px 0;
+                        overflow: hidden; /* Ẩn các phần của slide chưa vuốt tới */
+                    }
+
+                    .swiper-slide {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        text-align: center;
+                        flex-shrink: 0; /* Ngăn không cho các slide bị co lại */
+                        width: 100%; /* Đảm bảo mỗi slide chiếm toàn bộ chiều rộng */
+                    }
+
+                    .item_slider{
+                        background-color: transparent;
+                        padding: 20px;
+                    }
+                    .Lawer_slider_items {
+                        background-color: #f9f9f9;
+                        padding: 20px;       
+                    }
+                    .slider_img img, .Lawer_slider_imgs img {
+                        max-width: 100%;
+                        border-radius: 500px;
+                    }
+                    /* Định nghĩa trạng thái ban đầu (ẩn và trượt xuống dưới) */
+                    .fade-in {
+                        opacity: 0;
+                        transform: translateY(30px); /* Trượt xuống 30px */
+                        transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Hiệu ứng mượt */
+                    }
+
+                    /* Khi phần tử được nhìn thấy (được thêm class 'visible') */
+                    .fade-in.visible {
+                        opacity: 1;
+                        transform: translateY(0); /* Trở về vị trí ban đầu */
+                    }
+
+                </style>
+                <!-- navigation bar -->
+                <div id="nav_bar" class="navigation_bar">
+                    <div class="navLogo">
+                        <img src="/tomishow/static/imgs/canhcam_logo.png"/>
+                    </div>
+                    <div class="menuItems">
+                        <span id="menuItems1" class="menu-item">Về chúng tôi</span>
+                        <span id="menuItems2" class="menu-item">Lĩnh vực chuyên môn</span>
+                        <span id="menuItems3" class="menu-item">Dịch vụ</span>
+                        <span id="menuItems4" class="menu-item">Luật sư của chúng tôi</span>
+                        <span id="menuItems5" class="menu-item">Quy trình</span>
+                        <span id="menuItems6" class="menu-item">Liên Hệ</span>
+                    </div>
+                    <div class="PhoneNumber">
+                        <div class="phone-row">
+                            <i class="fas fa-phone"></i>
+                            <p class="phone-number">028 6273 0815</p>
+                        </div>
+                        <p class="consult-text">Tư vấn miễn phí 24/7</p>
+                    </div>
+                    <div class="PhoneMenu" onclick="toggleMenu()">Menu</div>
+                </div>
+                <!-- Side Menu -->
+                <div id="dark_overlay"></div>
+                <div class="side-menu" id="sideMenu">
+                    <div class="close-btn" onclick="toggleMenu()">X</div>
+                    <div class="SidemenuItems">
+                        <span id="menuItems1" onclick="toggleMenu()" class="menu-item">Về chúng tôi</span>
+                        <span id="menuItems2" onclick="toggleMenu()" class="menu-item">Lĩnh vực chuyên môn</span>
+                        <span id="menuItems3" onclick="toggleMenu()" class="menu-item">Dịch vụ</span>
+                        <span id="menuItems4" onclick="toggleMenu()" class="menu-item">Luật sư của chúng tôi</span>
+                        <span id="menuItems5" onclick="toggleMenu()" class="menu-item">Quy trình</span>
+                        <span id="menuItems6" onclick="toggleMenu()" class="menu-item">Liên Hệ</span>
+                    </div>
+                </div>
+
+                <!-- Loading Overlay -->
+                <div class="loading-overlay">
+                    <div class="spinner"></div>
+                </div>
+
+                <!-- banner -->
+                <div class="banner">
+                    <div class="banner1">
+                        <span class="logo_left_text_banner" style="font-weight: 700;">EST.</span>
+                        <img class="logo_banner" src=""/>
+                        <span class="logo_right_text_banner" style="font-weight: 700;">1986</span>
+                    </div>
+                    <h1 class="banner1_h1 big_title_banner"></h1>
+                    <span class="banner1_span small_title_banner"></span>
+                    <div class="banner2">
+                            <span class="p1">Gọi chúng tôi 24/7</span>
+                            <span>  </span>
+                            <span class="p2 phone_number_banner"></span>
+                    </div>
+                </div>
+                <div id="section1">
+                    <!-- content 1 -->
+                    <div class="content1">
+                        <div class="content1_text fade-in">
+                            <h2 class="main_title_div1"></h2>
+                            <div class="hr"></div>
+                            <p class="main_text_div1"></p>
+                        </div>
+                        <!-- css card -->
+                        <style>
+                            .content1_card{
+                                width: 100%;
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: center;
+                                margin-top: 30px;
+                                padding-bottom: 40px;
+                            }
+                            .card_items{
+                                background-color: rgb(247, 247, 247);
+                                padding: 30px 40px;
+                                margin: 25px;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                flex-direction: column;
+                                text-align: center;
+                                width: 25vw;
+                            }
+                            .card_logo{
+                                color: #ffffff;
+                                background: #143a7b;
+                                border-style: solid;
+                                border-color: #ffffff;
+                                border-width: 0px;
+                                width: 80px;
+                                height: 80px;
+                                line-height: 80px;
+                                border-radius: 500px;
+                                font-size: 46px;
+                                display: inline-block;
+                                font-size: 35px;
+                                text-align: center;
+                            }
+                            .heading{
+                                color: var(--head_color);
+                                font-weight: bold;
+                                margin-top: 22px;
+                                margin-bottom: 15px;
+                                font-size: 20px;
+                                line-height: 30px;
+                            }
+                            .texting{
+                                color: var(--text1);
+                                font-size: 15px;
+                            }
+                            .card_btn{
+                                background-color: var(--secondary_color);
+                                padding: 5px 10px;
+                                margin-top: 50px;
+                                color: var(--text2);
+                                font-weight: bold;
+                                text-shadow: 0 0 8px rgba(255, 255, 255,0.5);
+                            }
+                            @media (max-width: 1200px) {
+                                .content1_text {
+                                    width: 65%;
+                                }
+                                .card_items{
+                                    width: 65%;
+                                }
+                                .card_btn {
+                                    margin-top: 30px;
+                                }
+                                .content1_text p {
+                                    font-size: 18px;
+                                }
+                                .content1_card{
+                                    flex-direction: column;
+                                    align-items: center;
+                                }
+                                .banner span {
+                                    font-size: 25px;
+                                }
+                            }
+                            @media (max-width: 500px) {
+                                .content1_card{
+                                    flex-direction: column;
+                                    align-items: center;
+                                }
+                                .content1_text {
+                                    width: 90%;
+                                }
+                                .card_items {
+                                    width: 100%;
+                                }
+                                .content1_text p{
+                                    font-size: 1rem;
+                                }
+
+                                .content1_text h2{
+                                    font-size: 1.7rem;
+                                }
+                                .content1_text .hr {
+                                    margin-bottom: 20px;
+                                }
+                            }
+
+
+                        </style>
+                        <!-- card items -->
+                        <div class="content1_card fade-in">
+                            <div class="card_items">
+                                <div class="card_logo"><i class="fa-solid fa-graduation-cap"></i></div>
+                                <div class="card_text">
+                                    <p class="heading left_title"></p>
+                                    <p class="texting left_text"></p>
+                                </div>
+                                <div class="card_btn">Tư vấn miễn phí</div>
+                            </div>
+                            
+                            <div class="card_items">
+                                <div class="card_logo"><i class="fa-solid fa-graduation-cap"></i></div>
+                                <div class="card_text">
+                                    <p class="heading mid_title"></p>
+                                    <p class="texting mid_text"></p>
+                                </div>
+                                <div class="card_btn">Gặp nhóm chúng tôi</div>
+                            </div>
+                            <div class="card_items">
+                                <div class="card_logo"><i class="fa-solid fa-graduation-cap"></i></div>
+                                <div class="card_text">
+                                    <p class="heading right_title"></p>
+                                    <p class="texting right_text"></p>
+                                </div>
+                                <div class="card_btn">Đọc lời nhận xét</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- content 2 -->
+                    <div class="content2">
+                        <div class="content2_box1 fade-in">
+                            <div class="content2_box1_text1">
+                                <h2 class="main_title_div2"></h2>
+                                <div class="hr"></div>
+                                <p class="main_text_div2"></p>
+                            </div>
+                            <div class="content2_box1_text2 fade-in">
+                                <div class="content2_box1_grid">
+                                    <div class="grid_boxN">
+                                        <div class="grid_number">1</div>
+                                    </div>
+                                    <div class="grid_item ">
+                                        <h3 class="title_1"></h3>
+                                        <p class="text_1"></p>    
+                                    </div>
+                                    <div class="grid_boxN">
+                                        <div class="grid_number">2</div>     
+                                    </div>
+                                    <div class="grid_item">
+                                        <h3 class="title_2"></h3>
+                                        <p class="text_2"></p>    
+                                    </div>
+                                    <div class="grid_boxN">
+                                        <div class="grid_number">3</div>   
+                                    </div>
+                                    <div class="grid_item">
+                                        <h3 class="title_3"></h3>
+                                        <p class="text_3"></p>    
+                                    </div>
+                                    <div class="grid_boxN">
+                                        <div class="grid_number">4</div>   
+                                    </div>
+                                    <div class="grid_item">
+                                        <h3 class="title_4"></h3>
+                                        <p class="text_4"></p>    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="content2_box2" class="content2_box2 fade-in">
+                            <!-- render here -->
+                        </div>
+                    </div>
+                </div>
+                <div id="section2">
+                    <!-- content 3 -->
+                    <div class="content3">
+                        <div class="content3_box1 fade-in">
+                                <h2 class="main_title_div3"></h2>
+                                <div class="hr"></div>
+                        </div>
+                        <div class="content3_box2 fade-in">
+                            <div id="content3_box2_grid" class="content3_box2_grid">
+                            <!-- item in here -->
+                            </div>
+                        </div>
+                        <div class="content3_box3 fade-in">
+                            <p class="text_div3"></p>
+                        </div>
+                    </div>
+                </div>
+                <div id="section3">
+                    <!-- content 4 -->
+                    <div class="content4 fade-in">
+                        <div class="content4_box1">
+                            <h2 class="main_title_div4"></h2>
+                            <div class="hr"></div>
+                        </div>
+                        <div class="content4_box2">
+                            <div id="carousel1" class="swiper-container">
+                                <div class="swiper-wrapper">
+                                    <!-- Các item sẽ được thêm qua JS -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- content 5 -->
+                    <div class="content5">
+                            <div class="content5_text1 fade-in">
+                                    <p class="quote_div5"></p>
+                                    <div class="RP author_div5"></div>
+                                    <div class="CEO title_div5"></div>
+                            </div>
+                            <div class="content5_img fade-in">
+                                <img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2023/01/photo-1491336477066-31156b5e4f35.jpeg"/>
+                            </div>
+                    </div>
+                </div>
+                <div id="section4">
+                    <!-- content 6 -->
+                    <div class="content6 fade-in">
+                        <div class="content6_text1">
+                            <h2 class="main_title_div6"></h2>
+                            <div class="hr"></div>
+                        </div>
+                        <div class="Lawer_slider fade-in">
+                            <!-- Carousel 2 -->
+                            <div id="carousel2" class="swiper-container">
+                                <div class="swiper-wrapper">
+                                    <!-- Các slide sẽ được render vào đây -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="section5">
+                    <!-- content 7 -->
+                    <div class="content7">
+                        <div class="content7_text1 fade-in">
+                            <h2 class="main_title_div7"></h2>
+                            <div class="hr"></div>
+                        </div>
+                        <div class="content7_text2 fade-in">
+                            <div class="inner_content7_text2">
+                                <div class="content7_texting">
+                                    <p class="title_div7"></p>
+                                    <div id="content7_grid" class="content7_grid">
+                                        <!-- items in here -->
+                                    </div>
+                                </div>
+                                <!-- info_circle css -->
+                                <style>
+                                    .center_circle_logo2{
+                                        border-radius: 500px;
+                                        width: 60px;
+                                        height: 60px;
+                                        color: var(--text2);
+                                        text-align: center;
+                                        font-size: 20px;
+                                        background: rgb(20, 58, 123);
+                                        align-items: center;
+                                        justify-content: center;
+                                        display: none;
+                                        margin-bottom: 10px;
+                                        box-sizing: border-box !important;
+                                        padding: 8px;
+                                    }
+                                    .info_circle{
+                                        width: 100%;
+                                        display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+                                        margin-top: 30px;
+                                        margin-top: 50px;
+                                        margin-bottom: 30px;
+                                    }
+                                    .info_circle_mobile{
+                                        display:none;
+                                    }
+                                    .inner_circle{
+                                        width: 450px;
+                                        height: 450px;
+                                        border-radius: 500px;
+                                        border: 5px rgb(135 135 135 / 39%) dotted;
+                                        padding: 40px;
+                                        box-sizing: border-box;   
+                                        position: relative;
+                                        z-index: 1;   
+                                    }
+                                    .center_circle{
+                                        background: white;
+                                        width: 100%;
+                                        height: 100%;
+                                        border-radius: 500px;
+                                        position: relative;
+                                        z-index: 3;
+                                        padding: 70px;
+                                        text-align: center;
+                                        display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+                                    }
+                                    .center_circle div {
+                                        display: none; /* Ẩn tất cả các phần tử văn bản mặc định */
+                                        opacity: 0;
+                                        transition: opacity 0.5s;
+                                        color: black;
+                                    }
+                                    .center_circle div.active {
+                                        display: block;
+                                        opacity: 1;
+                                        animation: fadeIn 0.5s;
+                                    }
+                                    @keyframes fadeIn {
+                                        from {
+                                            opacity: 0;
+                                        }
+                                        to {
+                                            opacity: 1;
+                                        }
+                                    }
+                                    .center_circle i{
+                                        font-size: 40px;
+                                        color: black;
+                                        margin-right: 5px;
+                                    }
+
+                                    .logo_1,.logo_2,.logo_3,.logo_4,.logo_5{
+                                        position: absolute;
+                                        background-color: rgb(20, 58, 123);
+                                        border-radius: 500px;
+                                        width: 60px;
+                                        height: 60px;
+                                        display: flex;
+                                        justify-content: center;
+                                        text-align: center;
+                                        color: var(--text2);
+                                        font-size: 30px;
+                                        align-items: center;
+                                        z-index: 2;
+                                        transition: 0.2s linear;
+                                        cursor: pointer;
+                                    }
+                                    .logo_1{
+                                        transform: translate(370%, -700%);
+                                    }
+                                    .logo_2{
+                                        transform: translate(560%, -560%);
+                                    }
+                                    .logo_3{
+                                        transform: translate(620%, -350%);
+                                    }
+                                    .logo_4{
+                                        transform: translate(555%, -130%);
+                                    }
+                                    .logo_5{
+                                        transform: translate(370%, 0%);
+                                    }
+                                    .center_circle_logo{
+                                        width: 42px;
+                                        height: 42px;
+                                        color: black;
+                                        text-align: center;
+                                    }
+                                    .center_circle_text{
+                                        font-size: 18px;
+                                        color: black;
+                                        width:100%;
+                                        text-align: center;
+                                        margin: 0;
+                                        font-weight: bold;
+                                        margin-bottom: 5px;
+                                        
+                                    }
+                                    .center_circle_subtext{
+                                        font-size: 14px;
+                                        color: black;
+                                        width:100%;
+                                        text-align: center;
+                                    }
+                                    @media(max-width: 600px){
+                                        .info_circle{
+                                            display: none;
+                                        }
+                                        .info_circle_mobile{
+                                            display: flex;
+                                            flex-direction: column;
+                                            justify-content: center;
+                                            align-items: center;
+                                            width: 100%;
+                                            margin-top: 50px;
+                                        }
+                                        .circle_text_mobile{
+                                        display: flex;
+                                            width: 100%;
+                                            flex-direction: row;
+                                            justify-content: space-between;
+                                            margin-bottom: 30px;
+                                        }
+                                        .center_circle_box{
+                                            background: white;
+                                            width: 80%;
+                                            padding: 20px;
+                                            border-radius: 5px;
+                                        }
+                                        .center_circle_logo {
+                                            border-radius: 500px;
+                                            width: 50px;
+                                            height: 50px;
+                                            color: var(--text2);
+                                            text-align: center;
+                                            font-size: 30px;
+                                            background: rgb(20, 58, 123);
+                                            display: flex;
+                                            align-items: center;
+                                            justify-content: center;
+                                            box-sizing: border-box !important;
+                                            padding: 8px;
+                                        }
+                                        .center_circle_subtext {
+                                            text-align: left
+                                        }
+                                        .center_circle_text { 
+                                            text-align: left
+                                        }
+                                    }
+                                    @media(max-width: 400px){
+                                        .center_circle_logo {
+                                            width: 40px;
+                                            height: 40px;
+                                            font-size: 25px;
+                                        }
+                                        .content7{
+                                            padding: 30px 20px;
+                                        }
+                                    }
+                                    @media(max-width: 350px){
+                                        .center_circle_logo {
+                                            display: none !important;
+                                        }
+                                        .center_circle_box {
+                                            width: 100%;
+                                        }
+                                        .center_circle_logo2 {
+                                            display: flex !important;
+                                        }
+                                        .center_circle_box{
+                                            background: white;
+                                            width: 100%;
+                                            padding: 20px;
+                                            border-radius: 5px;
+                                            display: flex;
+                                            flex-direction: column;
+                                            justify-content: center;
+                                            align-items: center;
+                                        }
+                                    }
+                                </style>
+                                <div class="info_circle fade-in">
+                                    <div class="inner_circle">
+                                        <div class="center_circle">
+                                            <div class="circle_text1 active">
+                                            </div>
+                                            <div class="circle_text2">
+                                            </div>
+                                            <div class="circle_text3">
+                                            </div>
+                                            <div class="circle_text4">
+                                            </div>
+                                            <div class="circle_text5">
+                                            </div>
+                                        </div>
+                                        <div class="logo_1" onclick="showText(1)"><i class="fa-solid fa-graduation-cap"></i></div>
+                                        <div class="logo_2" onclick="showText(2)"><i class="fa-solid fa-graduation-cap"></i></div>
+                                        <div class="logo_3" onclick="showText(3)"><i class="fa-solid fa-graduation-cap"></i></div>
+                                        <div class="logo_4" onclick="showText(4)"><i class="fa-solid fa-graduation-cap"></i></div>
+                                        <div class="logo_5" onclick="showText(5)"><i class="fa-solid fa-graduation-cap"></i></div>
+                                    </div>
+                                </div>
+                                <div class="info_circle_mobile fade-in">
+                                    <div class="circle_text_mobile">
+                                        <i class="fa-solid fa-graduation-cap center_circle_logo"></i>
+                                        <div class="center_circle_box">
+                                            <i class="fa-solid fa-graduation-cap center_circle_logo2"></i>
+                                            <p class="center_circle_text">1. Tuân thủ Hiến pháp và pháp luật.</p>
+                                            <p class="center_circle_subtext">Hoạt động nghề nghiệp của luật sư góp phần bảo vệ công lý, các quyền tự do, dân chủ của công dân, quyền, lợi ích hợp pháp của cá nhân, cơ quan, tổ chức, phát triển kinh tế - xã hội</p>
+                                        </div>
+                                    </div>
+                                    <div class="circle_text_mobile">
+                                        <i class="fa-solid fa-graduation-cap center_circle_logo"></i>
+                                        <div class="center_circle_box">
+                                            <i class="fa-solid fa-graduation-cap center_circle_logo2"></i>
+                                            <p class="center_circle_text">2. Tuân theo Quy tắc đạo đức và ứng xử nghề nghiệp.</p>
+                                            <p class="center_circle_subtext">Hoạt động nghề nghiệp của luật sư góp phần bảo vệ công lý, các quyền tự do, dân chủ của công dân, quyền, lợi ích hợp pháp của cá nhân, cơ quan, tổ chức, phát triển kinh tế - xã hội</p>
+                                        </div>
+                                    </div>
+                                    <div class="circle_text_mobile">
+                                        <i class="fa-solid fa-graduation-cap center_circle_logo"></i>
+                                        <div class="center_circle_box">
+                                            <i class="fa-solid fa-graduation-cap center_circle_logo2"></i>
+                                            <p class="center_circle_text">3. Độc lập, trung thực, tôn trọng sự thật khách quan</p>
+                                            <p class="center_circle_subtext">Hoạt động nghề nghiệp của luật sư góp phần bảo vệ công lý, các quyền tự do, dân chủ của công dân, quyền, lợi ích hợp pháp của cá nhân, cơ quan, tổ chức, phát triển kinh tế - xã hội</p>
+                                        </div>
+                                    </div>
+                                    <div class="circle_text_mobile">
+                                        <i class="fa-solid fa-graduation-cap center_circle_logo"></i>
+                                        <div class="center_circle_box">
+                                            <i class="fa-solid fa-graduation-cap center_circle_logo2"></i>
+                                            <p class="center_circle_text">4. Phương pháp điều chỉnh của luật hình sự</p>
+                                            <p class="center_circle_subtext">Hoạt động nghề nghiệp của luật sư góp phần bảo vệ công lý, các quyền tự do, dân chủ của công dân, quyền, lợi ích hợp pháp của cá nhân, cơ quan, tổ chức, phát triển kinh tế - xã hội</p>
+                                        </div>
+                                    </div>
+                                    <div class="circle_text_mobile">
+                                        <i class="fa-solid fa-graduation-cap center_circle_logo"></i>
+                                        <div class="center_circle_box">
+                                            <i class="fa-solid fa-graduation-cap center_circle_logo2"></i>
+                                            <p class="center_circle_text">5. Phương pháp quyền uy</p>
+                                            <p class="center_circle_subtext">Hoạt động nghề nghiệp của luật sư góp phần bảo vệ công lý, các quyền tự do, dân chủ của công dân, quyền, lợi ích hợp pháp của cá nhân, cơ quan, tổ chức, phát triển kinh tế - xã hội</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="content7_more_info_box fade-in">
+                                <div class="content7_more_info">
+                                    <div class="content7_more_info_img_text">
+                                        <div id="overlay">
+                                            <p class="img_text">Giảm 20% khách hàng đầu tiên</p>
+                                            <div id="white_stroke"></div>
+                                            <p class="hiding_text">Xem chi tiết</p>
+                                        </div>
+                                    </div>
+                                    <div class="content7_more_info_img_text">
+                                        <div id="overlay">
+                                            <p class="img_text">Tư Vấn Luật Hình Sự</p>
+                                            <div id="white_stroke"></div>
+                                            <p class="hiding_text">Xem chi tiết</p>
+                                        </div>
+                                    </div>
+                                    <div class="content7_more_info_img_text">
+                                        <div id="overlay">
+                                            <p class="img_text">Phân chia lợi nhuận và cách thức thanh toán</p>
+                                            <div id="white_stroke"></div>
+                                            <p class="hiding_text">Xem chi tiết</p>
+                                        </div>
+                                    </div>
+                                    <div class="content7_more_info_img_text">
+                                        <div id="overlay">
+                                            <p class="img_text">Các dịch vụ</p>
+                                            <div id="white_stroke"></div>
+                                            <p class="hiding_text">Xem chi tiết</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="section6">
+
+                    <!-- content 8 -->
+                    <div class="content8">
+                        <div class="content8_text1 fade-in">
+                            <h2>Hãy kết nối</h2>
+                            <div class="hr"></div>
+                        </div>
+                        <div class="content8_text2 fade-in">
+                            <div class="icon_items">
+                                <div class="logo_items"><i class="fa-solid fa-graduation-cap"></i></div>
+                                <div class="content8_text2_subtext">VĂN PHÒNG CHÍNH</div>
+                                <div class="content8_text2_info">156 Nguyễn Văn Thủ, phường Đa Kao, quận 1</div>
+                            </div>
+                            <div class="icon_items">
+                                <div class="logo_items"><i class="fa-solid fa-graduation-cap"></i></div>
+                                <div class="content8_text2_subtext">SỐ ĐIỆN THOẠI</div>
+                                <div class="content8_text2_info"><strong>Điện thoại:</strong> 028 6273 0815</div>
+                                <div class="content8_text2_info"><strong>Lịch hẹn: canhcam.vn</strong></div>
+                            </div>
+                            <div class="icon_items">
+                                <div class="logo_items"><i class="fa-solid fa-graduation-cap"></i></div>
+                                <div class="content8_text2_subtext">FAX</div>
+                                <div class="content8_text2_info"><strong>Điện thoại:</strong> 028 6273 0815</div>
+                            </div>
+                            <div class="icon_items">
+                                <div class="logo_items"><i class="fa-solid fa-graduation-cap"></i></div>
+                                <div class="content8_text2_subtext">EMAIL</div>
+                                <div class="content8_text2_info">hello@dream-theme.com</div>
+                            </div>
+                        </div>
+                        <!-- css and js for google map -->
+                        <!-- <script>
+                            const iframe = document.querySelector('.draggable-iframe');
+                            let isDragging = false;
+                            let startX, startY, scrollLeft, scrollTop;
+
+                            iframe.addEventListener('mousedown', (e) => {
+                                isDragging = true;
+                                startX = e.pageX - iframe.offsetLeft;
+                                startY = e.pageY - iframe.offsetTop;
+                                scrollLeft = iframe.scrollLeft;
+                                scrollTop = iframe.scrollTop;
+                                iframe.style.cursor = 'grabbing';
+                            });
+                            const iframe = document.getElementById('your_iframe_id');
+                            if (iframe) {
+                                iframe.addEventListener('mousedown', (e) => {
+                                    // Mã xử lý khi sự kiện được kích hoạt
+                                });
+                            } else {
+                                console.error('Element with ID "your_iframe_id" not found.');
+                            }
+
+
+                            document.addEventListener('mousemove', (e) => {
+                                if (!isDragging) return;
+                                e.preventDefault();
+                                const x = e.pageX - startX;
+                                const y = e.pageY - startY;
+                                iframe.style.left = `${x}px`;
+                                iframe.style.top = `${y}px`;
+                            });
+
+                            document.addEventListener('mouseup', () => {
+                                isDragging = false;
+                                iframe.style.cursor = 'grab';
+                            });
+                        </script> -->
+                        <style>
+                            /* Thiết lập container */
+                            .map-container {
+                                width: 100%;
+                                height: 355px;
+                                position: relative;
+                                overflow: hidden;
+                            }
+                            
+                            /* Thiết lập iframe */
+                            .draggable-iframe {
+                                width: 100%;
+                                height: 100%;
+                                border: 0;
+                                position: absolute;
+                                cursor: grab;
+                            }
+                        </style>
+                        <!-- form and google map -->
+                        <div class="content8_text3 fade-in">
+                            <div class="info_form">
+                                <div class="info_form_text"><h2 style="font-size: 2rem;color: black;font-family: Arial;font-weight: bold;">Nhận đánh giá trường hợp miễn phí ngay hôm nay!</h2></div>
+                                <div class="content8_text2_subtext">CÓ SẴN 24 GIỜ MỘT NGÀY!</div>
+                                <input class="form_items" placeholder="Name *"/>
+                                <input class="form_items" placeholder="Email *"/>
+                                <input class="form_items" placeholder="Telephone"/>
+                                <textarea class="form_items info_form_Message" placeholder="Message *"></textarea>
+                                <button class="info_form_btn">Nhận tư vấn miễn phí</button>
+                            </div>
+                            <div class="ggMap">
+                                <div class="info_form_text"><h2 style="font-size: 2rem;color: black;font-family: Arial;font-weight: bold;">Chúng tôi ở đây</h2></div>
+                                <div class="content8_text2_subtext">Thứ 2 - thứ 6 8:30 am - 5pm /  Điện thoại trực 24/7</div>
+                                <div class="map-container">
+                                    <iframe 
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31357.58288870064!2d106.61617240000001!3d10.7577528!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752e8ab9bb054d%3A0x36072ab090100a11!2zQ2jhu6MgQsOsbmggVMOieQ!5e0!3m2!1svi!2s!4v1730947398244!5m2!1svi!2s"
+                                        class="draggable-iframe"
+                                        allowfullscreen=""
+                                        loading="lazy"
+                                        referrerpolicy="no-referrer-when-downgrade"
+                                    ></iframe>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- content footer -->
+                <div class="footer">
+                    <div class="footer_content fade-in">
+                        <div class="footer_contact">
+                            <div class="footer_items">
+                                <h6>GỌI CHÚNG TÔI</h6>
+                                <p>028 6273 0815</p>
+                                <p>028 6273 0815 (Miễn phí)</p>
+                            </div>
+                            <div class="footer_items">
+                                <h6>ĐỊA CHỈ</h6>
+                                <p>156 Nguyễn Văn Thủ, phường Đa Kao, quận 1</p>
+                            </div>
+                            <div class="footer_items">
+                                <h6>MAIL</h6>
+                                <p>info@canhcam.com</p>
+                            </div>
+                            <div class="footer_items">
+                                <h6>GIỜ HÀNH CHÍNH</h6>
+                                <p>Mở cửa 24/7</p>
+                            </div>
+                            <div class="footer_items">
+                                <div class="social_logo">
+                                    <i class="fa-solid fa-graduation-cap"></i>
+                                    <i class="fa-solid fa-graduation-cap"></i>
+                                    <i class="fa-solid fa-graduation-cap"></i>
+                                    <i class="fa-solid fa-graduation-cap"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="footer_daiary">
+                            <h6>Nhật ký của chúng tôi</h6>
+                            <div class="daiary_items">
+                                <div class="daiary_imgs">
+                                    <img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2023/01/olia-gozha-J4kK8b9Fgj8-unsplash-120x120.jpg"/>
+                                </div>
+                                <div class="daiary_text_box">
+                                    <p class="daiary_text">Thủ tục đăng ký đi nước ngoài làm việc như thế nào?</p>
+                                    <p class="daiary_date">January 3, 2023</p>
+                                </div>
+                            </div>
+                            <div class="daiary_items">
+                                <div class="daiary_imgs">
+                                    <img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2023/01/olia-gozha-J4kK8b9Fgj8-unsplash-120x120.jpg"/>
+                                </div>
+                                <div class="daiary_text">
+                                    <p class="daiary_text">Người lao động Việt Nam có thể đi làm việc ở nước ngoài không?</p>
+                                    <p class="daiary_date">January 30, 2018</p>
+                                </div>
+                            </div>
+                            <div class="daiary_items">
+                                <div class="daiary_imgs">
+                                    <img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2023/01/olia-gozha-J4kK8b9Fgj8-unsplash-120x120.jpg"/>
+                                </div>
+                                <div class="daiary_text_box">
+                                    <p class="daiary_text">Những lưu ý khi giao kết hợp đồng lao động với người sử dụng lao động nước ngoài</p>
+                                    <p class="daiary_date">January 30, 2018</p>
+                                </div>
+                            </div>
+                            <div class="daiary_items">
+                                <div class="daiary_imgs">
+                                    <img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2023/01/olia-gozha-J4kK8b9Fgj8-unsplash-120x120.jpg"/>
+                                </div>
+                                <div class="daiary_text_box">
+                                    <p class="daiary_text">Điều kiện để người Việt Nam đi nước ngoài làm việc</p>
+                                    <p class="daiary_date">January 30, 2018</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slider_comment">
+                            <h6>Lời nhận xét</h6>
+                            <div class="comment_slider_carousel">
+                                <div id="carousel3" class="comment_slider_owl-carousel owl-theme">
+                                    <!-- items -->  
+                                    <div class="comment_sections">
+                                        <div class="comment_text">Nếu cơ quan điều tra có căn cứ xác định chủ cơ sở đã không thực hiện hoặc thực hiện không đúng các qui định về phòng cháy chữa cháy để dẫn tới hậu quả làm nhiều người chết….</div>
+                                        <div class="comment_info">
+                                            <div class="comment_info_img">
+                                                <img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2016/05/luat-su-120x120.webp"/>
+                                            </div>
+                                            <div class="comment_info_text">
+                                                <p>Luật sư Nguyễn Anh Thơm</p>
+                                                <p>Nhà kinh doanh </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="comment_sections">
+                                        <div class="comment_text">Nếu cơ quan điều tra có căn cứ xác định chủ cơ sở đã không thực hiện hoặc thực hiện không đúng các qui định về phòng cháy chữa cháy để dẫn tới hậu quả làm nhiều người chết….</div>
+                                        <div class="comment_info">
+                                            <div class="comment_info_img">
+                                                <img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2016/05/luat-su-120x120.webp"/>
+                                            </div>
+                                            <div class="comment_info_text">
+                                                <p>Luật sư Nguyễn Anh Thơm</p>
+                                                <p>Nhà kinh doanh </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="comment_sections">
+                                        <div class="comment_text">Nếu cơ quan điều tra có căn cứ xác định chủ cơ sở đã không thực hiện hoặc thực hiện không đúng các qui định về phòng cháy chữa cháy để dẫn tới hậu quả làm nhiều người chết….</div>
+                                        <div class="comment_info">
+                                            <div class="comment_info_img">
+                                                <img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2016/05/luat-su-120x120.webp"/>
+                                            </div>
+                                            <div class="comment_info_text">
+                                                <p>Luật sư Nguyễn Anh Thơm</p>
+                                                <p>Nhà kinh doanh </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="copyright">
+                        <div class="footer_hr"></div>
+                        <div class="copyright_items">
+                            <div class="copyright_logo"><img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2023/01/CANHCAMLAW.png" alt="copyright_logo"/></div>
+                            <div class="copyright_text">© Canhcam Solution 2018. Đã đăng ký Bản quyền.</div>
+                        </div>
+                    </div>
+
+                </div>
+                <script type="text/javascript" src="/tomishow/static/src/js/API_div1.js"></script>
+                <script type="text/javascript" src="/tomishow/static/src/js/API_div2.js"></script>
+                <script type="text/javascript" src="/tomishow/static/src/js/API_div3.js"></script>
+                <script type="text/javascript" src="/tomishow/static/src/js/API_div4.js"></script>
+                <script type="text/javascript" src="/tomishow/static/src/js/API_div5.js"></script>
+                <script type="text/javascript" src="/tomishow/static/src/js/API_div6.js"></script>
+                <script type="text/javascript" src="/tomishow/static/src/js/API_div7.js"></script>
+                <script type="text/javascript" src="/tomishow/static/src/js/Details.js"></script>
+                <script type="text/javascript" src="/tomishow/static/src/js/Home.js"></script>
+                <script type="text/javascript" src="/tomishow/static/src/js/API_banner.js"></script>
+                <script type="text/javascript" src="/tomishow/static/src/js/API_footer.js"></script>
+            </t>
+        </template>
+    </data>
+</odoo>

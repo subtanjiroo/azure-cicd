@@ -20,14 +20,14 @@
                                 <field name="left_text"/>
                             </group>
                         </page>
-                        <page string = "Middle Side">
+                        <page string = "Ô giữa">
                             <group>
                                 <field name="mid_icon" widget="image" />
                                 <field name="mid_title"/>
                                 <field name="mid_text"/>
                             </group>
                         </page>
-                        <page string = "Right Side">
+                        <page string = "Ô bên phải">
                             <group>
                                 <field name="right_icon" widget="image" />
                                 <field name="right_title"/>

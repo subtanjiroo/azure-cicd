@@ -4,23 +4,12 @@
         <field name="name">cms.div5.form</field>
         <field name="model">cms.div5</field>
         <field name="arch" type="xml">
-            <form>
+            <form create="false" delete="false">
                 <sheet>
                     <group>
-                        <field name="main_title"/>
-                        <notebook>
-                            <page string="Con người">
-                                <field name="people_ids">
-                                    <list string="People">
-                                        <field name="name"/>
-                                        <field name="position"/>
-                                        <field name="text"/>
-                                    </list>
-                                </field>
-                            </page>
-
-                        </notebook>
-
+                        <field name="quote"/>
+                        <field name="author"/>
+                        <field name="title"/>
                     </group>
                 </sheet>
             </form>

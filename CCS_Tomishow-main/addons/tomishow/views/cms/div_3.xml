@@ -4,17 +4,19 @@
         <field name="name">cms.div3.form</field>
         <field name="model">cms.div3</field>
         <field name="arch" type="xml">
-            <form>
+            <form create="false" delete="false">
                 <sheet>
+
                     <group>
                         <field name="main_title"/>
+                        <field name="text"/>
                         <notebook>
                             <page string="Icon và Text">
-                                <field name="icon_and_text">
+                                <field name="icon_and_text" context="{'form_view_ref': 'tomishow.view_form_cms_div3_iconandtext'}">
                                     <list>
                                         <field name="icon"/>
                                         <field name="text"/>
-                                        <field name="div_3_id" invisible_column="1"/>
+                                        <field name="div_3_id" column_invisible="1"/>
                                     </list>
                                 </field>
                             </page>

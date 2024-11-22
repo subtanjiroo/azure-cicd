@@ -3,23 +3,42 @@ Author: Thinh dep trai
 Model Description: 
 '''
 
-from odoo import models, fields
+from odoo import models, fields, api, exceptions
 
 
 class div_5(models.Model):
     _name = 'cms.div5'
     _description = ''
+    name = fields.Char(default='Div 5')
+    quote = fields.Char(string='Quote')
+    author = fields.Char(string='Author')
+    title = fields.Char(string='Title')
 
-    main_title = fields.Char(string='Tiêu đề chính')
-    people_ids = fields.One2many('cms.div5.people', 'div5_id', string='People')
-class div_5_people(models.Model):
-    _name = 'cms.div5.people'
-    _description = ''
+    @api.model
+    def create(self,vals):
+        if self.search([]):
+            raise exceptions.ValidationError('Không thể tạo thêm bản ghi')
+        return super(div_5, self).create(vals)
 
-    name = fields.Char(string='Tên')
-    image = fields.Image(string='Hình ảnh', max_width=100, max_height=100)
-    position = fields.Char(string='Chức vụ')
-    text = fields.Text(string='Text')
+    @api.model
+    def get_div_5(self):
+        """
+            Get div 5 for web
+        :return: dict
+            {
+                'quote': string,
+                'author': string,
+                'title': string,
+            }
+        """
+        div5 = self.search([])[0]
+        if not div5:
+            raise exceptions.ValidationError('Không có dữ liệu')
 
-    div5_id = fields.Many2one('cms.div5', string='People', default = lambda self: self.env['cms.div_5'].search([]).id)
+        return {
+            'quote': div5.quote,
+            'author': div5.author,
+            'title': div5.title,
+        }
+
 

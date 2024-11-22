@@ -7,3 +7,4 @@ from . import div_3
 from . import div_4
 from . import div_5
 from . import div_6
+from . import div_7

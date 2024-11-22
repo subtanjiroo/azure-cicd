@@ -8,6 +8,7 @@
         <record id="record_cms_div4" model="cms.div4"/>
         <record id="record_cms_div5" model="cms.div5"/>
         <record id="record_cms_div6" model="cms.div6"/>
+        <record id="record_cms_div7" model="cms.div7"/>
 
 
     </data>

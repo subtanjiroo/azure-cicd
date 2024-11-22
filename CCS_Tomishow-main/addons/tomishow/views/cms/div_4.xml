@@ -4,13 +4,14 @@
         <field name="name">cms.div4.form</field>
         <field name="model">cms.div4</field>
         <field name="arch" type="xml">
-            <form>
+            <form create="false" delete="false">
                 <sheet>
                     <group>
                         <field name="main_title"/>
+
                         <notebook>
                             <page string="Dự án">
-                                <field name="project_ids">
+                                <field name="project_ids" context="{'form_view_ref': 'tomishow.view_form_cms_div4_project'}">
                                     <list string="Projects">
                                         <field name="title"/>
                                         <field name="small_text"/>

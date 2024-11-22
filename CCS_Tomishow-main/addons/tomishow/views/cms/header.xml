@@ -5,7 +5,7 @@
         <field name="name">cms.header.form</field>
         <field name="model">cms.header</field>
         <field name="arch" type="xml">
-            <form string="Header">
+            <form string="Header" create="false" delete="false">
                 <sheet>
 
                     <group>

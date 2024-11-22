@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Gắn sự kiện click cho phần tử có class 'navLogo'
     document.querySelector('.navLogo').addEventListener('click', function () {
         window.location.href = `${baseURL}/home`;
+        
     });
 
     const SlidersItems = document.querySelectorAll('.item_slider');
@@ -141,80 +142,33 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 // <!-- javascript cua Owl carousel -->
-$(document).ready(function() {
-    // Cấu hình cho carousel thứ nhất
-    $("#carousel1").owlCarousel({
-        items: 4,
-        loop: true,
-        autoplay: true,
-        mouseDrag: true,
-        touchDrag: true,
-        nav: false,  // Giấu nút điều hướng (arrows)
-        dots: false, // Giấu indicator (dots)
-        responsive: {
-            0: {
-                items: 1
-            },
-            500: {
-                items: 2
-            },
-            750: {
-                items: 3
-            },
-            1000: {
-                items: 4
-            },
-        },
-    });
+// $(document).ready(function() {
+//     // Cấu hình cho carousel thứ nhất
 
-    // Cấu hình cho carousel thứ hai
-    $("#carousel2").owlCarousel({
-        items: 3,
-        loop: true,
-        autoplay: true,
-        mouseDrag: true,
-        touchDrag: true,
-        nav: false,
-        dots: false,
-        responsive: {
-            0: {
-                items: 1
-            },
-            650: {
-                items: 2
-            },
-            750: {
-                items: 2
-            },
-            1100: {
-                items: 3
-            },
-            1500:{
-                items: 4
-            },
-        },
-    });
-    $("#carousel3").owlCarousel({
-        items: 1,         
-        loop: true,       
-        autoplay: true,   
-        mouseDrag: true,  
-        touchDrag: true,  
-        nav: false,       
-        dots: false,
-        responsive: {
-            0:{
-                items: 1
-            },
-            850:{
-                items: 2
-            },
-            1200: {
-                items: 1
-            },
-        },
-    });
-});
+
+//     // Cấu hình cho carousel thứ hai
+
+//     $("#carousel3").owlCarousel({
+//         items: 1,         
+//         loop: true,       
+//         autoplay: true,   
+//         mouseDrag: true,  
+//         touchDrag: true,  
+//         nav: false,       
+//         dots: false,
+//         responsive: {
+//             0:{
+//                 items: 1
+//             },
+//             850:{
+//                 items: 2
+//             },
+//             1200: {
+//                 items: 1
+//             },
+//         },
+//     });
+// });
 
 
 // infor circle effect

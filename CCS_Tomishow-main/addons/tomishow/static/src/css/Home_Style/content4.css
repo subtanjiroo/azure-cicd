@@ -49,6 +49,8 @@
 }
 #carousel1{
     cursor: grabbing;
+    display: flex;
+    flex-direction: row;
 }
 @media(max-width: 500px){
     .content4_box1 h2{

@@ -47,7 +47,7 @@
 @media(max-width: 1000px){
     .content5_img img {
         width: 100%;
-        height: 80%;
+        height: 100%;
     }
     .content5_text1 p{
         font-size: 1rem !important;

@@ -4,7 +4,7 @@
         <field name="name">cms.div2.form</field>
         <field name="model">cms.div2</field>
         <field name="arch" type="xml">
-            <form>
+            <form create="false" delete="false">
                 <sheet>
                     <group>
                         <field name="main_title"/>
@@ -41,23 +41,28 @@
                             </group>
 
                         </page>
-                        <page string="Flip board">
+                        <page string="Bảng lật">
                             <group class="bolder_div">
-                                <div class="bold-title">Flipboard 1</div>
+                                <div class="bold-title">Bảng lật 1</div>
+                                <field name="flip_board_1_title_not_flipped"/>
                                 <field name="flip_board_1_text_not_flipped"/>
+                                <field name="flip_board_1_title_flipped"/>
                                 <field name="flip_board_1_text_flipped"/>
                                 <field name="flip_board_1_background_image" widget="image"/>
                             </group>
                             <group class="bolder_div">
-                                <div class="bold-title">Flipboard 2</div>
+                                <div class="bold-title">Bảng lật 2</div>
+                                <field name="flip_board_2_title_not_flipped"/>
                                 <field name="flip_board_2_text_not_flipped"/>
+                                <field name="flip_board_2_title_flipped"/>
                                 <field name="flip_board_2_text_flipped"/>
                                 <field name="flip_board_2_background_image" widget="image"/>
                             </group>
-
                             <group class="bolder_div">
-                                <div class="bold-title">Flipboard 3</div>
+                                <div class="bold-title">Bảng lật 3</div>
+                                <field name="flip_board_3_title_not_flipped"/>
                                 <field name="flip_board_3_text_not_flipped"/>
+                                <field name="flip_board_3_title_flipped"/>
                                 <field name="flip_board_3_text_flipped"/>
                                 <field name="flip_board_3_background_image" widget="image"/>
                             </group>

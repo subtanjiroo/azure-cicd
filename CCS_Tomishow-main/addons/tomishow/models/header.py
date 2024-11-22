@@ -4,7 +4,7 @@ Model Description:
 '''
 import base64
 import os
-from odoo import models, fields, api
+from odoo import models, fields, api, exceptions
 
 
 class header(models.Model):
@@ -12,9 +12,8 @@ class header(models.Model):
     _description = 'CMS model for header'
 
 
-
-    logo = fields.Image(string='Logo' , readonly=False,computed="get_logo",  max_width=100, max_height=100)
-
+    name = fields.Char(default='Header')
+    logo = fields.Image(string='Logo', max_width=100, max_height=100)
     # logo_path = fields.Char(string='Path')
     logo_left_text = fields.Char(string='Text bên trái Logo')
     logo_right_text = fields.Char(string='Text bên phải Logo')
@@ -38,28 +37,44 @@ class header(models.Model):
             raise Exception("Đã có header rồi")
         return super(header, self).create(vals)
 
-    @api.onchange("logo")
-    def save_image(self):
-        #create folder if path is not created
-        if(self.logo):
-            with open("opt/temp/cms/logo_path.png", "wb") as f:
-                f.write(base64.b64decode(self.logo))
+    def write(self,vals):
+
+        if vals.get('logo'):
+            folder_path = os.path.dirname(os.path.dirname(__file__))+"/static/imgs/header/logo.png"
+            byte = base64.b64decode(vals['logo'])
+
+            with open(folder_path, 'wb') as f:
+                f.write(byte)
+        if vals.get('back_ground'):
+            folder_path = os.path.dirname(os.path.dirname(__file__))+"/static/imgs/header/background.png"
+            byte = base64.b64decode(vals['back_ground'])
+
+            with open(folder_path, 'wb') as f:
+                f.write(byte)
+        return super(header, self).write(vals)
 
 
-    @api.depends("logo_path")
-    def get_logo(self):
-        for rec in self:
-            if(rec.logo_path):
-                rec.logo = base64.encode(open(rec.logo_path,"rb").read())
-            else:
-                rec.logo_path = "opt/temp/cms/logo_path.png"
+    @api.model
+    def get_header(self):
 
-    def test_button(self):
-        #check if there are file at logo_path
+        logo_path ="tomishow/static/imgs/header/logo.png"
+        back_ground_path ="tomishow/static/imgs/header/background.png"
 
-        import logging
-        _logger = logging.getLogger(__name__)
-        _logger.info(self.test_html)
+
+        header = self.search([])[0]
+        if not header:
+            raise exceptions.ValidationError('Không có header')
+
+        return {
+            'logo': logo_path,
+            'logo_left_text': header.logo_left_text,
+            'logo_right_text': header.logo_right_text,
+            'big_title': header.big_title,
+            'small_title': header.small_title,
+            'phone_number': header.phone_number,
+            'back_ground': back_ground_path
+        }
+
 
 
 

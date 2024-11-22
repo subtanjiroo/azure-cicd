@@ -92,6 +92,7 @@
 }
 .card-back h2{
     color: black;
+    font-weight: bold;
 }
 .card-back p{
     color: var(--text1);

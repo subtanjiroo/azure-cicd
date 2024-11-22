@@ -9,6 +9,7 @@
         <menuitem id="menu_item_div_4" name="Div 4" action="action_cms_div4"/>
         <menuitem id="menu_item_div_5" name="Div 5" action="action_cms_div5"/>
         <menuitem id="menu_item_div_6" name="Div 6" action="action_cms_div6"/>
+        <menuitem id="menu_item_div_7" name="Div 7" action="action_cms_div7"/>
 
     </menuitem>
 </odoo>

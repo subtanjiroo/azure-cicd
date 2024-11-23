@@ -1,0 +1,234 @@
+
+.footer{
+    background: var(--third_color);
+    width: 100%;
+    height: auto;
+    color: var(--text2);
+    display:flex;
+    flex-direction: column;
+    padding: 10px 50px;
+    justify-content: center;
+    align-items: center;
+}
+.footer_content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
+    justify-content: center;
+}
+.footer_contact,
+.footer_daiary,
+.slider_comment{
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 33vw;
+    height: auto;
+}
+.copyright{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.copyright_items{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.footer_hr{
+    width: 100%;
+    border: 1px #8080804d solid;
+    margin-bottom: 10px;
+    border-top-width: 0;
+}
+.footer_items{
+    margin-bottom: 15px;
+    margin-top: 15px;
+
+}
+.footer_items p{
+    font-size: 15px;
+    margin: 0;
+    color: rgb(142,144,118);
+}
+.footer_items h6{
+    font-size: 18px;
+    color: var(--text2);
+    font-family: Arial;
+
+}
+
+.footer_daiary h6{
+    font-size: 18px;
+    color: var(--text2);
+    font-family: Arial;
+
+}
+
+.slider_comment h6{
+    font-size: 18px;
+    color: var(--text2);
+    font-family: Arial;
+
+}
+.daiary_items{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.daiary_text_box{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 100%;
+    height: auto;
+}
+.daiary_text{
+    font-size: 16px;
+    color: var(--text2);
+    font-family: Arial;
+    margin-bottom: 0;
+    line-height: 2;
+    margin-top: 15px;
+    margin-left: 10px;
+}
+.daiary_date{
+    font-size: 15px;
+    margin: 0;
+    color: rgb(142,144,118);
+    margin-left: 10px;
+}
+.daiary_imgs img{
+    border-radius: 500px;
+    width: 60px;
+    height: 60px;
+}
+.comment_text{
+    font-size: 15px;
+    color: var(--text1);
+}
+.comment_info_img img{
+    border-radius: 500px;
+    width: 65px;
+    height: 65px;
+}
+.comment_info_text{
+    color: var(--text2);
+    font-size: 15px;
+}
+.comment_info_text{
+    text-align: left;
+}
+.comment_text{
+    margin-bottom: 20px;
+}
+.comment_sections{
+    display: flex;
+    flex-direction: column;
+    width: 28vw;
+    cursor: grabbing;
+}
+.comment_info{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.comment_info p{
+    margin: 0;
+    margin-left: 10px;
+}
+
+.comment_slider_carousel{
+    width: 100%; 
+    overflow: hidden; 
+}
+.social_logo i{
+    background: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 500px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;  
+    cursor: pointer                  
+}
+.social_logo:hover{
+    background: var(--secondary_color);
+}
+@media(max-width: 1200px){
+    .footer_content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: min-content;
+        width: 100%;
+        justify-content: center;
+    
+    }
+    .copyright_text{
+        font-size: 0.8rem;
+    }
+    .footer_contact{
+        grid-column: 1; /* Ô cột đầu tiên */
+        grid-row: 1; /* Hàng đầu tiên */
+        width: 100%;
+    }
+    .footer_daiary{
+        grid-column: 2; /* Ô cột thứ hai */
+        grid-row: 1; /* Hàng đầu tiên */
+        width: 100%;
+    }
+    .slider_comment {
+        grid-column: 1 / span 2;
+        grid-row: 2;
+        width: 100%;
+    }
+
+}
+@media(max-width: 850px){
+    .footer_content {
+        display: flex;
+        flex-direction: column;
+
+    }
+    .comment_sections {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        cursor: grabbing;
+    }
+}
+@media(max-width: 600px){
+    .copyright_logo{
+        display: flex;
+        justify-content: center;
+    }
+    .copyright{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .copyright_items{
+        display: flex;
+        flex-direction: column;
+    }
+    .footer {
+        padding: 0;
+    }
+    .daiary_items {
+        margin-bottom: 10px;
+    }
+    .footer_daiary h6 {
+        margin-bottom: 20px;
+    }
+    .daiary_text {
+        font-size: 14px;
+        color: var(--text2);
+        font-family: Arial;
+        margin-bottom: 0;
+        line-height: 1.5;
+        margin-top: 15px;
+        margin-left: 10px;
+    }
+}

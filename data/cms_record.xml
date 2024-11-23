@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="record_cms_header" model="cms.header"/>
+        <record id="record_cms_div1" model="cms.div1"/>
+        <record id="record_cms_div2" model="cms.div2"/>
+        <record id="record_cms_div3" model="cms.div3"/>
+        <record id="record_cms_div4" model="cms.div4"/>
+        <record id="record_cms_div5" model="cms.div5"/>
+        <record id="record_cms_div6" model="cms.div6"/>
+        <record id="record_cms_div7" model="cms.div7"/>
+        <record id="record_cms_div8" model="cms.div8"/>
+
+
+    </data>
+</odoo> 

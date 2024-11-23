@@ -7,7 +7,7 @@
         <field name="arch" type="xml">
             <form string="Header" create="false" delete="false">
                 <sheet>
-
+                    <button name="test" string="Test" type="object" class="oe_highlight"/>
                     <group>
                         <field name="logo" widget="image" class="logo"/>
                     </group>

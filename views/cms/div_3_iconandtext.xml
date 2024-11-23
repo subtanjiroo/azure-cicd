@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_form_cms_div3_iconandtext" model="ir.ui.view">
+        <field name="name">cms.div3.iconandtext.form</field>
+        <field name="model">cms.div3.iconandtext</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="icon" widget="image"/>
+                        <field name="text"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_" model="ir.actions.act_window">
+        <field name="name">Tạo icon và text</field>
+        <field name="res_model">cms.div3.iconandtext</field>
+        <field name="view_mode">form</field>
+        <field name="res_id">1</field>
+        <field name="view_id" ref="view_form_cms_div3_iconandtext"/>
+        <field name="target">main</field>
+    </record>
+</odoo> 

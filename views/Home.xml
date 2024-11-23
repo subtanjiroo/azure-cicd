@@ -10,6 +10,7 @@
                 <!-- Swiper JS -->
                 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
                 
+                
                 <link rel="stylesheet" href="/tomishow/static/src/css/Home_Style/content1.css"/>
                 <link rel="stylesheet" href="/tomishow/static/src/css/Home_Style/content2.css"/>
                 <link rel="stylesheet" href="/tomishow/static/src/css/Home_Style/content3.css"/>
@@ -182,10 +183,16 @@
                                 height: 80px;
                                 line-height: 80px;
                                 border-radius: 500px;
-                                font-size: 46px;
-                                display: inline-block;
-                                font-size: 35px;
-                                text-align: center;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                            }
+                            .card_logo_left,
+                            .card_logo_mid,
+                            .card_logo_right{
+                                width: inherit;
+                                height: inherit;
+                                padding: 10px;
                             }
                             .heading{
                                 color: var(--head_color);
@@ -256,7 +263,7 @@
                         <!-- card items -->
                         <div class="content1_card fade-in">
                             <div class="card_items">
-                                <div class="card_logo"><i class="fa-solid fa-graduation-cap"></i></div>
+                                <div class="card_logo"><img class="card_logo_left" src=""/></div>
                                 <div class="card_text">
                                     <p class="heading left_title"></p>
                                     <p class="texting left_text"></p>
@@ -265,7 +272,7 @@
                             </div>
                             
                             <div class="card_items">
-                                <div class="card_logo"><i class="fa-solid fa-graduation-cap"></i></div>
+                                <div class="card_logo"><img class="card_logo_mid" src=""/></div>
                                 <div class="card_text">
                                     <p class="heading mid_title"></p>
                                     <p class="texting mid_text"></p>
@@ -273,7 +280,7 @@
                                 <div class="card_btn">Gặp nhóm chúng tôi</div>
                             </div>
                             <div class="card_items">
-                                <div class="card_logo"><i class="fa-solid fa-graduation-cap"></i></div>
+                                <div class="card_logo"><img class="card_logo_right" src=""/></div>
                                 <div class="card_text">
                                     <p class="heading right_title"></p>
                                     <p class="texting right_text"></p>
@@ -615,7 +622,7 @@
                                     }
                                 </style>
                                 <div class="info_circle fade-in">
-                                    <div class="inner_circle">
+                                    <div id="inner_circle" class="inner_circle">
                                         <div class="center_circle">
                                             <div class="circle_text1 active">
                                             </div>
@@ -628,54 +635,9 @@
                                             <div class="circle_text5">
                                             </div>
                                         </div>
-                                        <div class="logo_1" onclick="showText(1)"><i class="fa-solid fa-graduation-cap"></i></div>
-                                        <div class="logo_2" onclick="showText(2)"><i class="fa-solid fa-graduation-cap"></i></div>
-                                        <div class="logo_3" onclick="showText(3)"><i class="fa-solid fa-graduation-cap"></i></div>
-                                        <div class="logo_4" onclick="showText(4)"><i class="fa-solid fa-graduation-cap"></i></div>
-                                        <div class="logo_5" onclick="showText(5)"><i class="fa-solid fa-graduation-cap"></i></div>
                                     </div>
                                 </div>
                                 <div class="info_circle_mobile fade-in">
-                                    <div class="circle_text_mobile">
-                                        <i class="fa-solid fa-graduation-cap center_circle_logo"></i>
-                                        <div class="center_circle_box">
-                                            <i class="fa-solid fa-graduation-cap center_circle_logo2"></i>
-                                            <p class="center_circle_text">1. Tuân thủ Hiến pháp và pháp luật.</p>
-                                            <p class="center_circle_subtext">Hoạt động nghề nghiệp của luật sư góp phần bảo vệ công lý, các quyền tự do, dân chủ của công dân, quyền, lợi ích hợp pháp của cá nhân, cơ quan, tổ chức, phát triển kinh tế - xã hội</p>
-                                        </div>
-                                    </div>
-                                    <div class="circle_text_mobile">
-                                        <i class="fa-solid fa-graduation-cap center_circle_logo"></i>
-                                        <div class="center_circle_box">
-                                            <i class="fa-solid fa-graduation-cap center_circle_logo2"></i>
-                                            <p class="center_circle_text">2. Tuân theo Quy tắc đạo đức và ứng xử nghề nghiệp.</p>
-                                            <p class="center_circle_subtext">Hoạt động nghề nghiệp của luật sư góp phần bảo vệ công lý, các quyền tự do, dân chủ của công dân, quyền, lợi ích hợp pháp của cá nhân, cơ quan, tổ chức, phát triển kinh tế - xã hội</p>
-                                        </div>
-                                    </div>
-                                    <div class="circle_text_mobile">
-                                        <i class="fa-solid fa-graduation-cap center_circle_logo"></i>
-                                        <div class="center_circle_box">
-                                            <i class="fa-solid fa-graduation-cap center_circle_logo2"></i>
-                                            <p class="center_circle_text">3. Độc lập, trung thực, tôn trọng sự thật khách quan</p>
-                                            <p class="center_circle_subtext">Hoạt động nghề nghiệp của luật sư góp phần bảo vệ công lý, các quyền tự do, dân chủ của công dân, quyền, lợi ích hợp pháp của cá nhân, cơ quan, tổ chức, phát triển kinh tế - xã hội</p>
-                                        </div>
-                                    </div>
-                                    <div class="circle_text_mobile">
-                                        <i class="fa-solid fa-graduation-cap center_circle_logo"></i>
-                                        <div class="center_circle_box">
-                                            <i class="fa-solid fa-graduation-cap center_circle_logo2"></i>
-                                            <p class="center_circle_text">4. Phương pháp điều chỉnh của luật hình sự</p>
-                                            <p class="center_circle_subtext">Hoạt động nghề nghiệp của luật sư góp phần bảo vệ công lý, các quyền tự do, dân chủ của công dân, quyền, lợi ích hợp pháp của cá nhân, cơ quan, tổ chức, phát triển kinh tế - xã hội</p>
-                                        </div>
-                                    </div>
-                                    <div class="circle_text_mobile">
-                                        <i class="fa-solid fa-graduation-cap center_circle_logo"></i>
-                                        <div class="center_circle_box">
-                                            <i class="fa-solid fa-graduation-cap center_circle_logo2"></i>
-                                            <p class="center_circle_text">5. Phương pháp quyền uy</p>
-                                            <p class="center_circle_subtext">Hoạt động nghề nghiệp của luật sư góp phần bảo vệ công lý, các quyền tự do, dân chủ của công dân, quyền, lợi ích hợp pháp của cá nhân, cơ quan, tổ chức, phát triển kinh tế - xã hội</p>
-                                        </div>
-                                    </div>
 
                                 </div>
                             </div>
@@ -726,72 +688,17 @@
                             <h2>Hãy kết nối</h2>
                             <div class="hr"></div>
                         </div>
+
                         <div class="content8_text2 fade-in">
-                            <div class="icon_items">
-                                <div class="logo_items"><i class="fa-solid fa-graduation-cap"></i></div>
-                                <div class="content8_text2_subtext">VĂN PHÒNG CHÍNH</div>
-                                <div class="content8_text2_info">156 Nguyễn Văn Thủ, phường Đa Kao, quận 1</div>
-                            </div>
-                            <div class="icon_items">
-                                <div class="logo_items"><i class="fa-solid fa-graduation-cap"></i></div>
-                                <div class="content8_text2_subtext">SỐ ĐIỆN THOẠI</div>
-                                <div class="content8_text2_info"><strong>Điện thoại:</strong> 028 6273 0815</div>
-                                <div class="content8_text2_info"><strong>Lịch hẹn: canhcam.vn</strong></div>
-                            </div>
-                            <div class="icon_items">
-                                <div class="logo_items"><i class="fa-solid fa-graduation-cap"></i></div>
-                                <div class="content8_text2_subtext">FAX</div>
-                                <div class="content8_text2_info"><strong>Điện thoại:</strong> 028 6273 0815</div>
-                            </div>
-                            <div class="icon_items">
-                                <div class="logo_items"><i class="fa-solid fa-graduation-cap"></i></div>
-                                <div class="content8_text2_subtext">EMAIL</div>
-                                <div class="content8_text2_info">hello@dream-theme.com</div>
-                            </div>
+                            <!-- items here -->
                         </div>
-                        <!-- css and js for google map -->
-                        <!-- <script>
-                            const iframe = document.querySelector('.draggable-iframe');
-                            let isDragging = false;
-                            let startX, startY, scrollLeft, scrollTop;
-
-                            iframe.addEventListener('mousedown', (e) => {
-                                isDragging = true;
-                                startX = e.pageX - iframe.offsetLeft;
-                                startY = e.pageY - iframe.offsetTop;
-                                scrollLeft = iframe.scrollLeft;
-                                scrollTop = iframe.scrollTop;
-                                iframe.style.cursor = 'grabbing';
-                            });
-                            const iframe = document.getElementById('your_iframe_id');
-                            if (iframe) {
-                                iframe.addEventListener('mousedown', (e) => {
-                                    // Mã xử lý khi sự kiện được kích hoạt
-                                });
-                            } else {
-                                console.error('Element with ID "your_iframe_id" not found.');
-                            }
 
 
-                            document.addEventListener('mousemove', (e) => {
-                                if (!isDragging) return;
-                                e.preventDefault();
-                                const x = e.pageX - startX;
-                                const y = e.pageY - startY;
-                                iframe.style.left = `${x}px`;
-                                iframe.style.top = `${y}px`;
-                            });
-
-                            document.addEventListener('mouseup', () => {
-                                isDragging = false;
-                                iframe.style.cursor = 'grab';
-                            });
-                        </script> -->
                         <style>
                             /* Thiết lập container */
                             .map-container {
                                 width: 100%;
-                                height: 355px;
+                                height: auto;
                                 position: relative;
                                 overflow: hidden;
                             }
@@ -818,15 +725,9 @@
                             </div>
                             <div class="ggMap">
                                 <div class="info_form_text"><h2 style="font-size: 2rem;color: black;font-family: Arial;font-weight: bold;">Chúng tôi ở đây</h2></div>
-                                <div class="content8_text2_subtext">Thứ 2 - thứ 6 8:30 am - 5pm /  Điện thoại trực 24/7</div>
+                                <div class="content8_text2_subtext time_div8"></div>
                                 <div class="map-container">
-                                    <iframe 
-                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31357.58288870064!2d106.61617240000001!3d10.7577528!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752e8ab9bb054d%3A0x36072ab090100a11!2zQ2jhu6MgQsOsbmggVMOieQ!5e0!3m2!1svi!2s!4v1730947398244!5m2!1svi!2s"
-                                        class="draggable-iframe"
-                                        allowfullscreen=""
-                                        loading="lazy"
-                                        referrerpolicy="no-referrer-when-downgrade"
-                                    ></iframe>
+
                                 </div>
 
                             </div>
@@ -906,45 +807,50 @@
                         <div class="slider_comment">
                             <h6>Lời nhận xét</h6>
                             <div class="comment_slider_carousel">
-                                <div id="carousel3" class="comment_slider_owl-carousel owl-theme">
-                                    <!-- items -->  
-                                    <div class="comment_sections">
-                                        <div class="comment_text">Nếu cơ quan điều tra có căn cứ xác định chủ cơ sở đã không thực hiện hoặc thực hiện không đúng các qui định về phòng cháy chữa cháy để dẫn tới hậu quả làm nhiều người chết….</div>
-                                        <div class="comment_info">
-                                            <div class="comment_info_img">
-                                                <img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2016/05/luat-su-120x120.webp"/>
-                                            </div>
-                                            <div class="comment_info_text">
-                                                <p>Luật sư Nguyễn Anh Thơm</p>
-                                                <p>Nhà kinh doanh </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="comment_sections">
-                                        <div class="comment_text">Nếu cơ quan điều tra có căn cứ xác định chủ cơ sở đã không thực hiện hoặc thực hiện không đúng các qui định về phòng cháy chữa cháy để dẫn tới hậu quả làm nhiều người chết….</div>
-                                        <div class="comment_info">
-                                            <div class="comment_info_img">
-                                                <img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2016/05/luat-su-120x120.webp"/>
-                                            </div>
-                                            <div class="comment_info_text">
-                                                <p>Luật sư Nguyễn Anh Thơm</p>
-                                                <p>Nhà kinh doanh </p>
+                                <div class="swiper-container" id="carousel3">
+                                    <div class="swiper-wrapper">
+                                        <!-- Item 1 -->
+                                        <div class="swiper-slide comment_sections">
+                                            <div class="comment_text">Nếu cơ quan điều tra có căn cứ xác định chủ cơ sở đã không thực hiện hoặc thực hiện không đúng các qui định về phòng cháy chữa cháy để dẫn tới hậu quả làm nhiều người chết….</div>
+                                            <div class="comment_info">
+                                                <div class="comment_info_img">
+                                                    <img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2016/05/luat-su-120x120.webp"/>
+                                                </div>
+                                                <div class="comment_info_text">
+                                                    <p>Luật sư Nguyễn Anh Thơm</p>
+                                                    <p>Nhà kinh doanh </p>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="comment_sections">
-                                        <div class="comment_text">Nếu cơ quan điều tra có căn cứ xác định chủ cơ sở đã không thực hiện hoặc thực hiện không đúng các qui định về phòng cháy chữa cháy để dẫn tới hậu quả làm nhiều người chết….</div>
-                                        <div class="comment_info">
-                                            <div class="comment_info_img">
-                                                <img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2016/05/luat-su-120x120.webp"/>
+                                        <!-- Item 2 -->
+                                        <div class="swiper-slide comment_sections">
+                                            <div class="comment_text">Nếu cơ quan điều tra có căn cứ xác định chủ cơ sở đã không thực hiện hoặc thực hiện không đúng các qui định về phòng cháy chữa cháy để dẫn tới hậu quả làm nhiều người chết….</div>
+                                            <div class="comment_info">
+                                                <div class="comment_info_img">
+                                                    <img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2016/05/luat-su-120x120.webp"/>
+                                                </div>
+                                                <div class="comment_info_text">
+                                                    <p>Luật sư Nguyễn Anh Thơm</p>
+                                                    <p>Nhà kinh doanh </p>
+                                                </div>
                                             </div>
-                                            <div class="comment_info_text">
-                                                <p>Luật sư Nguyễn Anh Thơm</p>
-                                                <p>Nhà kinh doanh </p>
+                                        </div>
+                                        <!-- Item 3 -->
+                                        <div class="swiper-slide comment_sections">
+                                            <div class="comment_text">Nếu cơ quan điều tra có căn cứ xác định chủ cơ sở đã không thực hiện hoặc thực hiện không đúng các qui định về phòng cháy chữa cháy để dẫn tới hậu quả làm nhiều người chết….</div>
+                                            <div class="comment_info">
+                                                <div class="comment_info_img">
+                                                    <img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2016/05/luat-su-120x120.webp"/>
+                                                </div>
+                                                <div class="comment_info_text">
+                                                    <p>Luật sư Nguyễn Anh Thơm</p>
+                                                    <p>Nhà kinh doanh </p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
@@ -964,7 +870,7 @@
                 <script type="text/javascript" src="/tomishow/static/src/js/API_div5.js"></script>
                 <script type="text/javascript" src="/tomishow/static/src/js/API_div6.js"></script>
                 <script type="text/javascript" src="/tomishow/static/src/js/API_div7.js"></script>
-                <script type="text/javascript" src="/tomishow/static/src/js/Details.js"></script>
+                <script type="text/javascript" src="/tomishow/static/src/js/API_div8.js"></script>
                 <script type="text/javascript" src="/tomishow/static/src/js/Home.js"></script>
                 <script type="text/javascript" src="/tomishow/static/src/js/API_banner.js"></script>
                 <script type="text/javascript" src="/tomishow/static/src/js/API_footer.js"></script>

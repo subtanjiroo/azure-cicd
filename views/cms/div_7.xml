@@ -26,6 +26,14 @@
                                     </list>
                                 </field>
                             </page>
+                            <page string="Hình ảnh">
+                                <field name="clickable_image_ids" context="{'form_view_ref':'tomishow.view_form_cms_div7_clickable_image'}">
+                                    <list>
+                                        <field name="title"/>
+                                        <field name="image" widget="image"/>
+                                    </list>
+                                </field>
+                            </page>
                         </notebook>
                     </group>
                 </sheet>

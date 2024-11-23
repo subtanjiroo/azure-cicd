@@ -6,7 +6,6 @@
         <field name="arch" type="xml">
             <form create="false" delete="false">
                 <sheet>
-
                     <group>
                         <field name="main_title"/>
                         <field name="text"/>

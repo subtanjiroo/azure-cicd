@@ -3,50 +3,28 @@
         <template id="Details_Page" name="Details Page">
             <t t-call="website.layout">
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOM2bw6xElppNFaTZg3F8K5J1JgG0hwRXE9MFEJk" crossorigin="anonymous"/>
-                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
-                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"/>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+                <!-- Swiper CSS -->
+                <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+                <!-- Swiper JS -->
+                <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
-                <!-- javascript cua Owl carousel -->
-                <script>
-                    $(document).ready(function() {
-                        $("#carousel3").owlCarousel({
-                            items: 1,         
-                            loop: true,       
-                            autoplay: true,   
-                            mouseDrag: true,  
-                            touchDrag: true,  
-                            nav: false,       
-                            dots: false,
-                            responsive: {
-                                0:{
-                                    items: 1
-                                },
-                                850:{
-                                    items: 2
-                                },
-                                1200: {
-                                    items: 1
-                                },
-                            },
-                        });
-                    });
+                <link rel="stylesheet" href="/tomishow/static/src/css/Details_Style/menuside_style.css"/>
+                <link rel="stylesheet" href="/tomishow/static/src/css/Details_Style/navigation_bar.css"/>
+                <link rel="stylesheet" href="/tomishow/static/src/css/Details_Style/banner.css"/>
+                <link rel="stylesheet" href="/tomishow/static/src/css/Details_Style/footer.css"/>
+                <link rel="stylesheet" href="/tomishow/static/src/css/Details_Style/content.css"/>
 
-
-                </script>
                 <!-- color and body style -->
                 <style>
                     :root {
-                        --main_color: #7b5a14;
-                        --secondary_color: rgb(6,16,32);
-                        --third_color: none;
+                        --main_color: red;
+                        --secondary_color: #7b5a14;
+                        --third_color: rgb(6,16,32);
                         --head_color: #333333;
                         --text1: #7F7F7F; 
                         --text2: white;
                         
-                    }                    
-
+                    }
                     .navbar,
                     .o_footer_copyright,
                     #footer,
@@ -60,234 +38,47 @@
                         margin: 0;
                         padding: 0;
                     }
-                </style>
-                <!-- css navigation -->
-                <style>
-                    .navigation_bar{
-                        display: flex;
-                        flex-direction: row;
-                        color: var(--text2);
-                        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-                        align-items: center;
+                    .swiper-container {
                         width: 100%;
-                        height: 10vh;
-                        position: absolute;
-                        justify-content: space-around;
-                        transition: 0.2s ease;
-                        padding: 10px 25px;
+                        padding: 20px 0;
+                        overflow: hidden; /* Ẩn các phần của slide chưa vuốt tới */
                     }
-                    .navigation_bar.fixed {
-                        position: sticky;
-                        top: 0;
-                        background-color: var(--secondary_color);
-                        height: 10vh;
-                        z-index: 10000;
-                    }
-                    .navigation_bar img{
-                    }
-                    .menuItems{
+
+                    .swiper-slide {
                         display: flex;
-                        justify-content: space-around;
-                        width: 60%;
-                        height: auto;
-                        font-size: 15px;
-                    }
-                    .menuItems span{
-                        font-weight: bold;
-                        text-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
-                        transition: .1s linear;
-                        cursor: pointer;
-                    }
-                    .menuItems span:hover{
-                        color: var(--main_color);
-                        text-shadow: 0 0 BLACK;
-                    }
-                    .PhoneNumber p{
-                        font-family: PT serif;
-                        color: var(--text2);
-                        margin:0;
-                        line-height: 1;
-                        font-weight: bold;
-                    }
-                    .PhoneNumber {
-                        display: flex;
-                        flex-direction: column;
+                        justify-content: center;
                         align-items: center;
                         text-align: center;
+                        flex-shrink: 0; /* Ngăn không cho các slide bị co lại */
+                        width: 100%; /* Đảm bảo mỗi slide chiếm toàn bộ chiều rộng */
                     }
 
-                    .phone-row {
-                        display: flex;
-                        align-items: center;
-                        gap: 8px; /* Adjust spacing between the icon and phone number */
+                    .item_slider{
+                        background-color: transparent;
+                        padding: 20px;
+                    }
+                    .Lawer_slider_items {
+                        background-color: #f9f9f9;
+                        padding: 20px;       
+                    }
+                    .slider_img img, .Lawer_slider_imgs img {
+                        max-width: 100%;
+                        border-radius: 500px;
+                    }
+                    /* Định nghĩa trạng thái ban đầu (ẩn và trượt xuống dưới) */
+                    .fade-in {
+                        opacity: 0;
+                        transform: translateY(30px); /* Trượt xuống 30px */
+                        transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Hiệu ứng mượt */
                     }
 
-                    .phone-number {
-                        font-size: 23px;
-                        margin: 0;
+                    /* Khi phần tử được nhìn thấy (được thêm class 'visible') */
+                    .fade-in.visible {
+                        opacity: 1;
+                        transform: translateY(0); /* Trở về vị trí ban đầu */
                     }
 
-                    .consult-text {
-                        font-size: 13px;
-                        margin: 5px 0 0 0;
-                    }
-                    .PhoneMenu{
-                        display:none;
-                        font-weight: bold;
-                        padding: 5px;
-                        cursor: pointer;
-                    }
-                    @media (max-width: 1150px) {
-                        .PhoneMenu{
-                            display:block;
-                            background-color: var(--main_color);
-                            border-radius: 50px;
-                            padding: 5px 10px;  
-                            
-                        }
-                        .PhoneNumber{
-                            position: absolute;
-                            right: 95px;
-                        }
-                        .menuItems{
-                            display:none;
-                        }
-                        .menuItems,
-                        .navigation_bar{
-                            justify-content: space-between;
-                        }
-                        .banner span {
-                            font-size: 1.2rem !important;
-                        }
-                    }
-                    @media(max-width: 1200px){
-
-                    }
-                    @media (max-width: 550px) {
-                        .banner h1 {
-                        font-size: 8.5vw !important;
-                        }
-                        .banner span {
-                            font-size: 0.7rem !important;
-                        }
-                        .banner img {
-                            width: 50px !important;
-                            height: 50px !important;
-                            padding: 5px !important;
-                        }
-                        .PhoneNumber{
-                            display: none;
-                        }
-                        .navigation_bar {
-                            height: 10vh;
-                        }
-                    }
-                    @media (max-width: 350px) {
-                        .navigation_bar img {
-                            transform: scale(0.8) !important;
-                        }
-                        .side-menu .SidemenuItems {
-                            width: 90%;
-                        }
-                        .navigation_bar {
-                            height: 60px !important;
-                            padding: 0;
-                            padding-right: 15px;
-                        }
-                        .side-menu {
-                            width: 100%;
-                            align-items: flex-start;
-                            padding-left: 50px;
-                        }
-                        .p2 {
-                            font-size: 20px !important;
-                        }
-                        .p1 {
-                            font-size: 20px !important;
-                        }
-                        .navLogo{
-                            margin: 0 !important;
-                        }
-                    }
-                    .menu_active{
-                        color: var(--main_color) !important;
-                    }
-                    html {
-                    scroll-behavior: smooth;
-                    }
                 </style>
-                <!-- css menu side -->
-                <style>
-                    .side-menu {
-                        position: fixed;
-                        top: 0;
-                        right: -100%;
-                        width: 250px;
-                        height: 100%;
-                        background-color: #ffffff;;
-                        color: var(--text2);
-                        transition: right 0.3s ease;
-                        z-index: 1000;
-                        padding-top: 20px;
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                        padding-left: 10px;
-                        box-sizing: border-box;
-                    }
-                    .side-menu.open {
-                        right: 0;
-                        width: 100%;
-                    }
-                    .side-menu .close-btn {
-                        align-self: flex-end;
-                        margin-right: 20px;
-                        font-size: 20px;
-                        cursor: pointer;
-                        padding: 4px 10px;
-                        background-color: var(--main_color);
-                    }
-                    .side-menu .SidemenuItems {
-                        display: flex;
-                        flex-direction: column;
-                        gap: 20px;
-                        text-align: left;
-                        width: 90%;
-                        cursor: pointer;
-                    }
-                    .side-menu .SidemenuItems span {
-                        color: #000000;
-                        text-shadow: 0 0 8px rgb(255 255 255 / 70%);
-                        transition: 0.1s linear;
-                        width: 90%;
-                        padding: 5px;
-                        font-size: 20px;
-                        font-family: PT serif;
-                        border-bottom: #80808042 solid 1.5px;
-                    }
-                    .side-menu .SidemenuItems span:hover {
-                        color: var(--main_color);
-                    }
-                    .menuItems span.active {
-                        color: var(--main_color);
-                    }
-
-                    #dark_overlay{
-                        width:100%;
-                        height: 100vh;
-                        background-color: rgba(0, 0, 0, 0.233);
-                        position: fixed;
-                        display:none;
-                        z-index: 300;
-                    }
-                    #dark_overlay .display{
-                        display:block;
-                    }
-                    #nav_bar .hide{
-                        display: none !important;
-                    }
-                </style>
-                <!-- javascript menu side -->
                 <script>
                     function toggleMenu() {
                         const sideMenu = document.getElementById("sideMenu");
@@ -302,61 +93,6 @@
                             navigation_bar.classList.add("fixed");
                         }
                     };
-
-                    document.addEventListener('DOMContentLoaded', function() {
-                        // Lắng nghe sự kiện click vào các item trong menu
-                        var navItems = document.querySelectorAll('.menu-item');
-                        console.log(navItems);
-
-                        navItems.forEach(function(item) {
-                            item.addEventListener('click', function(event) {
-                                // Ngăn chặn hành vi mặc định (di chuyển đến phần tử)
-                                event.preventDefault();
-
-                                // Lấy ID của item và phần tử tương ứng
-                                var targetId = 'section' + item.id.replace('menuItems', '');
-                                console.log('Target ID:', targetId); // Debugging
-
-                                // Kiểm tra phần tử có tồn tại không
-                                var targetElement = document.querySelector('#' + targetId);
-                                if (!targetElement) {
-                                    console.log('Không tìm thấy phần tử với ID:', targetId); // Debugging nếu không tìm thấy phần tử
-                                    return;
-                                }
-
-                                // Cuộn mượt đến phần tử tương ứng
-                                targetElement.scrollIntoView({
-                                    behavior: 'smooth',
-                                    block: 'start' // Đảm bảo phần tử xuất hiện ở đầu màn hình
-                                });
-                            });
-                        });
-                    });
-
-
-
-
-
-
-                </script>
-                <!--navigationbar menu effect -->
-                <script>
-                    document.addEventListener('DOMContentLoaded', function() {
-                        const wrapwrap = document.getElementById('wrapwrap');
-                        const navigation_bar = document.getElementById('nav_bar');
-                        if (navigation_bar) {
-                            wrapwrap.addEventListener('scroll', function() {
-                                
-                                if (wrapwrap.scrollTop > 50) {
-                                    navigation_bar.classList.add('fixed');
-                                } else {
-                                    navigation_bar.classList.remove('fixed');
-                                }
-                            });
-                        } else {
-                            console.error('Element with ID "wrapwrap" or "nav_bar" not found.');
-                        }
-                    });
                 </script>
                 <!-- navigation bar -->
                 <div id="nav_bar" class="navigation_bar">
@@ -393,299 +129,18 @@
                         <span id="menuItems6" onclick="toggleMenu()" class="menu-item">Liên Hệ</span>
                     </div>
                 </div>
-                <!-- banner style -->
-                <style>
-                    .banner {
-                        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url(/tomishow/static/imgs/banner1.png);
-                        background-size: cover;
-                        background-position: center;
-                        background-repeat: no-repeat;
-                        background-attachment: fixed;
-                        height: 65vh;
-                        width: 100%;
-                        justify-content: center;
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                    }
-                    .banner_h1{
-                        color: var(--text2);
-                        font-family: PT Serif;
-                    }
-                </style>
 
                 <!-- banner -->
                 <div class="banner">
                     <h1 class="banner_h1">Chi Tiết Dự Án</h1>
                 </div>
-                <!-- content style -->
-                <style>
-                .content{
-                    width: 100%;
-                    height: auto;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
-                    padding: 10vh 5vw;
 
-                }
-                .content_head{
-                    font-size: 1.6rem;
-                    color: var(--head_color);
-                    font-weight: bold;
-                }
-                </style>
                 <!-- content -->
                 <div class="content">
                     <p class="content_head">About Legal Service</p>
                     Lv4MR0sA0FfDOM2bw6xElppNFaTZg3F8K5J1JgG0hwRXE9MFEJk                                    <img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2018/01/bg-law-section-13-220x220.jpg" alt="img"/><br/>zxczxczxczxczxc
 
                 </div>
-                <!-- css content footer -->
-                <style>
-                    .footer{
-                        background: var(--secondary_color);
-                        width: 100%;
-                        height: auto;
-                        color: var(--text2);
-                        display:flex;
-                        flex-direction: column;
-                        padding: 10px 50px;
-                        justify-content: center;
-                        align-items: center;
-                    }
-                    .footer_content {
-                        display: grid;
-                        grid-template-columns: 1fr 1fr 1fr;
-                        width: 100%;
-                        justify-content: center;
-                    }
-                    .footer_contact,
-                    .footer_daiary,
-                    .slider_comment{
-                        padding: 30px;
-                        display: flex;
-                        flex-direction: column;
-                        align-items: flex-start;
-                        width: 33vw;
-                        height: auto;
-                    }
-                    .copyright{
-                        width: 100%;
-                        display: flex;
-                        flex-direction: column;
-                    }
-                    .copyright_items{
-                        display: flex;
-                        flex-direction: row;
-                        justify-content: space-between;
-                    }
-                    .footer_hr{
-                        width: 100%;
-                        border: 1px #8080804d solid;
-                        margin-bottom: 10px;
-                        border-top-width: 0;
-                    }
-                    .footer_items{
-                        margin-bottom: 15px;
-                        margin-top: 15px;
-
-                    }
-                    .footer_items p{
-                        font-size: 15px;
-                        margin: 0;
-                        color: rgb(142,144,118);
-                    }
-                    .footer_items h6{
-                        font-size: 18px;
-                        color: var(--text2);
-                        font-family: Arial;
-
-                    }
-
-                    .footer_daiary h6{
-                        font-size: 18px;
-                        color: var(--text2);
-                        font-family: Arial;
-
-                    }
-                    
-                    .slider_comment h6{
-                        font-size: 18px;
-                        color: var(--text2);
-                        font-family: Arial;
-
-                    }
-                    .daiary_items{
-                        display: flex;
-                        flex-direction: row;
-                        justify-content: center;
-                        align-items: center;
-                    }
-                    .daiary_text_box{
-                        display: flex;
-                        flex-direction: column;
-                        text-align: left;
-                        width: 100%;
-                        height: auto;
-                    }
-                    .daiary_text{
-                        font-size: 16px;
-                        color: var(--text2);
-                        font-family: Arial;
-                        margin-bottom: 0;
-                        line-height: 2;
-                        margin-top: 15px;
-                        margin-left: 10px;
-                    }
-                    .daiary_date{
-                        font-size: 15px;
-                        margin: 0;
-                        color: rgb(142,144,118);
-                        margin-left: 10px;
-                    }
-                    .daiary_imgs img{
-                        border-radius: 500px;
-                        width: 60px;
-                        height: 60px;
-                    }
-                    .comment_text{
-                        font-size: 15px;
-                        color: var(--text1);
-                    }
-                    .comment_info_img img{
-                        border-radius: 500px;
-                        width: 65px;
-                        height: 65px;
-                    }
-                    .comment_info_text{
-                        color: var(--text2);
-                        font-size: 15px;
-                    }
-                    .comment_info_text{
-                        text-align: left;
-                    }
-                    .comment_text{
-                        margin-bottom: 20px;
-                    }
-                    .comment_sections{
-                        display: flex;
-                        flex-direction: column;
-                        width: 28vw;
-                        cursor: grabbing;
-                    }
-                    .comment_info{
-                        display: flex;
-                        flex-direction: row;
-                        align-items: center;
-                    }
-                    .comment_info p{
-                        margin: 0;
-                        margin-left: 10px;
-                    }
-
-                    .comment_slider_carousel{
-                        width: 100%; 
-                        overflow: hidden; 
-                    }
-                    .comment_slider_owl-carousel .owl-stage {
-                        display: flex;
-                        flex-direction: row; /* Ensure items are horizontal */
-                    }
-
-                    .comment_slider_owl-carousel .owl-item {
-                        width: auto; /* Adjust width as needed */
-                    }
-                    .owl-theme .owl-nav {
-                        display: none;
-                    }
-                    .social_logo i{
-                        background: none;
-                        width: 30px;
-                        height: 30px;
-                        border-radius: 500px;
-                        display: inline-flex;
-                        justify-content: center;
-                        align-items: center;  
-                        cursor: pointer                  
-                    }
-                    .social_logo i:hover{
-                        background: var(--main_color);
-                    }
-                    @media(max-width: 1200px){
-                        .footer_content {
-                            display: grid;
-                            grid-template-columns: 1fr 1fr;
-                            grid-auto-rows: min-content;
-                            width: 100%;
-                            justify-content: center;
-                        
-                        }
-                        .footer_contact{
-                            grid-column: 1; /* Ô cột đầu tiên */
-                            grid-row: 1; /* Hàng đầu tiên */
-                            width: 100%;
-                        }
-                        .footer_daiary{
-                            grid-column: 2; /* Ô cột thứ hai */
-                            grid-row: 1; /* Hàng đầu tiên */
-                            width: 100%;
-                        }
-                        .slider_comment {
-                            grid-column: 1 / span 2;
-                            grid-row: 2;
-                            width: 100%;
-                        }
-
-                    }
-                    @media(max-width: 850px){
-                        .footer_content {
-                            display: flex;
-                            flex-direction: column;
-
-                        }
-                        .comment_sections {
-                            display: flex;
-                            flex-direction: column;
-                            width: 100%;
-                            cursor: grabbing;
-                        }
-                    }
-                    @media(max-width: 600px){
-                        .copyright_logo{
-                            display: flex;
-                            justify-content: center;
-                        }
-                        .copyright{
-                            flex-direction: column;
-                            justify-content: center;
-                            align-items: center;
-                        }
-                        .copyright_items{
-                            display: flex;
-                            flex-direction: column;
-                        }
-                        .footer {
-                            padding: 0;
-                        }
-                        .daiary_items {
-                            margin-bottom: 10px;
-                        }
-                        .footer_daiary h6 {
-                            margin-bottom: 20px;
-                        }
-                        .daiary_text {
-                            font-size: 14px;
-                            color: var(--text2);
-                            font-family: Arial;
-                            margin-bottom: 0;
-                            line-height: 1.5;
-                            margin-top: 15px;
-                            margin-left: 10px;
-                        }
-                    }
-                </style>
                 <!-- content footer -->
                 <div class="footer">
                     <div class="footer_content">
@@ -760,45 +215,50 @@
                         <div class="slider_comment">
                             <h6>Lời nhận xét</h6>
                             <div class="comment_slider_carousel">
-                                <div id="carousel3" class="comment_slider_owl-carousel owl-theme">
-                                    <!-- items -->  
-                                    <div class="comment_sections">
-                                        <div class="comment_text">Nếu cơ quan điều tra có căn cứ xác định chủ cơ sở đã không thực hiện hoặc thực hiện không đúng các qui định về phòng cháy chữa cháy để dẫn tới hậu quả làm nhiều người chết….</div>
-                                        <div class="comment_info">
-                                            <div class="comment_info_img">
-                                                <img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2016/05/luat-su-120x120.webp"/>
-                                            </div>
-                                            <div class="comment_info_text">
-                                                <p>Luật sư Nguyễn Anh Thơm</p>
-                                                <p>Nhà kinh doanh </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="comment_sections">
-                                        <div class="comment_text">Nếu cơ quan điều tra có căn cứ xác định chủ cơ sở đã không thực hiện hoặc thực hiện không đúng các qui định về phòng cháy chữa cháy để dẫn tới hậu quả làm nhiều người chết….</div>
-                                        <div class="comment_info">
-                                            <div class="comment_info_img">
-                                                <img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2016/05/luat-su-120x120.webp"/>
-                                            </div>
-                                            <div class="comment_info_text">
-                                                <p>Luật sư Nguyễn Anh Thơm</p>
-                                                <p>Nhà kinh doanh </p>
+                                <div class="swiper-container" id="carousel3">
+                                    <div class="swiper-wrapper">
+                                        <!-- Item 1 -->
+                                        <div class="swiper-slide comment_sections">
+                                            <div class="comment_text">Nếu cơ quan điều tra có căn cứ xác định chủ cơ sở đã không thực hiện hoặc thực hiện không đúng các qui định về phòng cháy chữa cháy để dẫn tới hậu quả làm nhiều người chết….</div>
+                                            <div class="comment_info">
+                                                <div class="comment_info_img">
+                                                    <img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2016/05/luat-su-120x120.webp"/>
+                                                </div>
+                                                <div class="comment_info_text">
+                                                    <p>Luật sư Nguyễn Anh Thơm</p>
+                                                    <p>Nhà kinh doanh </p>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="comment_sections">
-                                        <div class="comment_text">Nếu cơ quan điều tra có căn cứ xác định chủ cơ sở đã không thực hiện hoặc thực hiện không đúng các qui định về phòng cháy chữa cháy để dẫn tới hậu quả làm nhiều người chết….</div>
-                                        <div class="comment_info">
-                                            <div class="comment_info_img">
-                                                <img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2016/05/luat-su-120x120.webp"/>
+                                        <!-- Item 2 -->
+                                        <div class="swiper-slide comment_sections">
+                                            <div class="comment_text">Nếu cơ quan điều tra có căn cứ xác định chủ cơ sở đã không thực hiện hoặc thực hiện không đúng các qui định về phòng cháy chữa cháy để dẫn tới hậu quả làm nhiều người chết….</div>
+                                            <div class="comment_info">
+                                                <div class="comment_info_img">
+                                                    <img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2016/05/luat-su-120x120.webp"/>
+                                                </div>
+                                                <div class="comment_info_text">
+                                                    <p>Luật sư Nguyễn Anh Thơm</p>
+                                                    <p>Nhà kinh doanh </p>
+                                                </div>
                                             </div>
-                                            <div class="comment_info_text">
-                                                <p>Luật sư Nguyễn Anh Thơm</p>
-                                                <p>Nhà kinh doanh </p>
+                                        </div>
+                                        <!-- Item 3 -->
+                                        <div class="swiper-slide comment_sections">
+                                            <div class="comment_text">Nếu cơ quan điều tra có căn cứ xác định chủ cơ sở đã không thực hiện hoặc thực hiện không đúng các qui định về phòng cháy chữa cháy để dẫn tới hậu quả làm nhiều người chết….</div>
+                                            <div class="comment_info">
+                                                <div class="comment_info_img">
+                                                    <img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2016/05/luat-su-120x120.webp"/>
+                                                </div>
+                                                <div class="comment_info_text">
+                                                    <p>Luật sư Nguyễn Anh Thơm</p>
+                                                    <p>Nhà kinh doanh </p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
@@ -811,6 +271,9 @@
                     </div>
 
                 </div>
+
+                <script type="text/javascript" src="/tomishow/static/src/js/Details.js"></script>
+
             </t>
         </template>
     </data>

@@ -10,6 +10,7 @@
                         <field name="quote"/>
                         <field name="author"/>
                         <field name="title"/>
+                        <field name="image" widget="image"/>
                     </group>
                 </sheet>
             </form>

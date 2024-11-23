@@ -1,0 +1,17 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_cms_header_group_user,access_cms_header_group_user,tomishow.model_cms_header,base.group_user,1,1,1,1
+access_cms_div1_group_user,access_cms_div1_group_user,tomishow.model_cms_div1,base.group_user,1,1,1,1
+access_cms_div2_group_user,access_cms_div2_group_user,tomishow.model_cms_div2,base.group_user,1,1,1,1
+access_cms_div3_group_user,access_cms_div3_group_user,tomishow.model_cms_div3,base.group_user,1,1,1,1
+access_cms_div3_iconandtext_group_user,access_cms_div3_iconandtext_group_user,tomishow.model_cms_div3_iconandtext,base.group_user,1,1,1,1
+access_cms_div4_group_user,access_cms_div4_group_user,tomishow.model_cms_div4,base.group_user,1,1,1,1
+access_cms_div4_project_group_user,access_cms_div4_project_group_user,tomishow.model_cms_div4_project,base.group_user,1,1,1,1
+access_cms_div5_group_user,access_cms_div5_group_user,tomishow.model_cms_div5,base.group_user,1,1,1,1
+access_cms_div6_group_user,access_cms_div6_group_user,tomishow.model_cms_div6,base.group_user,1,1,1,1
+access_cms_div6_people_group_user,access_cms_div6_people_group_user,tomishow.model_cms_div6_people,base.group_user,1,1,1,1
+access_cms_div7_group_user,access_cms_div7_group_user,tomishow.model_cms_div7,base.group_user,1,1,1,1
+access_cms_div7_process_group_user,access_cms_div7_process_group_user,tomishow.model_cms_div7_process,base.group_user,1,1,1,1
+access_cms_div7_rule_group_user,access_cms_div7_rule_group_user,tomishow.model_cms_div7_rule,base.group_user,1,1,1,1
+access_cms_div7_image_group_user,access_cms_div7_image_group_user,tomishow.model_cms_div7_image,base.group_user,1,1,1,1
+access_cms_div8_group_user,access_cms_div8_group_user,tomishow.model_cms_div8,base.group_user,1,1,1,1
+access_cms_div8_connection_group_user,access_cms_div8_connection_group_user,tomishow.model_cms_div8_connection,base.group_user,1,1,1,1

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_form_cms_div8_connection" model="ir.ui.view">
+        <field name="name">cms.div8.connection.form</field>
+        <field name="model">cms.div8.connection</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="title"/>
+                        <field name="text"/>
+                        <field name="icon" widget="image"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo> 

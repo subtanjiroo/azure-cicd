@@ -25,11 +25,9 @@ document.addEventListener('DOMContentLoaded', () => {
             for (let i = 0; i < binaryString.length; i++) {
                 asciiString += String.fromCharCode(binaryString.charCodeAt(i));
             }
-            console.log(asciiString);
             return asciiString;
         };
         const HomeData = data;
-        console.log(HomeData);
 
         const connection = document.querySelector('.content8_text2');
         const connection_items = HomeData.connections;
@@ -45,6 +43,12 @@ document.addEventListener('DOMContentLoaded', () => {
             connection.innerHTML += cardHTML;
         });
 
+
+        // Thêm Google Map vào .map-container
+        const mapContainer = document.querySelector('.map-container');
+        if (HomeData.google_map) {
+            mapContainer.innerHTML = HomeData.google_map; // Chèn iframe vào map-container
+        }
     })
     .catch(error => {
         console.error('Error fetching data:', error);

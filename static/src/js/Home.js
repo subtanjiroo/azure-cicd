@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error('Element with ID "wrapwrap" or "nav_bar" not found.');
     }
 });
-
+//url effect
 document.addEventListener('DOMContentLoaded', function () {
     const urlParams = new URLSearchParams(window.location.search);
     const itemId = urlParams.get('itemId');
@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (itemId) {
         var targetId = 'section' + itemId.replace('menuItems', '');
         var targetElement = document.querySelector('#' + targetId);
-
+        console.log(targetElement);
         if (targetElement) {
             smoothScrollTo(targetElement, 1000, 40); // Gọi hàm cuộn mượt
         }

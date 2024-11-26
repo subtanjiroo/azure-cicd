@@ -7,10 +7,20 @@ document.addEventListener('DOMContentLoaded', () => {
                     'Content-Type': 'application/json'
                 }
             });
-            
+            function decodeBase64ToAscii(base64String) {
+                // Giải mã base64 thành ASCII
+                let binaryString = atob(base64String);
+                let asciiString = '';
+                for (let i = 0; i < binaryString.length; i++) {
+                    asciiString += String.fromCharCode(binaryString.charCodeAt(i));
+                }
+                return asciiString;
+            }
             if (response.ok) {
                 const data = await response.json();
                 const HomeData = data;
+                
+
                 const title_1 = document.querySelector('.title_1');
                 if (title_1) {
                     title_1.innerText = HomeData.title_1;
@@ -58,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     flipBoardData.forEach(flip => {
                         const cardHTML = `
                             <div class="content2_card">
-                                <div class="card-inner">
+                                <div class="card-inner" style="background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)),url(data:image/png;base64,${decodeBase64ToAscii(flip.background_image)});background-size: cover;background-position: center top;background-repeat: no-repeat;">
                                     <!-- Front of the Card -->
                                     <div class="card-front">
                                         <p>${flip.text_not_flipped}</p>

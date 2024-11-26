@@ -218,5 +218,13 @@
 }
 .content7_logo_out_circle{
     width: 40px;
-    height: auto;
+    height: 40px;
+}
+.center_circle_box img {
+    width: 50px;
+    height: 50px;
+    background-color: rgb(20, 58, 123);
+    padding: 8px;
+    border-radius: 500px;
+    margin-bottom: 5px;
 }

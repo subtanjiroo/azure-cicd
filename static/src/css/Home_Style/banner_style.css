@@ -10,6 +10,9 @@
     flex-direction: column;
     align-items: center;
 }
+.banner1_span{
+    width: 90%;
+}
 .banner h1 {
     color: var(--text1);
     font-family: 'Times New Roman', Times, serif;

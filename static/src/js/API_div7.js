@@ -80,14 +80,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         menu_items.forEach((item, index) => {
             const center_circle_box = document.querySelector('.info_circle_mobile');
-
+            const img = decodeBase64ToAscii(item.icon);
             if (center_circle_box) {
                 // Render nội dung vào phần tử
                 const cardHTML = `
                     <div class="circle_text_mobile">
-                        <i class="fa-solid fa-graduation-cap center_circle_logo"></i>
                         <div class="center_circle_box">
-                            <i class="fa-solid fa-graduation-cap center_circle_logo2"></i>
+                            <img class="content7_logo_out_circle" src="data:image/png;base64,${img}" alt="img"/>
                             <p class="center_circle_text">${item.title}</p>
                             <p class="center_circle_subtext">${item.text}</p>
                         </div>

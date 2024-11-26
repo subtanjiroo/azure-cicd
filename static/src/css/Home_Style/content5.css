@@ -66,3 +66,14 @@
         width: 80%;
     }
 }
+@media(max-width: 500px){
+    .content5_text1 p{
+        font-size: 0.8rem !important;
+    }
+    .RP {
+        font-size: 25px;
+    }
+    .CEO {
+        font-size: 20px;
+    }
+}

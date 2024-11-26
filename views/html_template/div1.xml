@@ -1,0 +1,277 @@
+<!-- /* css content 1 */ -->
+<style>
+    
+    .content1{
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: auto;
+        align-items: center;
+        flex-direction: column;
+        padding: 10vh 5vw;
+    }
+    .content1_text{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 60%;
+    }
+    .content1_text h2{
+        font-weight: bold;
+        margin-bottom: 15px;
+        font-family: Arial, Helvetica, sans-serif;;
+    }
+    .content1_text p{
+        color: rgb(127,127,127);
+        font-family: inherit;
+        font-size: 20px;
+        font-weight: 600;
+        font-style: italic;
+    }
+
+</style>
+<!-- div 1 js -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        async function fetchAndRenderData() {
+            try {
+                const response = await fetch('/get_div_1', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+                const HomeData = await response.json();
+
+                // Giải mã base64 sang ASCII
+                function decodeBase64ToAscii(base64String) {
+                    // Giải mã base64 thành ASCII
+                    let binaryString = atob(base64String);
+                    let asciiString = '';
+                    for (let i = 0; i < binaryString.length; i++) {
+                        asciiString += String.fromCharCode(binaryString.charCodeAt(i));
+                    }
+                    return asciiString;
+                }
+
+                // Render data from API
+                const card_logo_left = document.querySelector('.card_logo_left');
+                if (card_logo_left) {
+                    if (HomeData.left_icon) {
+                        let asciiString = decodeBase64ToAscii(HomeData.left_icon); // Giải mã base64 sang ASCII
+                        card_logo_left.src = `data:image/png;base64,${asciiString}`; // Gán vào thẻ <img>
+                    }
+                }
+
+                const card_logo_mid = document.querySelector('.card_logo_mid');
+                if (card_logo_mid) {
+                    if (HomeData.mid_icon) {
+                        let asciiString = decodeBase64ToAscii(HomeData.mid_icon);
+                        card_logo_mid.src = `data:image/png;base64,${asciiString}`;
+                    }
+                }
+
+                const card_logo_right = document.querySelector('.card_logo_right');
+                if (card_logo_right) {
+                    if (HomeData.right_icon) {
+                        let asciiString = decodeBase64ToAscii(HomeData.right_icon);
+                        card_logo_right.src = `data:image/png;base64,${asciiString}`;
+                    }
+                }
+
+                const main_title = document.querySelector('.main_title_div1');
+                if (main_title) {
+                    main_title.innerText = HomeData.main_title;
+                }
+
+                const main_text = document.querySelector('.main_text_div1');
+                if (main_text) {
+                    main_text.innerText = HomeData.main_text;
+                }
+
+                const left_title = document.querySelector('.left_title');
+                if (left_title) {
+                    left_title.innerText = HomeData.left_title;
+                }
+
+                const left_text = document.querySelector('.left_text');
+                if (left_text) {
+                    left_text.innerText = HomeData.left_text;
+                }
+
+                const mid_title = document.querySelector('.mid_title');
+                if (mid_title) {
+                    mid_title.innerText = HomeData.mid_title;
+                }
+
+                const mid_text = document.querySelector('.mid_text');
+                if (mid_text) {
+                    mid_text.innerText = HomeData.mid_text;
+                }
+
+                const right_title = document.querySelector('.right_title');
+                if (right_title) {
+                    right_title.innerText = HomeData.right_title;
+                }
+
+                const right_text = document.querySelector('.right_text');
+                if (right_text) {
+                    right_text.innerText = HomeData.right_text;
+                }
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+
+        // Gọi hàm để lấy và render dữ liệu
+        fetchAndRenderData();
+    });
+
+</script>
+<!-- content 1 -->
+<div class="content1">
+    <div class="content1_text fade-in">
+        <h2 class="main_title_div1"></h2>
+        <div class="hr"></div>
+        <p class="main_text_div1"></p>
+    </div>
+    <!-- css card -->
+    <style>
+        .content1_card{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            margin-top: 30px;
+            padding-bottom: 40px;
+        }
+        .card_items{
+            background-color: rgb(247, 247, 247);
+            padding: 30px 40px;
+            margin: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            width: 25vw;
+        }
+        .card_logo{
+            color: #ffffff;
+            background: #143a7b;
+            border-style: solid;
+            border-color: #ffffff;
+            border-width: 0px;
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            border-radius: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .card_logo_left,
+        .card_logo_mid,
+        .card_logo_right{
+            width: inherit;
+            height: inherit;
+            padding: 10px;
+        }
+        .heading{
+            color: var(--head_color);
+            font-weight: bold;
+            margin-top: 22px;
+            margin-bottom: 15px;
+            font-size: 20px;
+            line-height: 30px;
+        }
+        .texting{
+            color: var(--text1);
+            font-size: 15px;
+        }
+        .card_btn{
+            background-color: var(--secondary_color);
+            padding: 5px 10px;
+            margin-top: 50px;
+            color: var(--text2);
+            font-weight: bold;
+            text-shadow: 0 0 8px rgba(255, 255, 255,0.5);
+        }
+        @media (max-width: 1200px) {
+            .content1_text {
+                width: 65%;
+            }
+            .card_items{
+                width: 65%;
+            }
+            .card_btn {
+                margin-top: 30px;
+            }
+            .content1_text p {
+                font-size: 18px;
+            }
+            .content1_card{
+                flex-direction: column;
+                align-items: center;
+            }
+            .banner span {
+                font-size: 25px;
+            }
+        }
+        @media (max-width: 500px) {
+            .content1_card{
+                flex-direction: column;
+                align-items: center;
+            }
+            .content1_text {
+                width: 90%;
+            }
+            .card_items {
+                width: 100%;
+            }
+            .content1_text p{
+                font-size: 1rem;
+            }
+
+            .content1_text h2{
+                font-size: 1.7rem;
+            }
+            .content1_text .hr {
+                margin-bottom: 20px;
+            }
+        }
+
+
+    </style>
+    <!-- card items -->
+    <div class="content1_card fade-in">
+        <div class="card_items">
+            <div class="card_logo"><img class="card_logo_left" src=""/></div>
+            <div class="card_text">
+                <p class="heading left_title"></p>
+                <p class="texting left_text"></p>
+            </div>
+            <div class="card_btn">Tư vấn miễn phí</div>
+        </div>
+        
+        <div class="card_items">
+            <div class="card_logo"><img class="card_logo_mid" src=""/></div>
+            <div class="card_text">
+                <p class="heading mid_title"></p>
+                <p class="texting mid_text"></p>
+            </div>
+            <div class="card_btn">Gặp nhóm chúng tôi</div>
+        </div>
+        <div class="card_items">
+            <div class="card_logo"><img class="card_logo_right" src=""/></div>
+            <div class="card_text">
+                <p class="heading right_title"></p>
+                <p class="texting right_text"></p>
+            </div>
+            <div class="card_btn">Đọc lời nhận xét</div>
+        </div>
+    </div>
+</div>

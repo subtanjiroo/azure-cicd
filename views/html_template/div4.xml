@@ -1,0 +1,157 @@
+<!-- /* css content 4 */ -->
+<style>
+
+    .content4{
+        background-color: rgb(248, 248, 248);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10vh;
+    }
+    .content4_box1{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .content4_box1 h2{
+        font-size:2rem;
+        color: black;
+        font-weight:bold;
+        text-align: center;
+    }
+    .item_slider{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding: 10px;
+        text-align: center;
+        align-items: center;
+    }
+    .item_slider p{
+        color: var(--text1);
+        font-family: Arial;
+        font-size: 15px;
+    }
+    .item_slider span{
+        color: var(--head_color);
+        font-family: PT Serif;
+        font-size: 25px;
+        padding: 20px;
+    }
+    .content4_box2{
+        margin-top:30px;
+        width: 90vw;
+    }
+    .slider_img img{
+        border-radius: 500px;
+        width: 220px;
+        height: 220px;
+    }
+    #carousel1{
+        cursor: grabbing;
+        display: flex;
+        flex-direction: row;
+    }
+    @media(max-width: 500px){
+    .content4_box1 h2{
+        font-size: 1.5rem !important;
+    }
+}
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const BaseURL = "http://localhost:8070";
+
+        // Fetch và render nội dung cho carousel1
+        fetch('/get_div_4', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Giải mã base64 sang ASCII
+            function decodeBase64ToAscii(base64String) {
+                let binaryString = atob(base64String);
+                let asciiString = '';
+                for (let i = 0; i < binaryString.length; i++) {
+                    asciiString += String.fromCharCode(binaryString.charCodeAt(i));
+                }
+                return asciiString;
+            }
+
+            const grid_items = data.projects;
+            const HomeData = data;
+            const swiperWrapper1 = document.querySelector('#carousel1 .swiper-wrapper');
+            const main_title = document.querySelector('.main_title_div4');
+
+            if (main_title) {
+                main_title.innerText = HomeData.main_title;
+            }
+
+            if (grid_items) {
+                if (swiperWrapper1) {
+                    grid_items.forEach(item => {
+                        const img = decodeBase64ToAscii(item.image);
+                        const cardHTML = `
+                            <div class="swiper-slide" data-id="${item.id}">
+                                <div class="item_slider">
+                                    <div class="slider_img">
+                                        <img src="data:image/png;base64,${img}" alt="img"/>
+                                    </div>
+                                    <span>${item.title}</span>
+                                    <p>${item.small_text}</p>
+                                </div>
+                            </div>
+                        `;
+                        swiperWrapper1.innerHTML += cardHTML;
+                    });
+
+                    // Thêm sự kiện click vào mỗi phần tử
+                    document.querySelectorAll('#carousel1 .swiper-slide').forEach(slide => {
+                        slide.addEventListener('click', () => {
+                            const itemId = "testing";
+                            if (itemId) {
+                                window.location.href = `${BaseURL}/details?ID=${itemId}`;
+                            }
+                        });
+                    });
+
+                    // Khởi tạo Swiper cho carousel1 sau khi phần tử đã được render
+                    new Swiper('#carousel1', {
+                        loop: true,
+                        autoplay: {
+                            delay: 3000,
+                            disableOnInteraction: false,
+                        },
+                        slidesPerView: 4,
+                        spaceBetween: 10,
+                        breakpoints: {
+                            0: { slidesPerView: 1 },
+                            600: { slidesPerView: 3 },
+                            1000: { slidesPerView: 4 },
+                        }
+                    });
+                }
+            }
+        })
+        .catch(error => console.error('Error fetching data:', error));
+    });
+
+</script>
+</style>
+<!-- content 4 -->
+<div class="content4 fade-in">
+    <div class="content4_box1">
+        <h2 class="main_title_div4"></h2>
+        <div class="hr"></div>
+    </div>
+    <div class="content4_box2">
+        <div id="carousel1" class="swiper-container">
+            <div class="swiper-wrapper">
+                <!-- Các item sẽ được thêm qua JS -->
+            </div>
+        </div>
+    </div>
+</div>

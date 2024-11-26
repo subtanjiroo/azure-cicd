@@ -1,0 +1,186 @@
+<!-- /* css content 6 */ -->
+<style>
+
+    .content6{
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+        padding: 10vh 0;
+    }
+    .content6_text1 p{
+        font-size:3rem;
+        color: black;
+        font-weight:bold;
+        text-align: center;
+    }
+    .content6_text1{
+        margin-bottom: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .content6_text1 h2{
+        font-weight: bold;
+        font-size: 2rem;
+    }
+    .Lawer_slider{
+        width: 90%;
+        height:auto;
+    }
+    .Lawer_slider_btn{
+        background-color: var(--secondary_color);
+        padding: 5px 10px;
+        color: var(--text2);
+        font-weight: bold;
+        text-shadow: 0 0 8px rgba(255, 255, 255,0.5);
+        text-align: center;
+        display: flex;
+        align-items: center;
+    }
+    .Lawer_slider_text{
+        text-align: center;
+    }
+    .Lawer_slider_texting{
+        font-size: 15px;
+        font-family: Arial;
+        color: var(--text1);
+    }
+    .Lawer_slider_heading{
+        color:black;
+        font-size: 24px;
+        font-family: Arial;
+        font-weight: bold;
+        margin-bottom: 0 !important;
+        margin-top: 10px !important;
+    }
+    .Lawer_slider_imgs img{
+        border-radius: 500px;
+        width: 220px;
+        height: 220px;
+    }
+    .Lawer_slider_items{
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-right: 10px;
+        background: rgb(244, 244, 244);
+        margin-left: 10px;
+    }
+    .Lawer_slider_subtext{
+        margin-bottom: 10px;
+        font-size: 15px;
+        line-height: 28px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #7B5A14;
+    }
+    #carousel2{
+        display: flex;
+        flex-direction: row;
+        cursor: grabbing;
+    }
+    @media (max-width: 400px) {
+        .content6_text1 h2{
+            font-size: 2rem;
+        }
+        
+    }
+
+</style>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+        fetch('/get_div_6', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Giải mã base64 sang ASCII
+            function decodeBase64ToAscii(base64String) {
+                // Giải mã base64 thành ASCII
+                let binaryString = atob(base64String);
+                let asciiString = '';
+                for (let i = 0; i < binaryString.length; i++) {
+                    asciiString += String.fromCharCode(binaryString.charCodeAt(i));
+                }
+                return asciiString;
+            }
+
+            const grid_items = data.people;
+            const swiperWrapper2 = document.querySelector('#carousel2 .swiper-wrapper');
+            const main_title = document.querySelector('.main_title_div6');
+            
+            if (main_title) {
+                main_title.innerText = data.main_title;
+            }
+
+            if (grid_items) {
+                if (swiperWrapper2) {
+                    grid_items.forEach(item => {
+                        const img = decodeBase64ToAscii(item.image);
+                        const cardHTML = `
+                            <div class="swiper-slide">
+                                <div class="Lawer_slider_items">
+                                    <div class="Lawer_slider_imgs">
+                                        <img src="data:image/png;base64,${img}" alt="img"/>
+                                    </div>
+                                    <div class="Lawer_slider_text">
+                                        <p class="Lawer_slider_heading">${item.name}</p>
+                                        <p class="Lawer_slider_subtext">${item.position}</p>
+                                        <p class="Lawer_slider_texting">${item.text}</p>
+                                    </div>
+                                    <div class="Lawer_slider_btn">Xem Chi Tiết</div>
+                                </div>
+                            </div>
+                        `;
+                        swiperWrapper2.innerHTML += cardHTML;
+                    });
+        
+                    // Khởi tạo Swiper cho carousel2
+                    new Swiper('#carousel2', {
+                        loop: true,
+                        autoplay: {
+                            delay: 4000, // Thời gian chuyển slide (ms)
+                            disableOnInteraction: false,
+                        },
+                        slidesPerView: 3,
+                        spaceBetween: 10,
+                        breakpoints: {
+                            0: { slidesPerView: 1 },
+                            600: { slidesPerView: 2 },
+                            1000: { slidesPerView: 3 },
+                            1800: { slidesPerView: 4 }
+                        }
+                    });
+                }
+            }
+        })
+        .catch(error => console.error('Error fetching data:', error));
+
+    });
+
+</script>
+<!-- content 6 -->
+<div class="content6 fade-in">
+    <div class="content6_text1">
+        <h2 class="main_title_div6"></h2>
+        <div class="hr"></div>
+    </div>
+    <div class="Lawer_slider fade-in">
+        <!-- Carousel 2 -->
+        <div id="carousel2" class="swiper-container">
+            <div class="swiper-wrapper">
+                <!-- Các slide sẽ được render vào đây -->
+            </div>
+        </div>
+    </div>
+</div>

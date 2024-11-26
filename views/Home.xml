@@ -9,8 +9,7 @@
                 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
                 <!-- Swiper JS -->
                 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-                
-                
+
                 <link rel="stylesheet" href="/tomishow/static/src/css/Home_Style/content1.css"/>
                 <link rel="stylesheet" href="/tomishow/static/src/css/Home_Style/content2.css"/>
                 <link rel="stylesheet" href="/tomishow/static/src/css/Home_Style/content3.css"/>
@@ -698,7 +697,7 @@
                             /* Thiết lập container */
                             .map-container {
                                 width: 100%;
-                                height: auto;
+                                height: 350px;
                                 position: relative;
                                 overflow: hidden;
                             }
@@ -715,7 +714,7 @@
                         <!-- form and google map -->
                         <div class="content8_text3 fade-in">
                             <div class="info_form">
-                                <div class="info_form_text"><h2 style="font-size: 2rem;color: black;font-family: Arial;font-weight: bold;">Nhận đánh giá trường hợp miễn phí ngay hôm nay!</h2></div>
+                                <div class="info_form_text"><h2>Nhận đánh giá trường hợp miễn phí ngay hôm nay!</h2></div>
                                 <div class="content8_text2_subtext">CÓ SẴN 24 GIỜ MỘT NGÀY!</div>
                                 <input class="form_items" placeholder="Name *"/>
                                 <input class="form_items" placeholder="Email *"/>
@@ -724,7 +723,7 @@
                                 <button class="info_form_btn">Nhận tư vấn miễn phí</button>
                             </div>
                             <div class="ggMap">
-                                <div class="info_form_text"><h2 style="font-size: 2rem;color: black;font-family: Arial;font-weight: bold;">Chúng tôi ở đây</h2></div>
+                                <div class="info_form_text"><h2>Chúng tôi ở đây</h2></div>
                                 <div class="content8_text2_subtext time_div8"></div>
                                 <div class="map-container">
 
@@ -863,6 +862,7 @@
                     </div>
 
                 </div>
+                
                 <script type="text/javascript" src="/tomishow/static/src/js/API_div1.js"></script>
                 <script type="text/javascript" src="/tomishow/static/src/js/API_div2.js"></script>
                 <script type="text/javascript" src="/tomishow/static/src/js/API_div3.js"></script>

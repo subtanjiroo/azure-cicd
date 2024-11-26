@@ -66,44 +66,42 @@ class div_2(models.Model):
         _logger.info(self.env['cms.div2'].get_div_2())
 
 
+
+
     def get_flip_board(self):
-        """
-            Get flip_board data
-        :return: [
-            {
-                'text_not_flipped': text_not_flipped,
-                'text_flipped': text_flipped,
-                'background_image': background_image
+        def encode_to_base64(binary_data):
+            """
+            Helper function to encode binary data to base64 string
+            """
+            return base64.b64encode(binary_data).decode('utf-8') if binary_data else None
 
-            }, ...
-        ]
         """
-
-        flip_board=[]
+        Trả về dữ liệu flip_board
+        """
+        flip_board = []
         # flip_board_1
         flip_board.append({
             'title_not_flipped': self.flip_board_1_title_not_flipped,
             'text_not_flipped': self.flip_board_1_text_not_flipped,
             'title_flipped': self.flip_board_1_title_flipped,
             'text_flipped': self.flip_board_1_text_flipped,
-            'background_image': self.flip_board_1_background_image
+            'background_image': encode_to_base64(self.flip_board_1_background_image),
         })
-        #flip_board_2
+        # flip_board_2
         flip_board.append({
             'title_not_flipped': self.flip_board_2_title_not_flipped,
             'text_not_flipped': self.flip_board_2_text_not_flipped,
             'title_flipped': self.flip_board_2_title_flipped,
             'text_flipped': self.flip_board_2_text_flipped,
-            'background_image': self.flip_board_2_background_image
+            'background_image': encode_to_base64(self.flip_board_2_background_image),
         })
-
-        #flip_board_3
+        # flip_board_3
         flip_board.append({
             'title_not_flipped': self.flip_board_3_title_not_flipped,
             'text_not_flipped': self.flip_board_3_text_not_flipped,
             'title_flipped': self.flip_board_3_title_flipped,
             'text_flipped': self.flip_board_3_text_flipped,
-            'background_image': self.flip_board_3_background_image
+            'background_image': encode_to_base64(self.flip_board_3_background_image),
         })
         return flip_board
 

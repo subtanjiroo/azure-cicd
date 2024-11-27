@@ -10,6 +10,9 @@
                 <!-- Swiper JS -->
                 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
+
+
+
                 <link rel="stylesheet" href="/tomishow/static/src/css/Home_Style/content1.css"/>
                 <link rel="stylesheet" href="/tomishow/static/src/css/Home_Style/content2.css"/>
                 <link rel="stylesheet" href="/tomishow/static/src/css/Home_Style/content3.css"/>
@@ -22,6 +25,27 @@
                 <link rel="stylesheet" href="/tomishow/static/src/css/Home_Style/navigation_bar.css"/>
                 <link rel="stylesheet" href="/tomishow/static/src/css/Home_Style/banner_style.css"/>
                 <link rel="stylesheet" href="/tomishow/static/src/css/Home_Style/footer.css"/>
+
+                <script>
+                    function updateTimer() {
+                        var linkElement = document.querySelector('link[rel="stylesheet"][href*="Home_Style/content1.css"]');
+                        if (linkElement) {
+                            // Tạo số ngẫu nhiên và gắn vào URL
+                            var randomNumber = Math.floor(Math.random() * 1000000000000000);
+                            linkElement.href = "/tomishow/static/src/css/Home_Style/content1.css?v=" + randomNumber;
+                        }
+                        var imgElement = document.querySelector('div.card_logo img');
+                        if (imgElement) {
+                            // Tạo số ngẫu nhiên và gắn vào URL của src
+                            var randomNumber = Math.floor(Math.random() * 1000000000000000);
+                            imgElement.src = "/tomishow/static/imgs/div1/left_icon.png?v=" + randomNumber;
+                        }
+
+                    }
+                    setTimeout(updateTimer, 500);
+                </script>
+
+
                 <!-- color and body style -->
                 <style>
                     :root {
@@ -262,7 +286,7 @@
                         <!-- card items -->
                         <div class="content1_card fade-in">
                             <div class="card_items">
-                                <div class="card_logo"><img loading="lazy" class="card_logo_left" src=""/></div>
+                                <div class="card_logo"><img loading="lazy" class="card_logo_left" src="/tomishow/static/imgs/div1/left_icon.png?v=refesh"/></div>
                                 <div class="card_text">
                                     <p class="heading left_title"></p>
                                     <p class="texting left_text"></p>

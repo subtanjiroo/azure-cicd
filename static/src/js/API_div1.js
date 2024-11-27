@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
             const HomeData = await response.json();
-
+            console.log(HomeData);
             // Giải mã base64 sang ASCII
             function decodeBase64ToAscii(base64String) {
                 // Giải mã base64 thành ASCII
@@ -22,12 +22,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
             // Render data from API
-            const card_logo_left = document.querySelector('.card_logo_left');
-            if (card_logo_left && HomeData.left_icon) {
-                let asciiString = decodeBase64ToAscii(HomeData.left_icon); // Giải mã base64 sang ASCII
-                card_logo_left.src = `data:image/png;base64,${asciiString}`; // Gán vào thẻ <img>
+            // const card_logo_left = document.querySelector('.card_logo_left');
+            // if (card_logo_left && HomeData.left_icon) {
+            //     let asciiString = decodeBase64ToAscii(HomeData.left_icon); // Giải mã base64 sang ASCII
+            //     card_logo_left.src = `data:image/png;base64,${asciiString}`; // Gán vào thẻ <img>
 
-            }
+            // }
 
             const card_logo_mid = document.querySelector('.card_logo_mid');
             if (card_logo_mid && HomeData.mid_icon) {

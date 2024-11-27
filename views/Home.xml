@@ -90,7 +90,7 @@
                 <!-- navigation bar -->
                 <div id="nav_bar" class="navigation_bar">
                     <div class="navLogo">
-                        <img src="/tomishow/static/imgs/canhcam_logo.png"/>
+                        <img loading="lazy" src="/tomishow/static/imgs/canhcam_logo.png"/>
                     </div>
                     <div class="menuItems">
                         <span id="menuItems1" class="menu-item">Về chúng tôi</span>
@@ -132,7 +132,7 @@
                 <div class="banner">
                     <div class="banner1">
                         <span class="logo_left_text_banner" style="font-weight: 700;">EST.</span>
-                        <img class="logo_banner" src=""/>
+                        <img loading="lazy" class="logo_banner" src=""/>
                         <span class="logo_right_text_banner" style="font-weight: 700;">1986</span>
                     </div>
                     <h1 class="banner1_h1 big_title_banner"></h1>
@@ -262,7 +262,7 @@
                         <!-- card items -->
                         <div class="content1_card fade-in">
                             <div class="card_items">
-                                <div class="card_logo"><img class="card_logo_left" src=""/></div>
+                                <div class="card_logo"><img loading="lazy" class="card_logo_left" src=""/></div>
                                 <div class="card_text">
                                     <p class="heading left_title"></p>
                                     <p class="texting left_text"></p>
@@ -271,7 +271,7 @@
                             </div>
                             
                             <div class="card_items">
-                                <div class="card_logo"><img class="card_logo_mid" src=""/></div>
+                                <div class="card_logo"><img loading="lazy" class="card_logo_mid" src=""/></div>
                                 <div class="card_text">
                                     <p class="heading mid_title"></p>
                                     <p class="texting mid_text"></p>
@@ -279,7 +279,7 @@
                                 <div class="card_btn">Gặp nhóm chúng tôi</div>
                             </div>
                             <div class="card_items">
-                                <div class="card_logo"><img class="card_logo_right" src=""/></div>
+                                <div class="card_logo"><img loading="lazy" class="card_logo_right" src=""/></div>
                                 <div class="card_text">
                                     <p class="heading right_title"></p>
                                     <p class="texting right_text"></p>
@@ -375,7 +375,7 @@
                                     <div class="CEO title_div5"></div>
                             </div>
                             <div class="content5_img fade-in">
-                                <img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2023/01/photo-1491336477066-31156b5e4f35.jpeg"/>
+                            <!-- imgs here -->
                             </div>
                     </div>
                 </div>
@@ -768,7 +768,7 @@
                             <h6>Nhật ký của chúng tôi</h6>
                             <div class="daiary_items">
                                 <div class="daiary_imgs">
-                                    <img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2023/01/olia-gozha-J4kK8b9Fgj8-unsplash-120x120.jpg"/>
+                                    <img loading="lazy" src="https://demo.canhcam.com/the7-law/wp-content/uploads/2023/01/olia-gozha-J4kK8b9Fgj8-unsplash-120x120.jpg"/>
                                 </div>
                                 <div class="daiary_text_box">
                                     <p class="daiary_text">Thủ tục đăng ký đi nước ngoài làm việc như thế nào?</p>
@@ -777,7 +777,7 @@
                             </div>
                             <div class="daiary_items">
                                 <div class="daiary_imgs">
-                                    <img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2023/01/olia-gozha-J4kK8b9Fgj8-unsplash-120x120.jpg"/>
+                                    <img loading="lazy" src="https://demo.canhcam.com/the7-law/wp-content/uploads/2023/01/olia-gozha-J4kK8b9Fgj8-unsplash-120x120.jpg"/>
                                 </div>
                                 <div class="daiary_text">
                                     <p class="daiary_text">Người lao động Việt Nam có thể đi làm việc ở nước ngoài không?</p>
@@ -786,7 +786,7 @@
                             </div>
                             <div class="daiary_items">
                                 <div class="daiary_imgs">
-                                    <img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2023/01/olia-gozha-J4kK8b9Fgj8-unsplash-120x120.jpg"/>
+                                    <img loading="lazy" src="https://demo.canhcam.com/the7-law/wp-content/uploads/2023/01/olia-gozha-J4kK8b9Fgj8-unsplash-120x120.jpg"/>
                                 </div>
                                 <div class="daiary_text_box">
                                     <p class="daiary_text">Những lưu ý khi giao kết hợp đồng lao động với người sử dụng lao động nước ngoài</p>
@@ -795,7 +795,7 @@
                             </div>
                             <div class="daiary_items">
                                 <div class="daiary_imgs">
-                                    <img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2023/01/olia-gozha-J4kK8b9Fgj8-unsplash-120x120.jpg"/>
+                                    <img loading="lazy" src="https://demo.canhcam.com/the7-law/wp-content/uploads/2023/01/olia-gozha-J4kK8b9Fgj8-unsplash-120x120.jpg"/>
                                 </div>
                                 <div class="daiary_text_box">
                                     <p class="daiary_text">Điều kiện để người Việt Nam đi nước ngoài làm việc</p>
@@ -813,7 +813,7 @@
                                             <div class="comment_text">Nếu cơ quan điều tra có căn cứ xác định chủ cơ sở đã không thực hiện hoặc thực hiện không đúng các qui định về phòng cháy chữa cháy để dẫn tới hậu quả làm nhiều người chết….</div>
                                             <div class="comment_info">
                                                 <div class="comment_info_img">
-                                                    <img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2016/05/luat-su-120x120.webp"/>
+                                                    <img loading="lazy" src="https://demo.canhcam.com/the7-law/wp-content/uploads/2016/05/luat-su-120x120.webp"/>
                                                 </div>
                                                 <div class="comment_info_text">
                                                     <p>Luật sư Nguyễn Anh Thơm</p>
@@ -826,7 +826,7 @@
                                             <div class="comment_text">Nếu cơ quan điều tra có căn cứ xác định chủ cơ sở đã không thực hiện hoặc thực hiện không đúng các qui định về phòng cháy chữa cháy để dẫn tới hậu quả làm nhiều người chết….</div>
                                             <div class="comment_info">
                                                 <div class="comment_info_img">
-                                                    <img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2016/05/luat-su-120x120.webp"/>
+                                                    <img loading="lazy" src="https://demo.canhcam.com/the7-law/wp-content/uploads/2016/05/luat-su-120x120.webp"/>
                                                 </div>
                                                 <div class="comment_info_text">
                                                     <p>Luật sư Nguyễn Anh Thơm</p>
@@ -839,7 +839,7 @@
                                             <div class="comment_text">Nếu cơ quan điều tra có căn cứ xác định chủ cơ sở đã không thực hiện hoặc thực hiện không đúng các qui định về phòng cháy chữa cháy để dẫn tới hậu quả làm nhiều người chết….</div>
                                             <div class="comment_info">
                                                 <div class="comment_info_img">
-                                                    <img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2016/05/luat-su-120x120.webp"/>
+                                                    <img loading="lazy" src="https://demo.canhcam.com/the7-law/wp-content/uploads/2016/05/luat-su-120x120.webp"/>
                                                 </div>
                                                 <div class="comment_info_text">
                                                     <p>Luật sư Nguyễn Anh Thơm</p>
@@ -856,7 +856,7 @@
                     <div class="copyright">
                         <div class="footer_hr"></div>
                         <div class="copyright_items">
-                            <div class="copyright_logo"><img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2023/01/CANHCAMLAW.png" alt="copyright_logo"/></div>
+                            <div class="copyright_logo"><img loading="lazy" src="https://demo.canhcam.com/the7-law/wp-content/uploads/2023/01/CANHCAMLAW.png" alt="copyright_logo"/></div>
                             <div class="copyright_text">© Canhcam Solution 2018. Đã đăng ký Bản quyền.</div>
                         </div>
                     </div>

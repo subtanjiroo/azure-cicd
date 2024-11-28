@@ -77,25 +77,21 @@
 }
 
 .card-front {
+    background-color: #007bff; /* Front card color */
     padding: 20px;
-    background-size: cover; /* Giúp hình ảnh bao phủ toàn bộ phần tử mà không bị méo */
-    background-position: center; /* Đặt tâm hình ảnh vào giữa */
-    background-repeat: no-repeat; /* Không lặp hình */
-    width: 100%; /* Đặt kích thước phần tử theo ý muốn */
+    
 }
 .card-front p{
-    color: rgb(255, 255, 255);
+    color: black;
     font-size: 1.7rem;
 }
 .card-back {
     background-color: rgb(206, 206, 206);
     transform: rotateY(180deg);
-    padding: 5px;
-    overflow: auto;
+    padding: 20px;
 }
 .card-back h2{
     color: black;
-    font-weight: bold;
 }
 .card-back p{
     color: var(--text1);
@@ -160,14 +156,14 @@
         perspective: 1000px;
     }
     .card-back p {
-        font-size: 0.8rem;
+        font-size: 18px;
     }
     .card-front p{
         font-size: 1.5rem;
     }
     .card-back h2 {
         color: black;
-        font-size: 1.4rem;
+        font-size: 1.5rem;
     }
 }   
 @media (max-width: 600px) {
@@ -180,6 +176,7 @@
         perspective: 1000px;
     }
     .card-front p {
+        color: black;
         font-size: 1.3rem;
     }
     .card-back p {
@@ -198,8 +195,7 @@
     }
     .card-back h2 {
         color: black;
-        font-size: 1rem;
-        margin: 0;
+        font-size: 1.5rem;
     }
 
 }
@@ -210,11 +206,12 @@
     }
     .card-back p {
         color: var(--text1);
-        font-size: 10px;
+        font-size: 12px;
         font-weight: bold;
     }
     .card-front p {
-        font-size: 0.8rem;
+        color: black;
+        font-size: 1rem;
     }
     .content2_box1 {
         width: 90vw;

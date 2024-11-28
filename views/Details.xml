@@ -2,24 +2,28 @@
     <data>
         <template id="Details_Page" name="Details Page">
             <t t-call="website.layout">
-                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOM2bw6xElppNFaTZg3F8K5J1JgG0hwRXE9MFEJk" crossorigin="anonymous"/>
-                <!-- Swiper CSS -->
-                <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
-                <!-- Swiper JS -->
-                <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
                 <link rel="stylesheet" href="/tomishow/static/src/css/Details_Style/menuside_style.css"/>
                 <link rel="stylesheet" href="/tomishow/static/src/css/Details_Style/navigation_bar.css"/>
                 <link rel="stylesheet" href="/tomishow/static/src/css/Details_Style/banner.css"/>
                 <link rel="stylesheet" href="/tomishow/static/src/css/Details_Style/footer.css"/>
                 <link rel="stylesheet" href="/tomishow/static/src/css/Details_Style/content.css"/>
 
+
+
+            
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOM2bw6xElppNFaTZg3F8K5J1JgG0hwRXE9MFEJk" crossorigin="anonymous"/>
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"/>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+
                 <!-- color and body style -->
                 <style>
                     :root {
-                        --main_color: red;
-                        --secondary_color: #7b5a14;
-                        --third_color: rgb(6,16,32);
+                        --main_color: #7b5a14;
+                        --secondary_color: rgb(6,16,32);
+                        --third_color: none;
                         --head_color: #333333;
                         --text1: #7F7F7F; 
                         --text2: white;
@@ -38,62 +42,7 @@
                         margin: 0;
                         padding: 0;
                     }
-                    .swiper-container {
-                        width: 100%;
-                        padding: 20px 0;
-                        overflow: hidden; /* Ẩn các phần của slide chưa vuốt tới */
-                    }
-
-                    .swiper-slide {
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        text-align: center;
-                        flex-shrink: 0; /* Ngăn không cho các slide bị co lại */
-                        width: 100%; /* Đảm bảo mỗi slide chiếm toàn bộ chiều rộng */
-                    }
-
-                    .item_slider{
-                        background-color: transparent;
-                        padding: 20px;
-                    }
-                    .Lawer_slider_items {
-                        background-color: #f9f9f9;
-                        padding: 20px;       
-                    }
-                    .slider_img img, .Lawer_slider_imgs img {
-                        max-width: 100%;
-                        border-radius: 500px;
-                    }
-                    /* Định nghĩa trạng thái ban đầu (ẩn và trượt xuống dưới) */
-                    .fade-in {
-                        opacity: 0;
-                        transform: translateY(30px); /* Trượt xuống 30px */
-                        transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Hiệu ứng mượt */
-                    }
-
-                    /* Khi phần tử được nhìn thấy (được thêm class 'visible') */
-                    .fade-in.visible {
-                        opacity: 1;
-                        transform: translateY(0); /* Trở về vị trí ban đầu */
-                    }
-
                 </style>
-                <script>
-                    function toggleMenu() {
-                        const sideMenu = document.getElementById("sideMenu");
-                        const overlay = document.getElementById("dark_overlay");
-                        const navigation_bar = document.getElementById("nav_bar");
-                        sideMenu.classList.toggle("open");
-                        overlay.classList.toggle("display");
-                        navigation_bar.classList.toggle("hide");
-                        if (navigation_bar.classList.contains("hide")) {
-                            navigation_bar.classList.remove("fixed");
-                        } else {
-                            navigation_bar.classList.add("fixed");
-                        }
-                    };
-                </script>
                 <!-- navigation bar -->
                 <div id="nav_bar" class="navigation_bar">
                     <div class="navLogo">
@@ -129,17 +78,17 @@
                         <span id="menuItems6" onclick="toggleMenu()" class="menu-item">Liên Hệ</span>
                     </div>
                 </div>
-
                 <!-- banner -->
                 <div class="banner">
                     <h1 class="banner_h1">Chi Tiết Dự Án</h1>
                 </div>
-
                 <!-- content -->
                 <div class="content">
                     <p class="content_head">About Legal Service</p>
-                    Lv4MR0sA0FfDOM2bw6xElppNFaTZg3F8K5J1JgG0hwRXE9MFEJk                                    <img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2018/01/bg-law-section-13-220x220.jpg" alt="img"/><br/>zxczxczxczxczxc
-
+                    <!-- demo data -->
+                    Lv4MR0sA0FfDOM2bw6xElppNFaTZg3F8K5J1JgG0hwRXE9MFEJk
+                    zxczxczxcxzcx<img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2018/01/bg-law-section-13-220x220.jpg" alt="img"/><br/>zxczxczxczxczxc
+                    xczxczxczzzczxcxczczxczxcz
                 </div>
                 <!-- content footer -->
                 <div class="footer">
@@ -211,54 +160,48 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="slider_comment">
                             <h6>Lời nhận xét</h6>
                             <div class="comment_slider_carousel">
-                                <div class="swiper-container" id="carousel3">
-                                    <div class="swiper-wrapper">
-                                        <!-- Item 1 -->
-                                        <div class="swiper-slide comment_sections">
-                                            <div class="comment_text">Nếu cơ quan điều tra có căn cứ xác định chủ cơ sở đã không thực hiện hoặc thực hiện không đúng các qui định về phòng cháy chữa cháy để dẫn tới hậu quả làm nhiều người chết….</div>
-                                            <div class="comment_info">
-                                                <div class="comment_info_img">
-                                                    <img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2016/05/luat-su-120x120.webp"/>
-                                                </div>
-                                                <div class="comment_info_text">
-                                                    <p>Luật sư Nguyễn Anh Thơm</p>
-                                                    <p>Nhà kinh doanh </p>
-                                                </div>
+                                <div id="carousel3" class="comment_slider_owl-carousel owl-theme">
+                                    <!-- items -->  
+                                    <div class="comment_sections">
+                                        <div class="comment_text">Nếu cơ quan điều tra có căn cứ xác định chủ cơ sở đã không thực hiện hoặc thực hiện không đúng các qui định về phòng cháy chữa cháy để dẫn tới hậu quả làm nhiều người chết….</div>
+                                        <div class="comment_info">
+                                            <div class="comment_info_img">
+                                                <img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2016/05/luat-su-120x120.webp"/>
+                                            </div>
+                                            <div class="comment_info_text">
+                                                <p>Luật sư Nguyễn Anh Thơm</p>
+                                                <p>Nhà kinh doanh </p>
                                             </div>
                                         </div>
-                                        <!-- Item 2 -->
-                                        <div class="swiper-slide comment_sections">
-                                            <div class="comment_text">Nếu cơ quan điều tra có căn cứ xác định chủ cơ sở đã không thực hiện hoặc thực hiện không đúng các qui định về phòng cháy chữa cháy để dẫn tới hậu quả làm nhiều người chết….</div>
-                                            <div class="comment_info">
-                                                <div class="comment_info_img">
-                                                    <img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2016/05/luat-su-120x120.webp"/>
-                                                </div>
-                                                <div class="comment_info_text">
-                                                    <p>Luật sư Nguyễn Anh Thơm</p>
-                                                    <p>Nhà kinh doanh </p>
-                                                </div>
+                                    </div>
+                                    <div class="comment_sections">
+                                        <div class="comment_text">Nếu cơ quan điều tra có căn cứ xác định chủ cơ sở đã không thực hiện hoặc thực hiện không đúng các qui định về phòng cháy chữa cháy để dẫn tới hậu quả làm nhiều người chết….</div>
+                                        <div class="comment_info">
+                                            <div class="comment_info_img">
+                                                <img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2016/05/luat-su-120x120.webp"/>
+                                            </div>
+                                            <div class="comment_info_text">
+                                                <p>Luật sư Nguyễn Anh Thơm</p>
+                                                <p>Nhà kinh doanh </p>
                                             </div>
                                         </div>
-                                        <!-- Item 3 -->
-                                        <div class="swiper-slide comment_sections">
-                                            <div class="comment_text">Nếu cơ quan điều tra có căn cứ xác định chủ cơ sở đã không thực hiện hoặc thực hiện không đúng các qui định về phòng cháy chữa cháy để dẫn tới hậu quả làm nhiều người chết….</div>
-                                            <div class="comment_info">
-                                                <div class="comment_info_img">
-                                                    <img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2016/05/luat-su-120x120.webp"/>
-                                                </div>
-                                                <div class="comment_info_text">
-                                                    <p>Luật sư Nguyễn Anh Thơm</p>
-                                                    <p>Nhà kinh doanh </p>
-                                                </div>
+                                    </div>
+                                    <div class="comment_sections">
+                                        <div class="comment_text">Nếu cơ quan điều tra có căn cứ xác định chủ cơ sở đã không thực hiện hoặc thực hiện không đúng các qui định về phòng cháy chữa cháy để dẫn tới hậu quả làm nhiều người chết….</div>
+                                        <div class="comment_info">
+                                            <div class="comment_info_img">
+                                                <img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2016/05/luat-su-120x120.webp"/>
+                                            </div>
+                                            <div class="comment_info_text">
+                                                <p>Luật sư Nguyễn Anh Thơm</p>
+                                                <p>Nhà kinh doanh </p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
@@ -271,9 +214,7 @@
                     </div>
 
                 </div>
-
                 <script type="text/javascript" src="/tomishow/static/src/js/Details.js"></script>
-
             </t>
         </template>
     </data>

@@ -1,4 +1,5 @@
 .banner {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url(/tomishow/static/imgs/banner1.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -9,9 +10,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-.banner1_span{
-    width: 90%;
 }
 .banner h1 {
     color: var(--text1);
@@ -248,34 +246,27 @@
 }
 
 /* banner animation */
-.banner1, .banner1_h1, .banner2, .banner1_span {
+
+.banner1, .banner1_h1, .banner2, .banner1_span{
     opacity: 0;
     transform: translateY(50px);
-}
-
-/* Khi có class "show-animation", chạy animation */
-.show-animation .banner1, 
-.show-animation .banner1_h1, 
-.show-animation .banner2, 
-.show-animation .banner1_span {
     animation: fadeUp 0.5s forwards;
 }
 
-.show-animation .banner1 {
-    animation-delay: 0.2s; 
+.banner1 {
+    animation-delay: 0.2s; /* Hiện lên sau 0.2s */
 }
 
-.show-animation .banner1_h1 {
-    animation-delay: 0.5s; 
-    animation-duration: 0.3s;
+h1 {
+    animation-delay: 0.5s; /* Hiện lên sau 0.5s */
+    animation-duration: 0.3s; /* Thời gian animation là 0.3s */
 }
 
-.show-animation .banner2 {
-    animation-delay: 0.9s; 
+.banner2 {
+    animation-delay: 0.9s; /* Hiện lên sau 0.7s */
 }
-
-.show-animation .banner1_span {
-    animation-delay: 0.7s; 
+.banner1_span {
+    animation-delay: 0.7s; /* Hiện lên sau 0.7s */
 }
 
 /* Định nghĩa animation */
@@ -285,42 +276,3 @@
         transform: translateY(0);
     }
 }
-
-/* Loading overlay */
-.loading-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgb(255, 255, 255);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-/* Spinner */
-.spinner {
-    width: 50px;
-    height: 50px;
-    border: 5px solid rgba(0, 0, 0, 0.2);
-    border-top: 5px solid #000;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-/* Ẩn overlay khi thêm class "hidden" */
-.loading-overlay.hidden {
-    display: none;
-}
-

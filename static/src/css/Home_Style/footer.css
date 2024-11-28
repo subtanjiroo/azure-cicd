@@ -144,6 +144,17 @@
     width: 100%; 
     overflow: hidden; 
 }
+.comment_slider_owl-carousel .owl-stage {
+    display: flex;
+    flex-direction: row; /* Ensure items are horizontal */
+}
+
+.comment_slider_owl-carousel .owl-item {
+    width: auto; /* Adjust width as needed */
+}
+.owl-theme .owl-nav {
+    display: none;
+}
 .social_logo i{
     background: none;
     width: 30px;
@@ -154,7 +165,7 @@
     align-items: center;  
     cursor: pointer                  
 }
-.social_logo:hover{
+.social_logo i:hover{
     background: var(--secondary_color);
 }
 @media(max-width: 1200px){
@@ -165,9 +176,6 @@
         width: 100%;
         justify-content: center;
     
-    }
-    .copyright_text{
-        font-size: 0.8rem;
     }
     .footer_contact{
         grid-column: 1; /* Ô cột đầu tiên */

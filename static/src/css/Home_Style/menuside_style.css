@@ -7,7 +7,7 @@
     background-color: #ffffff;;
     color: var(--text2);
     transition: right 0.3s ease;
-    z-index: 30000;
+    z-index: 1000;
     padding-top: 20px;
     display: flex;
     flex-direction: column;

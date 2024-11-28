@@ -2,12 +2,23 @@
 
 document.addEventListener('DOMContentLoaded', function () {
     // Khai báo biến URL
-    const baseURL = 'http://127.0.0.1:8070';
+    const baseURL = 'http://localhost:8069';
 
     // Gắn sự kiện click cho phần tử có class 'navLogo'
     document.querySelector('.navLogo').addEventListener('click', function () {
         window.location.href = `${baseURL}/home`;
-        
+    });
+
+    const SlidersItems = document.querySelectorAll('.item_slider');
+    SlidersItems.forEach(item => {
+        item.addEventListener('click', function () {
+
+            //id project here
+
+            const itemId = "testing";
+            
+            window.location.href = `${baseURL}/details?ProjectId=${itemId}`;
+        });
     });
     
 });
@@ -29,9 +40,26 @@ function toggleMenu() {
     }
 };
 
-
-//glow up menu effect
 document.addEventListener('DOMContentLoaded', function() {
+    var navItems = document.querySelectorAll('.menu-item');
+    navItems.forEach(function(item) {
+        item.addEventListener('click', function(event) {
+            // Ngăn chặn hành vi mặc định (di chuyển đến phần tử)
+            event.preventDefault();
+
+            // Lấy ID của item và phần tử tương ứng
+            var targetId = 'section' + item.id.replace('menuItems', '');
+            // Kiểm tra phần tử có tồn tại không
+            var targetElement = document.querySelector('#' + targetId);
+
+            // Cuộn mượt đến phần tử tương ứng
+            targetElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start' // Đảm bảo phần tử xuất hiện ở đầu màn hình
+            });
+        });
+    });
+
     // Chọn tất cả các phần tử có id như #section1, #section2, #section3, ...
     const sections = document.querySelectorAll('[id^="section"]'); // Chọn tất cả các phần tử có id bắt đầu bằng 'section'
 
@@ -79,10 +107,10 @@ document.addEventListener('DOMContentLoaded', function() {
 // <!--navigationbar menu effect -->
 
 document.addEventListener('DOMContentLoaded', function() {
-    const wrapwrap = document.documentElement;
+    const wrapwrap = document.getElementById('wrapwrap');
     const navigation_bar = document.getElementById('nav_bar');
     if (navigation_bar) {
-        window.addEventListener('scroll', function() {
+        wrapwrap.addEventListener('scroll', function() {
             
             if (wrapwrap.scrollTop > 50) {
                 navigation_bar.classList.add('fixed');
@@ -94,7 +122,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error('Element with ID "wrapwrap" or "nav_bar" not found.');
     }
 });
-//url effect
+
 document.addEventListener('DOMContentLoaded', function () {
     const urlParams = new URLSearchParams(window.location.search);
     const itemId = urlParams.get('itemId');
@@ -102,13 +130,91 @@ document.addEventListener('DOMContentLoaded', function () {
     if (itemId) {
         var targetId = 'section' + itemId.replace('menuItems', '');
         var targetElement = document.querySelector('#' + targetId);
-        console.log(targetElement);
-        if (targetElement) {
-            smoothScrollTo(targetElement, 1000, 40); // Gọi hàm cuộn mượt
-        }
+        console.log(targetId)
+        console.log(targetElement)
+        targetElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start' // Đảm bảo phần tử xuất hiện ở đầu màn hình
+            });
     }
 });
 
+
+// <!-- javascript cua Owl carousel -->
+$(document).ready(function() {
+    // Cấu hình cho carousel thứ nhất
+    $("#carousel1").owlCarousel({
+        items: 4,
+        loop: true,
+        autoplay: true,
+        mouseDrag: true,
+        touchDrag: true,
+        nav: false,  // Giấu nút điều hướng (arrows)
+        dots: false, // Giấu indicator (dots)
+        responsive: {
+            0: {
+                items: 1
+            },
+            500: {
+                items: 2
+            },
+            750: {
+                items: 3
+            },
+            1000: {
+                items: 4
+            },
+        },
+    });
+
+    // Cấu hình cho carousel thứ hai
+    $("#carousel2").owlCarousel({
+        items: 3,
+        loop: true,
+        autoplay: true,
+        mouseDrag: true,
+        touchDrag: true,
+        nav: false,
+        dots: false,
+        responsive: {
+            0: {
+                items: 1
+            },
+            650: {
+                items: 2
+            },
+            750: {
+                items: 2
+            },
+            1100: {
+                items: 3
+            },
+            1500:{
+                items: 4
+            },
+        },
+    });
+    $("#carousel3").owlCarousel({
+        items: 1,         
+        loop: true,       
+        autoplay: true,   
+        mouseDrag: true,  
+        touchDrag: true,  
+        nav: false,       
+        dots: false,
+        responsive: {
+            0:{
+                items: 1
+            },
+            850:{
+                items: 2
+            },
+            1200: {
+                items: 1
+            },
+        },
+    });
+});
 
 
 // infor circle effect
@@ -154,42 +260,3 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-
-// scroll animation
-function smoothScrollTo(element, duration, offset) {
-    const targetPosition = element.getBoundingClientRect().top + window.scrollY - offset; // Vị trí đích
-    const startPosition = window.scrollY; // Vị trí bắt đầu
-    const distance = targetPosition - startPosition; // Khoảng cách cần cuộn
-    let startTime = null;
-
-    function animation(currentTime) {
-        if (!startTime) startTime = currentTime; // Thời điểm bắt đầu
-        const timeElapsed = currentTime - startTime; // Thời gian đã trôi qua
-        const progress = Math.min(timeElapsed / duration, 1); // Tiến độ (tối đa 1)
-        const ease = easeInOutCubic(progress); // Áp dụng easing (có thể thay đổi hàm easing)
-
-        window.scrollTo(0, startPosition + distance * ease); // Cuộn tới vị trí hiện tại
-
-        if (timeElapsed < duration) {
-            requestAnimationFrame(animation); // Tiếp tục nếu chưa đạt thời gian tối đa
-        }
-    }
-
-    function easeInOutCubic(t) {
-        return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-    }
-
-    requestAnimationFrame(animation); // Bắt đầu animation
-}
-
-// Thêm sự kiện click vào menu item
-document.querySelectorAll('.menu-item').forEach(function (item) {
-    item.addEventListener('click', function (event) {
-        event.preventDefault(); // Ngăn hành vi mặc định
-        const targetId = this.getAttribute('id').replace('menuItems', 'section');
-        const targetElement = document.querySelector(`#${targetId}`);
-        if (targetElement) {
-            smoothScrollTo(targetElement, 800, 40); // Gọi hàm cuộn mượt
-        }
-    });
-});

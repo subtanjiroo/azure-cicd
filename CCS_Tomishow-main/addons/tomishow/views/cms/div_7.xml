@@ -5,10 +5,40 @@
         <field name="model">cms.div7</field>
         <field name="arch" type="xml">
             <form create="false" delete="false">
+                <header>
+                    <button name="Preview" string="Preview" type="object" class="btn-primary"/>
+                    <button name="go_to_website" string="Go To Website" type="object" class="oe_highlight"/>
+                </header>
                 <sheet>
+                    <group col="12">
+                        <group colspan="8">
+                            <field name="menu_item7"/>
+                            <field name="menu_item7_jp" invisible="not menu_item7_jp_toggle"/>
+                        </group>
+                        <group colspan="4">
+                            <field name="menu_item7_jp_toggle" widget="boolean_toggle"/>
+                        </group>
+                    </group>
+                    <group col="12">
+                        <group colspan="10">
+                            <field name="main_title"/>
+                            <field name="main_title_jp" invisible="not main_title_jp_toggle"/>
+                        </group>
+                        <group colspan="2">
+                            <field name="main_title_jp_toggle"/>
+                        </group>
+                    </group>
+                    <group col="12">
+                        <group colspan="10">
+                            <field name="title"/>
+                            <field name="title_jp" invisible="not title_jp_toggle"/>
+                        </group>
+                        <group colspan="2">
+                            <field name="title_jp_toggle"/>
+                        </group>
+                    </group>
+
                     <group>
-                        <field name="main_title"/>
-                        <field name="title"/>
                         <notebook>
                             <page string="Quá trình">
                                 <field name="process_ids" context="{'form_view_ref':'tomishow.view_form_cms_div7_process'}">
@@ -20,9 +50,17 @@
                             <page string="Quy định">
                                 <field name="rule_ids" context="{'form_view_ref':'tomishow.view_form_cms_div7_rule'}">
                                     <list>
-                                        <field name="icon"/>
+                                        <field name="icon" widget="image"/>
                                         <field name="title"/>
                                         <field name="text"/>
+                                    </list>
+                                </field>
+                            </page>
+                            <page string="Hình ảnh">
+                                <field name="clickable_image_ids" context="{'form_view_ref':'tomishow.view_form_cms_div7_clickable_image'}">
+                                    <list>
+                                        <field name="title"/>
+                                        <field name="image" widget="image"/>
                                     </list>
                                 </field>
                             </page>

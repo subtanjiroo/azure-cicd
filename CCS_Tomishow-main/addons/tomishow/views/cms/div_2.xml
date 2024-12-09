@@ -5,66 +5,235 @@
         <field name="model">cms.div2</field>
         <field name="arch" type="xml">
             <form create="false" delete="false">
+                <header>
+                    <button name="Preview" string="Preview" type="object" class="oe_highlight"/>
+                    <button name="go_to_website" string="Go To Website" type="object" class="oe_highlight"/>
+                </header>
                 <sheet>
-                    <group>
-                        <field name="main_title"/>
-                        <field name="main_text"/>
+                    <group col="12">
+                        <group colspan="10">
+                            <field name="main_title"/>
+                            <field name="main_title_jp" invisible="not main_title_jp_toggle"/>
+                        </group>
+                        <group colspan="2">
+                            <field name="main_title_jp_toggle"/>
+                        </group>
+
+                    </group>
+                    <group col="12">
+                        <group colspan="10">
+
+                            <field name="main_text"/>
+                            <field name="main_text_jp" invisible="not main_text_jp_toggle"/>
+                        </group>
+                        <group colspan="2">
+                            <field name="main_text_jp_toggle"/>
+                        </group>
                     </group>
 
                     <div style="height:30px;"/>
                     <notebook>
                         <page string="Text">
 
-                            <group>
-                                <group class ="bolder_div">
-                                    <div class="bold-title">Text 1</div>
-                                    <field name="title_1"/>
-                                    <field name="text_1"/>
+                            <group col="2">
+
+                                <group col="12" colspan="1">
+                                    <div class="bold-title" colspan="10">Text 1</div>
+                                    <newline></newline>
+                                    <group colspan="8">
+                                        <field name="title_1"/>
+                                        <field name="title_1_jp" invisible="not title_1_jp_toggle"/>
+                                    </group>
+                                    <group colspan="4">
+                                        <field name="title_1_jp_toggle"/>
+                                    </group>
                                 </group>
-                                <group class ="bolder_div">
-                                    <div class="bold-title">Text 2</div>
-                                    <field name="title_2"/>
-                                    <field name="text_2"/>
+
+                                <group col="12" colspan="1">
+                                    <div class="bold-title" colspan="10">Text 2</div>
+                                    <newline></newline>
+                                    <group colspan="8">
+                                        <field name="title_2"/>
+                                        <field name="title_2_jp" invisible="not title_2_jp_toggle"/>
+                                    </group>
+                                    <group colspan="4">
+                                        <field name="title_2_jp_toggle"/>
+                                    </group>
+                                </group>
+                                <group col="12" colspan="1">
+                                    <group colspan="8">
+                                        <field name="text_1"/>
+                                        <field name="text_1_jp" invisible="not text_1_jp_toggle"/>
+                                    </group>
+                                    <group colspan="4">
+                                        <field name="text_1_jp_toggle"/>
+                                    </group>
+                                </group>
+
+                                <group col="12" colspan="1">
+                                    <group colspan="8">
+                                        <field name="text_2"/>
+                                        <field name="text_2_jp" invisible="not text_2_jp_toggle"/>
+                                    </group>
+                                    <group colspan="4">
+                                        <field name="text_2_jp_toggle"/>
+                                    </group>
                                 </group>
                             </group>
-                            <group>
-                                <group class ="bolder_div">
-                                    <div class="bold-title">Text 3</div>
-                                    <field name="title_3"/>
-                                    <field name="text_3"/>
+                            <group col="2">
+
+                                <group col="12" colspan="1">
+                                    <div class="bold-title" colspan="10">Text 3</div>
+                                    <newline></newline>
+                                    <group colspan="8">
+                                        <field name="title_3"/>
+                                        <field name="title_3_jp" invisible="not title_3_jp_toggle"/>
+                                    </group>
+                                    <group colspan="4">
+                                        <field name="title_3_jp_toggle"/>
+                                    </group>
                                 </group>
-                                <group class ="bolder_div">
-                                    <div class="bold-title">Text 4</div>
-                                    <field name="title_4"/>
-                                    <field name="text_4"/>
+
+                                <group col="12" colspan="1">
+                                    <div class="bold-title" colspan="10">Text 4</div>
+                                    <newline></newline>
+                                    <group colspan="8">
+                                        <field name="title_4"/>
+                                        <field name="title_4_jp" invisible="not title_4_jp_toggle"/>
+                                    </group>
+                                    <group colspan="4">
+                                        <field name="title_4_jp_toggle"/>
+                                    </group>
+                                </group>
+                                <group col="12" colspan="1">
+                                    <group colspan="8">
+
+                                        <field name="text_3"/>
+                                        <field name="text_3_jp" invisible="not text_3_jp_toggle"/>
+                                    </group>
+                                    <group colspan="4">
+                                        <field name="text_3_jp_toggle"/>
+                                    </group>
+                                </group>
+
+                                <group col="12" colspan="1">
+                                    <group colspan="8">
+                                        <field name="text_4"/>
+                                        <field name="text_4_jp" invisible="not text_4_jp_toggle"/>
+                                    </group>
+                                    <group colspan="4">
+                                        <field name="text_4_jp_toggle"/>
+                                    </group>
                                 </group>
                             </group>
 
+
                         </page>
                         <page string="Bảng lật">
-                            <group class="bolder_div">
-                                <div class="bold-title">Bảng lật 1</div>
-                                <field name="flip_board_1_title_not_flipped"/>
-                                <field name="flip_board_1_text_not_flipped"/>
-                                <field name="flip_board_1_title_flipped"/>
-                                <field name="flip_board_1_text_flipped"/>
-                                <field name="flip_board_1_background_image" widget="image"/>
+                            <group class="border_div" col="12">
+                                <div class="bold-title" colspan="10">Bảng lật 1</div>
+                                <newline/>
+                                <group colspan="10">
+                                    <field name="flip_board_1_title_not_flipped"/>
+                                    <field name="flip_board_1_title_not_flipped_jp" invisible="not flip_board_1_title_not_flipped_jp_toggle"/>
+                                </group>
+                                <group colspan="2">
+                                    <field name="flip_board_1_title_not_flipped_jp_toggle"/>
+                                </group>
+                                <newline/>
+                                <group colspan="2">
+                                    <field name="flip_board_1_text_not_flipped_jp_toggle"/>
+                                </group>
+                                <newline/>
+                                <group colspan="10">
+                                    <field name="flip_board_1_title_flipped"/>
+                                    <field name="flip_board_1_title_flipped_jp" invisible="not flip_board_1_title_flipped_jp_toggle"/>
+                                </group>
+                                <group colspan="2">
+                                    <field name="flip_board_1_title_flipped_jp_toggle"/>
+                                </group>
+                                <newline/>
+                                <group colspan="10">
+                                    <field name="flip_board_1_text_flipped"/>
+                                    <field name="flip_board_1_text_flipped_jp" invisible="not flip_board_1_text_flipped_jp_toggle"/>
+                                </group>
+                                <group colspan="2">
+                                    <field name="flip_board_1_text_flipped_jp_toggle"/>
+                                </group>
+                                <group colspan="12">
+                                    <field name="flip_board_1_background_image" widget="image" options="{'accepted_file_extensions': '.png'}" />
+                                </group>
+
                             </group>
-                            <group class="bolder_div">
-                                <div class="bold-title">Bảng lật 2</div>
-                                <field name="flip_board_2_title_not_flipped"/>
-                                <field name="flip_board_2_text_not_flipped"/>
-                                <field name="flip_board_2_title_flipped"/>
-                                <field name="flip_board_2_text_flipped"/>
-                                <field name="flip_board_2_background_image" widget="image"/>
+                            <group class="border_div" col="12">
+                                <div class="bold-title" colspan="10">Bảng lật 2</div>
+                                <newline/>
+                                <group colspan="10">
+                                    <field name="flip_board_2_title_not_flipped"/>
+                                    <field name="flip_board_2_title_not_flipped_jp" invisible="not flip_board_2_title_not_flipped_jp_toggle"/>
+                                </group>
+                                <group colspan="2">
+                                    <field name="flip_board_2_title_not_flipped_jp_toggle"/>
+                                </group>
+                                <newline/>
+                                <group colspan="2">
+                                    <field name="flip_board_2_text_not_flipped_jp_toggle"/>
+                                </group>
+                                <newline/>
+                                <group colspan="10">
+                                    <field name="flip_board_2_title_flipped"/>
+                                    <field name="flip_board_2_title_flipped_jp" invisible="not flip_board_2_title_flipped_jp_toggle"/>
+                                </group>
+                                <group colspan="2">
+                                    <field name="flip_board_2_title_flipped_jp_toggle"/>
+                                </group>
+                                <newline/>
+                                <group colspan="10">
+                                    <field name="flip_board_2_text_flipped"/>
+                                    <field name="flip_board_2_text_flipped_jp" invisible="not flip_board_2_text_flipped_jp_toggle"/>
+                                </group>
+                                <group colspan="2">
+                                    <field name="flip_board_2_text_flipped_jp_toggle"/>
+                                </group>
+                                <group colspan="12">
+                                    <field name="flip_board_2_background_image" widget="image" options="{'accepted_file_extensions': '.png'}" />
+                                </group>
+
                             </group>
-                            <group class="bolder_div">
-                                <div class="bold-title">Bảng lật 3</div>
-                                <field name="flip_board_3_title_not_flipped"/>
-                                <field name="flip_board_3_text_not_flipped"/>
-                                <field name="flip_board_3_title_flipped"/>
-                                <field name="flip_board_3_text_flipped"/>
-                                <field name="flip_board_3_background_image" widget="image"/>
+                            <group class="border_div" col="12">
+                                <div class="bold-title" colspan="10">Bảng lật 3</div>
+                                <newline/>
+                                <group colspan="10">
+                                    <field name="flip_board_3_title_not_flipped"/>
+                                    <field name="flip_board_3_title_not_flipped_jp" invisible="not flip_board_3_title_not_flipped_jp_toggle"/>
+                                </group>
+                                <group colspan="2">
+                                    <field name="flip_board_3_title_not_flipped_jp_toggle"/>
+                                </group>
+                                <newline/>
+                                <group colspan="2">
+                                    <field name="flip_board_3_text_not_flipped_jp_toggle"/>
+                                </group>
+                                <newline/>
+                                <group colspan="10">
+                                    <field name="flip_board_3_title_flipped"/>
+                                    <field name="flip_board_3_title_flipped_jp" invisible="not flip_board_3_title_flipped_jp_toggle"/>
+                                </group>
+                                <group colspan="2">
+                                    <field name="flip_board_3_title_flipped_jp_toggle"/>
+                                </group>
+                                <newline/>
+                                <group colspan="10">
+                                    <field name="flip_board_3_text_flipped"/>
+                                    <field name="flip_board_3_text_flipped_jp" invisible="not flip_board_3_text_flipped_jp_toggle"/>
+                                </group>
+                                <group colspan="2">
+                                    <field name="flip_board_3_text_flipped_jp_toggle"/>
+                                </group>
+                                <group colspan="12">
+                                    <field name="flip_board_3_background_image" widget="image" options="{'accepted_file_extensions': '.png'}" />
+                                </group>
+
                             </group>
 
                         </page>

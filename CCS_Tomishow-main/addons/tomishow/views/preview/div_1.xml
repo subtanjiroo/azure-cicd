@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_form_preview_div_1" model="ir.ui.view">
+        <field name="name"></field>
+        <field name="model"></field>
+        <field name="arch" type="xml">
+            <form js_class="div_1_controller">
+                <sheet>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo> 

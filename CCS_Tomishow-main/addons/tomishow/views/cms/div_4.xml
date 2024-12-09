@@ -5,16 +5,40 @@
         <field name="model">cms.div4</field>
         <field name="arch" type="xml">
             <form create="false" delete="false">
-                <sheet>
-                    <group>
-                        <field name="main_title"/>
+                <header >
+                    <button name="Preview" string="Preview" type="object" class="oe_highlight" />
+                    <button name="go_to_website" string="Go To Website" type="object" class="oe_highlight"/>
+                </header>
 
+                <sheet>
+                    <group col="12">
+                        <group colspan="8">
+                            <field name="menu_item4"/>
+                            <field name="menu_item4_jp" invisible="not menu_item4_jp_toggle"/>
+                        </group>
+                        <group colspan="4">
+                            <field name="menu_item4_jp_toggle" widget="boolean_toggle"/>
+                        </group>
+                    </group>
+                    <group col="12">
+                        <group colspan="10">
+                            <field name="main_title"/>
+                            <field name="main_title_jp" invisible="not main_title_jp_toggle"/>
+                        </group>
+                        <group colspan="2">
+                            <field name="main_title_jp_toggle"/>
+                        </group>
+
+
+                    </group>
+                    <group>
                         <notebook>
                             <page string="Dự án">
                                 <field name="project_ids" context="{'form_view_ref': 'tomishow.view_form_cms_div4_project'}">
                                     <list string="Projects">
                                         <field name="title"/>
                                         <field name="small_text"/>
+                                        <field name="image" widget="image"/>
                                     </list>
                                 </field>
                             </page>

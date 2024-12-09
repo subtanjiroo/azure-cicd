@@ -1,0 +1,285 @@
+<!-- /* css content 8 */ -->
+<style>
+    .map-container iframe{
+        width: 100% !important;
+        height: 100% !important;
+    }
+    .content8{
+        display:flex;
+        flex-direction: column;
+        padding: 10vh 5vw;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: auto;
+        background-color: white;
+    }
+    .content8_text1{
+        margin-bottom: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .content8_text2{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 30px;
+    }
+    .info_form_text h2{
+        font-size: 1.2rem;
+        color: black;
+        font-family: Arial;
+        font-weight: bold;
+    }
+    .content8_text1 h2{
+        font-size:2rem;
+        color: black;
+        font-weight:bold;
+        text-align: center;
+    }
+    .icon_items{
+        text-align: center;
+        width: 20vw;
+        padding: 10px;
+    }
+    .content8_text2_subtext{
+        color: #7b5a14;
+        font-family: Arial;
+        font-size: 16px;
+        margin-bottom: 15px;
+        font-weight: bold;
+    }
+    .content8_text1 .hr{    
+        margin-bottom: 0px;
+    }
+    .logo_items{
+        width: 100px;
+        height:auto;
+        margin-bottom: 15px;
+        height: auto;
+    }
+    .content8_text2_info{
+        color: var(--text1);
+        font-size: 18px;
+        font-family: Arial;
+    }
+    .content8_text3{
+        display:flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        width: 85vw;
+    }
+    .info_form{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 20px;
+        padding: 35px 15px 35px 15px;
+        width: 100%;
+    }
+    .info_form_btn{
+        background-color: var(--secondary_color);
+        padding: 15px 25px;
+        color: var(--text2);
+        font-weight: bold;
+        text-align: center;
+        font-size: 16px;
+        font-family: PT serif;
+        display: flex;
+        align-items: center;
+        border: none;
+        margin-top: 20px;
+    }
+    .form_items{
+        width: 100%;
+        height: 50px;
+        margin-top: 10px;
+        border: #d7d7d796 1px solid;
+        padding: 20px;
+    }
+    .ggMap{
+        padding: 35px 15px 50px 15px;
+        margin-top: 20px;
+        width: 100%;
+        height: 100%;
+    }
+    .info_form_Message{
+        overflow-y: auto;
+        height: 140px;
+    }
+    @media(max-width: 1000px){
+        .content8_text3 {
+            flex-direction: column;
+        }
+    }
+    @media(max-width: 950px){
+        .content8_text2 {
+            flex-direction: column;
+            margin-top: 0px;
+        }
+        .logo_items {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+        .content8_text2_subtext {
+            font-size: 24px;
+        }
+        .content8_text2_info {
+            font-size: 1.2rem;
+        }
+        .icon_items {
+            text-align: center;
+            width: 100%;
+            padding: 10px;
+        }
+        .info_form {
+            padding: 35px 0 35px 0;
+        }
+        .content8 {
+            padding: 70px 20px;
+        }
+        .ggMap {
+            margin-top: 0;
+        }
+    }
+
+    .content8_h2{
+        font-size: 2rem;
+        color: black;
+        font-family: Arial;
+        font-weight: bold;
+    }
+    @media(max-width: 600px){
+        .content8_h2{
+            font-size: 1.5rem;
+
+        }
+        .content8_text2_subtext {
+            font-size: 1rem;
+        }
+        .info_form {
+            justify-content: center;
+            align-items: center;
+        }
+        .map-container{
+            height: 250px !important;
+        }
+    };
+
+</style>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        fetch('/get_div_8', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => {
+            // Kiểm tra xem phản hồi có phải là JSON không
+            if (response.ok) {
+                return response.json();  // Chỉ chuyển thành JSON nếu phản hồi hợp lệ
+            } else {
+                // Nếu không phải JSON, kiểm tra nội dung trả về
+                return response.text().then(text => {
+                    throw new Error('Received non-JSON response: ' + text);
+                });
+            }
+        })
+        .then(data => {
+            // Giải mã base64 sang ASCII
+            function decodeBase64ToAscii(base64String) {
+                let binaryString = atob(base64String);
+                let asciiString = '';
+                for (let i = 0; i < binaryString.length; i++) {
+                    asciiString += String.fromCharCode(binaryString.charCodeAt(i));
+                }
+                return asciiString;
+            }
+
+            const HomeData = data;
+
+            const connection = document.querySelector('.content8_text2');
+            if (connection) {
+                const connection_items = HomeData.connections;
+                if (connection_items) {
+                    connection_items.forEach(item => {
+                        const img = decodeBase64ToAscii(item.icon);
+                        const cardHTML = `
+                            <div class="icon_items">
+                                <div><img class="logo_items" src="data:image/png;base64,${img}" alt="img"/></div>
+                                <div class="content8_text2_subtext">${item.title}</div>
+                                <div class="content8_text2_info">${item.text}</div>
+                            </div>
+                        `;
+                        connection.innerHTML += cardHTML;
+                    });
+                }
+            }
+
+            // Kiểm tra mapContainer và HomeData.google_map riêng biệt
+            const mapContainer = document.querySelector('.map-container');
+            if (mapContainer) {
+                if (HomeData.google_map) {
+                    mapContainer.innerHTML = HomeData.google_map; // Chèn iframe vào map-container
+                }
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
+    });
+
+</script>
+<!-- content 8 -->
+<div class="content8">
+    <div class="content8_text1 fade-in">
+        <h2>Hãy kết nối</h2>
+        <div class="hr"></div>
+    </div>
+
+    <div class="content8_text2 fade-in">
+        <!-- items here -->
+    </div>
+
+
+    <style>
+        /* Thiết lập container */
+        .map-container {
+            width: 100%;
+            height: 350px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Thiết lập iframe */
+        .draggable-iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            position: absolute;
+            cursor: grab;
+        }
+    </style>
+    <!-- form and google map -->
+    <div class="content8_text3 fade-in">
+        <div class="info_form">
+            <div class="info_form_text"><h2>Nhận đánh giá trường hợp miễn phí ngay hôm nay!</h2></div>
+            <div class="content8_text2_subtext">CÓ SẴN 24 GIỜ MỘT NGÀY!</div>
+            <input class="form_items" placeholder="Name *"/>
+            <input class="form_items" placeholder="Email *"/>
+            <input class="form_items" placeholder="Telephone"/>
+            <textarea class="form_items info_form_Message" placeholder="Message *"></textarea>
+            <button class="info_form_btn">Nhận tư vấn miễn phí</button>
+        </div>
+        <div class="ggMap">
+            <div class="info_form_text"><h2>Chúng tôi ở đây</h2></div>
+            <div class="content8_text2_subtext time_div8"></div>
+            <div class="map-container">
+
+            </div>
+
+        </div>
+    </div>
+</div>

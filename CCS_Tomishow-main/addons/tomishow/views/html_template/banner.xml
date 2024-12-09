@@ -1,0 +1,436 @@
+<!-- banner css -->
+<style>
+    .banner {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        height: 100vh;
+        width: 100%;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .banner1_span{
+        width: 90%;
+    }
+    .banner h1 {
+        color: var(--text1);
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: bold;
+        text-align: center;
+        font-size: 9.5vw;
+        padding: 15px;
+        width: 100%;
+    }
+    .banner span {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-weight: 770;
+        text-align: center;
+        color: var(--text2);
+        font-size: 27px;
+        margin-right: 5px;
+        margin-left: 5px;
+    }
+    .banner img{
+        width: 90px;
+        height: 90px;
+        background-color: var(--secondary_color);
+        border-radius: 50px;
+        padding: 15px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .banner1{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin-top: 100px;
+    }
+    .banner2{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        border: var(--secondary_color) solid 2px;
+        padding: 5px 15px;
+        margin-top: 30px;
+    }
+    .p1{
+        color: var(--secondary_color) !important;
+        margin: 0;
+        align-content: center;
+        font-weight: 650 !important;
+    }
+    .p2{
+        color: var(--text2);
+        margin: 0 !important;
+        font-size: 35px !important;
+        font-weight: 700 !important;
+    }
+    @media(min-width: 1800px){
+        .navigation_bar {
+            height: 15vh !important;
+        }
+        .navigation_bar img {
+            width: 400px !important;
+            height: 100% !important;
+        }
+        .menuItems span {
+            font-size: 25px !important;
+        }
+        .PhoneNumber {
+            font-size: 35px !important;
+        }
+        .phone-number {
+            font-size: 40px !important;
+        }
+        .consult-text {
+            font-size: 25px !important;
+        }
+        .content1_text h2 {
+            font-size: 4rem !important;
+
+        }
+        .content1_text {
+            margin-top: 60px !important;
+        }
+        .content1_text p {
+            font-size: 1.8rem !important;
+        }
+        .card_btn {
+            font-size: 25px;
+            padding: 15px 30px !important;
+        }
+        .texting {
+            font-size: 1.5rem !important;
+        }
+        .heading {
+            font-size: 2rem !important;
+        }
+        .card-back p {
+            font-size: 1.5rem !important;
+        }
+        .content2_box1_text1 p {
+            font-size: 1.5rem !important;
+        }
+        .grid_item h3 {
+            font-size: 1.8rem !important;
+        }
+        .grid_item p {
+            font-size: 1.4rem !important;
+        }
+        .content2_box1_grid {
+            grid-template-columns: 70px 40% 70px 40% !important;
+        }
+        .grid_number {
+            font-size: 35px !important;
+            width: 60px !important;
+            height: 60px !important;
+        }
+        .content3_box2_text {
+            font-size: 1.7rem !important;
+        }
+        .content3_box3 p {
+            font-size: 1.5rem !important;
+        }
+        .item_slider span {
+            font-size: 2rem !important;
+        }
+        .item_slider p {
+            font-size: 1.4rem !important;
+        }
+        .RP {
+            font-size: 3.5rem !important;
+        }
+        .CEO {
+            font-size: 2rem !important;
+            line-height: 6rem !important;
+        }
+        .content5_text1{
+            font-size: 2rem;
+            font-weight:bold;
+        }
+        .content5_img {
+            width: 650px !important;
+            height: 450px !important;
+        }
+        .content6_text1{
+            font-size: 1.5rem !important;
+        }
+        .Lawer_slider_subtext {
+            font-size: 1.2rem !important;
+        }
+        .Lawer_slider_texting {
+            font-size: 1.2rem !important;
+        }
+        .Lawer_slider_btn {
+            font-size: 1.5rem !important;
+        }
+        .content7_texting {
+            font-size: 2rem !important;
+        }
+        .content7_grid {
+            grid-template-columns: 70px 90% !important;
+        }
+        .content7_grid_number {
+            width: 50px !important;
+            height: 50px !important;
+            font-size: 30px !important;
+        }
+        .content7_grid_items {
+            font-size: 1.4rem !important;
+        }
+        .logo_items {
+            font-size: 60px !important;
+        }
+        .content8_text2_subtext {
+            font-size: 1.5rem !important;
+        }
+        .content8_text2_info {
+            font-size: 1.4rem !important;
+        }
+        .content8_text2_subtext{
+            font-size: 1.5rem !important;
+        }
+        .info_form_btn {
+            font-size: 1.2rem !important;
+        }
+        .form_items {
+            height: 80px !important;
+            font-size: 1.5rem !important;
+        }
+        .footer_items h6 {
+            font-size: 1.8rem !important;
+        }
+        .footer_items p {
+            font-size: 1.5rem !important;
+        }
+        .social_logo{
+            font-size: 1.5rem !important;
+        }
+        .footer_daiary h6 {
+            font-size: 2rem !important;
+        }
+        .daiary_imgs img {
+            width: 80px !important;
+            height: 80px !important;
+        }
+        .daiary_text {
+            font-size: 1.35rem !important;
+        }
+        .daiary_date {
+            font-size: 1.3rem !important;
+        }
+        .slider_comment h6 {
+            font-size: 2rem !important;
+        }
+        .comment_text {
+            font-size: 1.5rem !important;
+        }
+        .comment_info_img img {
+            width: 85px !important;
+            height: 85px !important;
+        }
+        .comment_info_text {
+            color: var(--text2) !important;
+            font-size: 1.5rem !important;
+        }
+        .copyright_text{
+            font-size: 1.5rem !important;
+        }
+        .footer_items i{
+            font-size: 2rem !important;
+        }
+        .content7_more_info div {
+            height: 300px;
+        }
+    }
+
+    /* banner animation */
+    .banner1, .banner1_h1, .banner2, .banner1_span {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    /* Khi có class "show-animation", chạy animation */
+    .show-animation .banner1, 
+    .show-animation .banner1_h1, 
+    .show-animation .banner2, 
+    .show-animation .banner1_span {
+        animation: fadeUp 0.5s forwards;
+    }
+
+    .show-animation .banner1 {
+        animation-delay: 0.2s; 
+    }
+
+    .show-animation .banner1_h1 {
+        animation-delay: 0.5s; 
+        animation-duration: 0.3s;
+    }
+
+    .show-animation .banner2 {
+        animation-delay: 0.9s; 
+    }
+
+    .show-animation .banner1_span {
+        animation-delay: 0.7s; 
+    }
+
+    /* Định nghĩa animation */
+    @keyframes fadeUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Loading overlay */
+    .loading-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgb(255, 255, 255);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
+
+    /* Spinner */
+    .spinner {
+        width: 50px;
+        height: 50px;
+        border: 5px solid rgba(0, 0, 0, 0.2);
+        border-top: 5px solid #000;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    /* Ẩn overlay khi thêm class "hidden" */
+    .loading-overlay.hidden {
+        display: none;
+    }
+
+
+</style>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        async function fetchAndRenderData() {
+            const loadingOverlay = document.querySelector('.loading-overlay');
+            
+            try {
+                // Hiển thị overlay khi bắt đầu render
+                if (loadingOverlay) {
+                    loadingOverlay.classList.remove('hidden');
+                }
+
+                function decodeBase64ToAscii(base64String) {
+                    // Giải mã base64 thành ASCII
+                    let binaryString = atob(base64String);
+                    let asciiString = '';
+                    for (let i = 0; i < binaryString.length; i++) {
+                        asciiString += String.fromCharCode(binaryString.charCodeAt(i));
+                    }
+                    return asciiString;
+                }
+
+                // Fetch dữ liệu từ API
+                const response = await fetch('/get_header', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+                const HomeData = await response.json();
+
+                // Render các dữ liệu từ API
+                const bannerDiv = document.querySelector('.banner');
+                if (bannerDiv) {
+                    bannerDiv.style.background = `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url(data:image/png;base64,${decodeBase64ToAscii(HomeData.back_ground)})`;
+                }
+
+                const logoBanner = document.querySelector('.logo_banner');
+                if (logoBanner) {
+                    logoBanner.src = `data:image/png;base64,${decodeBase64ToAscii(HomeData.logo)}`;
+                }
+
+                const logo_left_text = document.querySelector('.logo_left_text_banner');
+                if (logo_left_text) {
+                    logo_left_text.innerText = HomeData.logo_left_text;
+                }
+
+                const logo_right_text = document.querySelector('.logo_right_text_banner');
+                if (logo_right_text) {
+                    logo_right_text.innerText = HomeData.logo_right_text;
+                }
+
+                const big_title = document.querySelector('.big_title_banner');
+                if (big_title) {
+                    big_title.innerText = HomeData.big_title;
+                }
+
+                const small_title = document.querySelector('.small_title_banner');
+                if (small_title) {
+                    small_title.innerText = HomeData.small_title;
+                }
+
+                const phone_number = document.querySelector('.phone_number_banner');
+                if (phone_number) {
+                    phone_number.innerText = HomeData.phone_number;
+                }
+
+                // Ẩn overlay và kích hoạt animation sau khi render xong
+                if (loadingOverlay) {
+                    loadingOverlay.classList.add('hidden');
+                }
+
+                const banner = document.querySelector('.banner');
+                if (banner) {
+                    banner.classList.add('show-animation');
+                }
+
+            } catch (error) {
+                console.error('Error fetching data:', error);
+
+                // Ẩn overlay trong trường hợp lỗi
+                if (loadingOverlay) {
+                    loadingOverlay.classList.add('hidden');
+                }
+            }
+        }
+
+        // Gọi hàm để lấy và render dữ liệu
+        fetchAndRenderData();
+    });
+
+</script>
+<!-- banner -->
+<div class="banner">
+    <div class="banner1">
+        <span class="logo_left_text_banner" style="font-weight: 700;">EST.</span>
+        <img class="logo_banner" src=""/>
+        <span class="logo_right_text_banner" style="font-weight: 700;">1986</span>
+    </div>
+    <h1 class="banner1_h1 big_title_banner"></h1>
+    <span class="banner1_span small_title_banner"></span>
+    <div class="banner2">
+            <span class="p1">Gọi chúng tôi 24/7</span>
+            <span>  </span>
+            <span class="p2 phone_number_banner"></span>
+    </div>
+</div>

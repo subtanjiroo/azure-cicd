@@ -1,0 +1,137 @@
+<!-- /* css content 5 */ -->
+<style>
+
+    .content5{
+        background-color: var(--third_color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        padding: 80px 30px;
+    }
+    .content5_img {
+        width: 350px;
+        height: auto;
+    }
+    .content5_img img{
+        width:100%;
+        height:100%;
+    }
+    .content5_text1{
+        font-style: italic;
+        font-weight: normal;
+        color: #ffffff;
+        margin-bottom: 25px;
+        display: flex;
+        text-align: left;
+        flex-direction: column;
+        width: 60%;
+        margin-right: 25px;
+        font-size: 1.4rem;
+    }
+
+    .RP{
+        font-size: 34px;
+        line-height: 44px;
+        font-style: normal;
+        font-weight: 700;
+
+    }
+    .CEO{
+        font-family: 'PT Serif';
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 30px;
+        color: #7b5a14 !important;
+        font-style: normal;
+    }
+    @media(max-width: 1000px){
+        .content5_img img {
+            width: 100%;
+            height: 100%;
+        }
+        .content5_text1 p{
+            font-size: 1rem !important;
+        }
+    }
+    @media(max-width: 700px){
+        .content5 {
+            flex-direction: column;
+            padding: 50px 30px;
+        }
+        .content5_text1 {
+            margin-right: 0;
+            width: 90%;
+        }
+        .content5_img {
+            width: 80%;
+        }
+    }
+    @media(max-width: 500px){
+        .content5_text1 p{
+            font-size: 0.8rem !important;
+        }
+        .RP {
+            font-size: 25px;
+        }
+        .CEO {
+            font-size: 20px;
+        }
+    }
+
+</style>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        async function fetchAndRenderData() {
+            try {
+                const response = await fetch('/get_div_5', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    const HomeData = data;
+
+                    const quote_div5 = document.querySelector('.quote_div5');
+                    if (quote_div5) {
+                        quote_div5.innerText = HomeData.quote;
+                    }
+
+                    const author_div5 = document.querySelector('.author_div5');
+                    if (author_div5) {
+                        author_div5.innerText = HomeData.author;
+                    }
+
+                    const title_div5 = document.querySelector('.title_div5');
+                    if (title_div5) {
+                        title_div5.innerText = HomeData.title;
+                    }
+
+                } else {
+                    const text = await response.text();
+                    throw new Error('Received non-JSON response: ' + text);
+                }
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+
+        // Gọi hàm
+        fetchAndRenderData();
+    });
+
+</script>
+<!-- content 5 -->
+<div class="content5">
+        <div class="content5_text1 fade-in">
+                <p class="quote_div5"></p>
+                <div class="RP author_div5"></div>
+                <div class="CEO title_div5"></div>
+        </div>
+        <div class="content5_img fade-in">
+            <img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2023/01/photo-1491336477066-31156b5e4f35.jpeg"/>
+        </div>
+</div>

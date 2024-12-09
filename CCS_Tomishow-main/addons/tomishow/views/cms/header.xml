@@ -6,26 +6,62 @@
         <field name="model">cms.header</field>
         <field name="arch" type="xml">
             <form string="Header" create="false" delete="false">
+                <header>
+                    <button name="preview" string="Preview" type="object" class="oe_highlight"/>
+                    <button name="go_to_website" string="Go To Website" type="object" class="oe_highlight"/>
+                </header>
                 <sheet>
-
                     <group>
-                        <field name="logo" widget="image" class="logo"/>
+                        <field name="logo" widget="image" class="logo" options="{'accepted_file_extensions': '.png'}"/>
                     </group>
                     <group>
-
-                        <group>
-                            <field name="logo_left_text"/>
-                            <field name="big_title" class="big_title"/>
+                        <group col="12">
+                            <group colspan="10">
+                                <field name="logo_left_text"/>
+                                <field name="logo_left_text_jp" invisible="not logo_left_text_jp_toggle"/>
+                            </group>
+                            <group colspan="2">
+                                <field name="logo_left_text_jp_toggle" class="boolean_toggle"/>
+                            </group>
                         </group>
-                        <group>
-                            <field name="logo_right_text"/>
-                            <field name="small_title" class="small_title"/>
+                        <group col="12">
+                            <group colspan="10">
+                                <field name="logo_right_text"/>
+                                <field name="logo_right_text_jp" invisible="not logo_right_text_jp_toggle"/>
+                            </group>
+                            <group colspan="2">
+                                <field name="logo_right_text_jp_toggle" class="boolean_toggle"/>
+                            </group>
                         </group>
                     </group>
+                    <group>
+                        <group col="12">
+                            <group colspan="10">
+                                <field name="big_title"/>
+                                <field name="big_title_jp" invisible="not big_title_jp_toggle"/>
+                            </group>
+                            <group colspan="2">
+                                <field name="big_title_jp_toggle" class="boolean_toggle"/>
+                            </group>
+                        </group>
+                        <group col="12">
+                            <group colspan="10">
+                                <field name="small_title"/>
+                                <field name="small_title_jp" invisible="not small_title_jp_toggle"/>
+                            </group>
+                            <group colspan="2">
+                                <field name="small_title_jp_toggle" class="boolean_toggle"/>
+                            </group>
+                        </group>
+                    </group>
+
+
+
+
                     <group>
                         <field name="phone_number"/>
 
-                        <field name="back_ground" widget="image" class="header_background" />
+                        <field name="back_ground" widget="image" class="header_background" options="{'accepted_file_extensions': '.png'}"/>
 
                     </group>
 

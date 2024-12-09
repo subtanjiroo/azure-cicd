@@ -5,33 +5,116 @@
         <field name="model">cms.div1</field>
         <field name="arch" type="xml">
             <form create="false" delete="false">
+                <header>
+                    <button name="Preview" string="Preview" type="object" class="oe_highlight"/>
+                    <button name="go_to_website" string="Go To Website" type="object" class="oe_highlight"/>
+                </header>
                 <sheet >
-                    <group>
-                        <field name="main_title"/>
-                        <field name="main_text"/>
+
+                    <group col="12">
+                        <group colspan="8">
+                            <field name="menu_item1"/>
+                            <field name="menu_item1_jp" invisible="not menu_item1_jp_toggle"/>
+                        </group>
+                        <group colspan="4">
+                            <field name="menu_item1_jp_toggle" widget="boolean_toggle"/>
+                        </group>
                     </group>
-<!--                    for displaying three group-->
+                    <group col="12">
+                        <group colspan="8">
+                            <field name="main_title"/>
+                            <field name="main_title_jp" invisible="not main_title_jp_toggle"/>
+                        </group>
+                        <group colspan="4">
+                            <field name="main_title_jp_toggle" widget="boolean_toggle"/>
+                        </group>
+                    </group>
+                    <group col="12">
+                        <group colspan="8">
+                            <field name="main_text"/>
+                            <field name="main_text_jp" invisible="not main_text_jp_toggle"/>
+                        </group>
+                        <group colspan="4">
+                            <field name="main_text_jp_toggle" widget="boolean_toggle"/>
+                        </group>
+                    </group>
 
                     <notebook>
                         <page string = "Ô bên trái">
                             <group>
-                                <field name="left_icon" widget="image" />
-                                <field name="left_title"/>
-                                <field name="left_text"/>
+                                <field name="left_icon" widget="image" options="{'accepted_file_extensions': '.png'}" />
                             </group>
+                            <group col="12">
+                                <group colspan="5">
+                                    <field name="left_title"/>
+                                    <field name="left_title_jp" invisible="not left_title_jp_toggle"/>
+                                </group>
+                                <group colspan="2">
+                                    <field name="left_title_jp_toggle" widget="boolean_toggle"/>
+                                </group>
+                                <group colspan="5"/>
+
+                            </group>
+                            <group col="12">
+                                <group colspan="5">
+                                    <field name="left_text"/>
+                                    <field name="left_text_jp" invisible="not left_text_jp_toggle"/>
+                                </group>
+                                <group colspan="2">
+                                    <field name="left_text_jp_toggle" widget="boolean_toggle"/>
+                                </group>
+                                <group colspan="5"/>
+                            </group>
+
                         </page>
                         <page string = "Ô giữa">
                             <group>
-                                <field name="mid_icon" widget="image" />
-                                <field name="mid_title"/>
-                                <field name="mid_text"/>
+                                <field name="mid_icon" widget="image" options="{'accepted_file_extensions': '.png'}" />
+                            </group>
+                            <group col="12">
+                                <group colspan="5">
+                                    <field name="mid_title"/>
+                                    <field name="mid_title_jp" invisible="not mid_title_jp_toggle"/>
+                                </group>
+                                <group colspan="2">
+                                    <field name="mid_title_jp_toggle" widget="boolean_toggle"/>
+                                </group>
+                                <group colspan="5"/>
+                            </group>
+                            <group col="12">
+                                <group colspan="5">
+                                    <field name="mid_text"/>
+                                    <field name="mid_text_jp" invisible="not mid_text_jp_toggle"/>
+                                </group>
+                                <group colspan="2">
+                                    <field name="mid_text_jp_toggle" widget="boolean_toggle"/>
+                                </group>
+                                <group colspan="5"/>
                             </group>
                         </page>
                         <page string = "Ô bên phải">
                             <group>
-                                <field name="right_icon" widget="image" />
-                                <field name="right_title"/>
-                                <field name="right_text"/>
+                                <field name="right_icon" widget="image" options="{'accepted_file_extensions': '.png'}" />
+                            </group>
+                            <group col="12">
+                                <group colspan="5">
+                                    <field name="right_title"/>
+                                    <field name="right_title_jp" invisible="not right_title_jp_toggle"/>
+                                </group>
+                                <group colspan="2">
+                                    <field name="right_title_jp_toggle" widget="boolean_toggle"/>
+                                </group>
+                                <group colspan="5"/>
+                            </group>
+                            <group col="12">
+                                <group colspan="5">
+                                    <field name="right_text"/>
+                                    <field name="right_text_jp" invisible="not right_text_jp_toggle"/>
+                                </group>
+                                <group colspan="2">
+                                    <field name="right_text_jp_toggle" widget="boolean_toggle"/>
+                                </group>
+                                <group colspan="5"/>
                             </group>
                         </page>
                     </notebook>

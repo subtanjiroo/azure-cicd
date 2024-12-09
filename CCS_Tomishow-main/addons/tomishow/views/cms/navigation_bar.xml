@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id ="view_cms_nav_form" model="ir.ui.view">
+        <field name="name">cms.nav.form</field>
+        <field name="model">cms.nav</field>
+        <field name="arch" type="xml">
+            <form string="Navigation bar" create="false" delete="false">
+                <sheet>
+                    <header>
+                        <button name="preview" string="Preview" type="object" class="oe_highlight"/>
+                        <button name="go_to_website" string="Go To Website" type="object" class="oe_highlight"/>
+                    </header>
+                    <group>
+                        <group col="12">
+                            <field name="logo" widget="image" class="logo" options="{'accepted_file_extensions': '.png'}"/>
+                            <field name="image" widget="image" class="logo" options="{'accepted_file_extensions': '.png'}"/>
+                        </group>
+                        <group col="12">
+                            <field name="connect_phone"/>
+                            <field name="connect_text"/>
+                            <field name="connect_text_jp" invisible="not connect_text_jp_toggle"/>
+                            <field name="connect_text_jp_toggle"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id ="action_cms_navigation" model="ir.actions.act_window">
+        <field name="name">Navigation</field>
+        <field name="res_model">cms.nav</field>
+        <field name="view_mode">form</field>
+        <field name="res_id">1</field>
+        <field name="view_id" ref="view_cms_nav_form"/>
+        <field name="target">main</field>
+
+    </record>
+</odoo>

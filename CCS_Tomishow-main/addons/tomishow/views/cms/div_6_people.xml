@@ -6,11 +6,31 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
+                    
                     <group>
                         <field name="name"/>
-                        <field name="position"/>
-                        <field name="image" widget="image"/>
-                        <field name="text"/>
+                    </group>
+
+                    <group col="12">
+                        <group colspan="10">
+                            <field name="position"/>
+                            <field name="position_jp" invisible="not position_jp_toggle"/>
+                        </group>
+                        <group colspan="2">
+                            <field name="position_jp_toggle"/>
+                        </group>
+                    </group>
+                    <group col="12">
+                        <group colspan="10">
+                            <field name="text"/>
+                            <field name="text_jp" invisible="not text_jp_toggle"/>
+                        </group>
+                        <group colspan="2">
+                            <field name="text_jp_toggle"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="image" widget="image" options="{'accepted_file_extensions': '.png'}" />
                     </group>
                 </sheet>
             </form>

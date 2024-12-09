@@ -1,0 +1,416 @@
+<!-- /* css content 2 */ -->
+<style>
+
+    .content2{
+        display:flex;
+        flex-direction: row;
+        background-color: rgb(247,247,247);
+        width: 100%;
+        height: auto;
+        padding-top: 50px;
+        padding-bottom: 50px;  
+    }
+    .content2_box1{
+        display: flex;
+        flex-direction: column;
+        width: 50vw;
+        justify-content: center;
+        align-items: center;
+        padding: 30px;
+    }
+    .content2_box1_text1{
+        height: 33%;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+    }
+    .content2_box1_text1 p{
+        font-size: 15px;
+        color: rgb(127, 127, 127);
+        font-family: inherit;
+        font-weight: 600;
+        width: 100%;
+        text-align: left;
+        line-height: 1.7;
+    }
+    .content2_box1_text1 h2{
+        font-weight: bold;
+        margin-bottom: 10   px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .content2_box1_text2{
+        height: 100%;
+        width: 100%;
+    }
+    .content2_card {
+        width: 50vw;
+        height: 35vh;
+        perspective: 1000px;
+    }
+
+    .card-inner {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        transform-style: preserve-3d;
+        transition: transform 0.6s;
+    }
+
+    .content2_card:hover .card-inner {
+        transform: rotateY(180deg); /* Rotate on hover */
+    }
+
+    .card-front, .card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 24px;
+        color: var(--text2);
+        text-align: center;
+        flex-direction: column;
+    }
+
+    .card-front {
+        padding: 20px;
+        background-size: cover; /* Giúp hình ảnh bao phủ toàn bộ phần tử mà không bị méo */
+        background-position: center; /* Đặt tâm hình ảnh vào giữa */
+        background-repeat: no-repeat; /* Không lặp hình */
+        width: 100%; /* Đặt kích thước phần tử theo ý muốn */
+    }
+    .card-front p{
+        color: rgb(255, 255, 255);
+        font-size: 1.7rem;
+    }
+    .card-back {
+        background-color: rgb(206, 206, 206);
+        transform: rotateY(180deg);
+        padding: 5px;
+        overflow: auto;
+    }
+    .card-back h2{
+        color: black;
+        font-weight: bold;
+    }
+    .card-back p{
+        color: var(--text1);
+        font-size: 16px;
+        font-weight: bold;
+    }
+    .content2_box1_grid {
+        display: grid;
+        grid-template-columns: 50px 40% 50px 40%;
+        grid-template-rows: repeat(2, 1fr);
+        width: 100%;
+        height: 100%;
+        margin-top: 30px;
+    }
+    .grid_item {
+        display: flex;
+        align-items: flex-start;
+        /* justify-content: left; */
+        color: var(--text2);
+        font-size: 1.5rem;
+        flex-direction: column;
+    }
+    .grid_item p{
+        font-size: 15px;
+        color: var(--text1);
+    }
+    .grid_item h3{
+        color: black;
+        font-size: 20px;
+    }
+    .grid_number{
+        width: 40px;
+        height: 40px;
+        background-color: var(--secondary_color);
+        border-radius: 500px;
+        color: var(--text2);
+        text-align: center;
+        font-size: 25px;
+        margin-right: 12px;
+        line-height: 1.3;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
+    .grid_boxN{
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-end;
+    }
+    @media (max-width: 1100px) {
+        .content2{
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 40px;
+        }
+        .content2_box1{
+            width: 85vw;
+        }
+        .content2_card {
+            width: 80vw;
+            height: 30vh;
+            perspective: 1000px;
+        }
+        .card-back p {
+            font-size: 0.8rem;
+        }
+        .card-front p{
+            font-size: 1.5rem;
+        }
+        .card-back h2 {
+            color: black;
+            font-size: 1.4rem;
+        }
+    }   
+    @media (max-width: 600px) {
+        .content2_box1_text1 p {
+            text-align: center;
+        }
+        .content2_card {
+            width: 85vw;
+            height: 30vh;
+            perspective: 1000px;
+        }
+        .card-front p {
+            font-size: 1.3rem;
+        }
+        .card-back p {
+            color: var(--text1);
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .content2_box1_grid {
+            grid-template-columns: 50px 85%;
+            grid-template-rows: repeat(4, 1fr);
+        }
+        .grid_number{
+            width: 30px;
+            height: 30px;
+            font-size: 20px;
+        }
+        .card-back h2 {
+            color: black;
+            font-size: 1rem;
+            margin: 0;
+        }
+
+    }
+    @media (max-width: 400px) {
+        .content2_card{
+            width: 90vw;
+            height: 20vh;
+        }
+        .card-back p {
+            color: var(--text1);
+            font-size: 10px;
+            font-weight: bold;
+        }
+        .card-front p {
+            font-size: 0.8rem;
+        }
+        .content2_box1 {
+            width: 90vw;
+            padding: 0
+
+        }
+        .content2_box1_text1 p {
+            font-size: 13px;
+        }
+    }
+
+</style>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        async function fetchAndRenderData() {
+            try {
+                const response = await fetch('/get_div_2', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                // Giải mã base64 sang ASCII
+                function decodeBase64ToAscii(base64String) {
+                    let binaryString = atob(base64String);
+                    let asciiString = '';
+                    for (let i = 0; i < binaryString.length; i++) {
+                        asciiString += String.fromCharCode(binaryString.charCodeAt(i));
+                    }
+                    return asciiString;
+                }
+
+                if (response.ok) {
+                    const data = await response.json();
+                    const HomeData = data;
+
+                    // Render nội dung chính
+                    const title_1 = document.querySelector('.title_1');
+                    if (title_1) {
+                        if (HomeData.title_1) {
+                            title_1.innerText = HomeData.title_1;
+                        }
+                    }
+
+                    const title_2 = document.querySelector('.title_2');
+                    if (title_2) {
+                        if (HomeData.title_2) {
+                            title_2.innerText = HomeData.title_2;
+                        }
+                    }
+
+                    const title_3 = document.querySelector('.title_3');
+                    if (title_3) {
+                        if (HomeData.title_3) {
+                            title_3.innerText = HomeData.title_3;
+                        }
+                    }
+
+                    const title_4 = document.querySelector('.title_4');
+                    if (title_4) {
+                        if (HomeData.title_4) {
+                            title_4.innerText = HomeData.title_4;
+                        }
+                    }
+
+                    const text_1 = document.querySelector('.text_1');
+                    if (text_1) {
+                        if (HomeData.text_1) {
+                            text_1.innerText = HomeData.text_1;
+                        }
+                    }
+
+                    const text_2 = document.querySelector('.text_2');
+                    if (text_2) {
+                        if (HomeData.text_2) {
+                            text_2.innerText = HomeData.text_2;
+                        }
+                    }
+
+                    const text_3 = document.querySelector('.text_3');
+                    if (text_3) {
+                        if (HomeData.text_3) {
+                            text_3.innerText = HomeData.text_3;
+                        }
+                    }
+
+                    const text_4 = document.querySelector('.text_4');
+                    if (text_4) {
+                        if (HomeData.text_4) {
+                            text_4.innerText = HomeData.text_4;
+                        }
+                    }
+
+                    const main_text = document.querySelector('.main_text_div2');
+                    if (main_text) {
+                        if (HomeData.main_text) {
+                            main_text.innerText = HomeData.main_text;
+                        }
+                    }
+
+                    const main_title = document.querySelector('.main_title_div2');
+                    if (main_title) {
+                        if (HomeData.main_title) {
+                            main_title.innerText = HomeData.main_title;
+                        }
+                    }
+
+                    // Render dữ liệu flip_board
+                    const flipBoardData = HomeData.flip_board;
+                    const contentBox = document.getElementById('content2_box2');
+                    if (flipBoardData) {
+                        if (contentBox) {
+                            flipBoardData.forEach(flip => {
+                                if (flip.background_image && flip.text_not_flipped && flip.text_flipped) {
+                                    const cardHTML = `
+                                        <div class="content2_card">
+                                            <div class="card-inner" style="background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)),url(data:image/png;base64,${decodeBase64ToAscii(flip.background_image)});background-size: cover;background-position: center top;background-repeat: no-repeat;">
+                                                <!-- Front of the Card -->
+                                                <div class="card-front">
+                                                    <p>${flip.text_not_flipped}</p>
+                                                </div>
+                                                <!-- Back of the Card -->
+                                                <div class="card-back">
+                                                    <h2>Hiệu Lực Hợp Đồng</h2>
+                                                    <p>${flip.text_flipped}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    `;
+                                    contentBox.innerHTML += cardHTML;
+                                }
+                            });
+                        } else {
+                            console.error('Không tìm thấy contentBox để render flip_board.');
+                        }
+                    } else {
+                        console.error('Dữ liệu flip_board không hợp lệ.');
+                    }
+                } else {
+                    const text = await response.text();
+                    throw new Error('Received non-JSON response: ' + text);
+                }
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+
+        // Gọi hàm để lấy và render dữ liệu
+        fetchAndRenderData();
+    });
+
+</script>
+<!-- content 2 -->
+<div class="content2">
+    <div class="content2_box1 fade-in">
+        <div class="content2_box1_text1">
+            <h2 class="main_title_div2"></h2>
+            <div class="hr"></div>
+            <p class="main_text_div2"></p>
+        </div>
+        <div class="content2_box1_text2 fade-in">
+            <div class="content2_box1_grid">
+                <div class="grid_boxN">
+                    <div class="grid_number">1</div>
+                </div>
+                <div class="grid_item ">
+                    <h3 class="title_1"></h3>
+                    <p class="text_1"></p>    
+                </div>
+                <div class="grid_boxN">
+                    <div class="grid_number">2</div>     
+                </div>
+                <div class="grid_item">
+                    <h3 class="title_2"></h3>
+                    <p class="text_2"></p>    
+                </div>
+                <div class="grid_boxN">
+                    <div class="grid_number">3</div>   
+                </div>
+                <div class="grid_item">
+                    <h3 class="title_3"></h3>
+                    <p class="text_3"></p>    
+                </div>
+                <div class="grid_boxN">
+                    <div class="grid_number">4</div>   
+                </div>
+                <div class="grid_item">
+                    <h3 class="title_4"></h3>
+                    <p class="text_4"></p>    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="content2_box2" class="content2_box2 fade-in">
+        <!-- render here -->
+    </div>
+</div>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_form_cms_div3_iconandtext" model="ir.ui.view">
+        <field name="name">cms.div3.iconandtext.form</field>
+        <field name="model">cms.div3.iconandtext</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="icon" widget="image" options="{'accepted_file_extensions': '.png'}" />
+                    </group>
+                    <group col="12">
+                        <group colspan="10">
+                            <field name="text"/>
+                            <field name="text_jp" invisible="not text_jp_toggle"/>
+                        </group>
+                        <group colspan="2">
+                            <field name="text_jp_toggle"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo> 

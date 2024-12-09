@@ -5,11 +5,41 @@
         <field name="model">cms.div5</field>
         <field name="arch" type="xml">
             <form create="false" delete="false">
+                <header>
+                    <button name="Preview" string="Preview" type="object" class="oe_highlight" />
+                    <button name="go_to_website" string="Go To Website" type="object" class="oe_highlight"/>
+                </header>
                 <sheet>
+                    <group col="12">
+                        <group colspan="10">
+                            <field name="quote"/>
+                            <field name="quote_jp" invisible="not quote_jp_toggle"/>
+                        </group>
+                        <group colspan="2">
+                            <field name="quote_jp_toggle"/>
+                        </group>
+                    </group>
+                    <group col="12">
+                        <group colspan="10">
+                            <field name="author"/>
+                            <field name="author_jp" invisible="not author_jp_toggle"/>
+                        </group>
+                        <group colspan="2">
+                            <field name="author_jp_toggle"/>
+                        </group>
+                    </group>
+                    <group col="12">
+                        <group colspan="10">
+                            <field name="title"/>
+                            <field name="title_jp" invisible="not title_jp_toggle"/>
+                        </group>
+                        <group colspan="2">
+                            <field name="title_jp_toggle"/>
+                        </group>
+                    </group>
+
                     <group>
-                        <field name="quote"/>
-                        <field name="author"/>
-                        <field name="title"/>
+                        <field name="image" widget="image" options="{'accepted_file_extensions': '.png'}" />
                     </group>
                 </sheet>
             </form>

@@ -5,16 +5,44 @@
         <field name="model">cms.div3</field>
         <field name="arch" type="xml">
             <form create="false" delete="false">
+                <header>
+                    <button name="Preview" string="Preview" type="object" class="btn-primary"/>
+                    <button name="go_to_website" string="Go To Website" type="object" class="oe_highlight"/>
+                </header>
                 <sheet>
-
+                    <group col="12">
+                        <group colspan="8">
+                            <field name="menu_item3"/>
+                            <field name="menu_item3_jp" invisible="not menu_item3_jp_toggle"/>
+                        </group>
+                        <group colspan="4">
+                            <field name="menu_item3_jp_toggle" widget="boolean_toggle"/>
+                        </group>
+                    </group>
+                    <group col="12">
+                        <group colspan="10">
+                            <field name="main_title"/>
+                            <field name="main_title_jp" invisible="not main_title_jp_toggle"/>
+                        </group>
+                        <group colspan="2">
+                            <field name="main_title_jp_toggle"/>
+                        </group>
+                    </group>
+                    <group col="12">
+                        <group colspan="10">
+                            <field name="text"/>
+                            <field name="text_jp" invisible="not text_jp_toggle"/>
+                        </group>
+                        <group colspan="2">
+                            <field name="text_jp_toggle"/>
+                        </group>
+                    </group>
                     <group>
-                        <field name="main_title"/>
-                        <field name="text"/>
                         <notebook>
                             <page string="Icon và Text">
                                 <field name="icon_and_text" context="{'form_view_ref': 'tomishow.view_form_cms_div3_iconandtext'}">
                                     <list>
-                                        <field name="icon"/>
+                                        <field name="icon" widget="image"/>
                                         <field name="text"/>
                                         <field name="div_3_id" column_invisible="1"/>
                                     </list>

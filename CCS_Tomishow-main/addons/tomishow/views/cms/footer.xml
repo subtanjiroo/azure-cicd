@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_form_cms_footer" model="ir.ui.view">
+        <field name="name">cms.footer.form</field>
+        <field name="model">cms.footer</field>
+        <field name="arch" type="xml">
+            <form create="false" delete="false">
+                <header>
+                    <button name="Preview" string="Preview" type="object" class="btn-primary"/>
+                    <button name="go_to_website" string="Go To Website" type="object" class="oe_highlight"/>
+                </header>
+                <sheet>
+                    <group col="12">
+                        <group colspan="8">
+                            <field name="callus"/>
+                            <field name="callus_jp" invisible="not callus_jp_toggle"/>
+                        </group>
+                        <group colspan="4">
+                            <field name="callus_jp_toggle" widget="boolean_toggle"/>
+                        </group>
+                    </group>
+                    <group col="12">
+                        <group colspan="8">
+                            <field name="callus_text"/>
+                            <field name="callus_text_jp" invisible="not callus_text_jp_toggle"/>
+                        </group>
+                        <group colspan="4">
+                            <field name="callus_text_jp_toggle" widget="boolean_toggle"/>
+                        </group>
+                    </group>
+                    <group col="12">
+                        <group colspan="8">
+                            <field name="address"/>
+                            <field name="address_jp" invisible="not address_jp_toggle"/>
+                        </group>
+                        <group colspan="4">
+                            <field name="address_jp_toggle" widget="boolean_toggle"/>
+                        </group>
+                    </group>
+                    <group col="12">
+                        <group colspan="8">
+                            <field name="address_text"/>
+                            <field name="address_text_jp" invisible="not address_text_jp_toggle"/>
+                        </group>
+                        <group colspan="4">
+                            <field name="address_text_jp_toggle" widget="boolean_toggle"/>
+                        </group>
+                    </group>
+                    <group col="12">
+                        <field name="mail"/>
+                    </group>
+                    <group col="12">
+                        <field name="mail_text"/>
+                    </group>
+                    <group col="12">
+                        <group colspan="8">
+                            <field name="working_time"/>
+                            <field name="working_time_jp" invisible="not working_time_jp_toggle"/>
+                        </group>
+                        <group colspan="4">
+                            <field name="working_time_jp_toggle" widget="boolean_toggle"/>
+                        </group>
+                    </group>
+                    <group col="12">
+                        <group colspan="8">
+                            <field name="working_time_text"/>
+                            <field name="working_time_text_jp" invisible="not working_time_text_jp_toggle"/>
+                        </group>
+                        <group colspan="4">
+                            <field name="working_time_text_jp_toggle" widget="boolean_toggle"/>
+                        </group>
+                    </group>
+                    <group col="12">
+                        <group colspan="8">
+                            <field name="copyright"/>
+                            <field name="copyright_jp" invisible="not copyright_jp_toggle"/>
+                        </group>
+                        <group colspan="4">
+                            <field name="copyright_jp_toggle" widget="boolean_toggle"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="footer_text1"/>
+                        <field name="footer_text2"/>
+                        <field name="footer_logo" widget="image"/>
+                    </group>
+                    <group>
+                        <notebook>
+                            <page string="Social Logos">
+                                <field name="logo" context="{'form_view_ref': 'tomishow.view_form_cms_footer_logo'}">
+                                    <list string="Social Logo">
+                                        <field name="icon" widget="image"/>
+                                    </list>
+                                </field>
+                            </page>
+                        </notebook>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_cms_footer" model="ir.actions.act_window">
+        <field name="name">Footer</field>
+        <field name="res_model">cms.footer</field>
+        <field name="view_mode">form</field>
+        <field name="res_id">1</field>
+        <field name="view_id" ref="view_form_cms_footer"/>
+        <field name="target">main</field>
+    </record>
+</odoo> 

@@ -3,13 +3,34 @@
     <data>
         <template id="Home_Page" name="Home Page">
             <t t-call="website.layout">
-                
+                <!-- loading screen -->
+                <script>
+                    const loadingOverlay = document.querySelector('.loading-overlay');
+                    // Hiển thị overlay khi bắt đầu render
+                    if (loadingOverlay) {
+                        loadingOverlay.classList.remove('hidden');
+                    }
+                </script>
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOM2bw6xElppNFaTZg3F8K5J1JgG0hwRXE9MFEJk" crossorigin="anonymous"/>
                 <!-- Swiper CSS -->
                 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
                 <!-- Swiper JS -->
                 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-                
+
+                <!-- font -->
+                <link rel="preconnect" href="https://fonts.googleapis.com"/>
+                <link rel="preconnect" href="https://fonts.gstatic.com" />
+                <link href="https://fonts.googleapis.com/css2?family=Alata&amp;family=Open+Sans:ital,wght@0,300..800;1,300..800&amp;family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap" rel="stylesheet"/>
+                <link rel="preconnect" href="https://fonts.googleapis.com"/>
+                <link rel="preconnect" href="https://fonts.gstatic.com" />
+                <link href="https://fonts.googleapis.com/css2?family=Alata&amp;family=Open+Sans:ital,wght@0,300..800;1,300..800&amp;family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap" rel="stylesheet"/>
+                <link rel="preconnect" href="https://fonts.googleapis.com"/>
+                <link rel="preconnect" href="https://fonts.gstatic.com"/>
+                <link href="https://fonts.googleapis.com/css2?family=Alata&amp;family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap" rel="stylesheet"/>
+                <link rel="preconnect" href="https://fonts.googleapis.com"/>
+                <link rel="preconnect" href="https://fonts.gstatic.com"/>
+                <link href="https://fonts.googleapis.com/css2?family=Alata&amp;display=swap" rel="stylesheet"/>
+
                 <link rel="stylesheet" href="/tomishow/static/src/css/Home_Style/content1.css"/>
                 <link rel="stylesheet" href="/tomishow/static/src/css/Home_Style/content2.css"/>
                 <link rel="stylesheet" href="/tomishow/static/src/css/Home_Style/content3.css"/>
@@ -22,8 +43,13 @@
                 <link rel="stylesheet" href="/tomishow/static/src/css/Home_Style/navigation_bar.css"/>
                 <link rel="stylesheet" href="/tomishow/static/src/css/Home_Style/banner_style.css"/>
                 <link rel="stylesheet" href="/tomishow/static/src/css/Home_Style/footer.css"/>
+
+
+
+
                 <!-- color and body style -->
                 <style>
+
                     :root {
                         --main_color: red;
                         --secondary_color: #7b5a14;
@@ -31,6 +57,7 @@
                         --head_color: #333333;
                         --text1: #7F7F7F; 
                         --text2: white;
+                        --text_banner: white;
                         
                     }
                     .navbar,
@@ -73,27 +100,76 @@
                         max-width: 100%;
                         border-radius: 500px;
                     }
+                    /* Định nghĩa trạng thái ban đầu (ẩn và trượt xuống dưới) */
+                    .fade-in {
+                        opacity: 0;
+                        transform: translateY(30px); /* Trượt xuống 30px */
+                        transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Hiệu ứng mượt */
+                    }
+
+                    /* Khi phần tử được nhìn thấy (được thêm class 'visible') */
+                    .fade-in.visible {
+                        opacity: 1;
+                        transform: translateY(0); /* Trở về vị trí ban đầu */
+                    }
+                    /* Loading overlay */
+                    .loading-overlay {
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: rgb(255, 255, 255);
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        z-index: 1000;
+                    }
+
+                    /* Spinner */
+                    .spinner {
+                        width: 50px;
+                        height: 50px;
+                        border: 5px solid rgba(0, 0, 0, 0.2);
+                        border-top: 5px solid #000;
+                        border-radius: 50%;
+                        animation: spin 1s linear infinite;
+                    }
+
+                    @keyframes spin {
+                        from {
+                            transform: rotate(0deg);
+                        }
+                        to {
+                            transform: rotate(360deg);
+                        }
+                    }
+
+                    /* Ẩn overlay khi thêm class "hidden" */
+                    .loading-overlay.hidden {
+                        display: none;
+                    }
 
                 </style>
                 <!-- navigation bar -->
                 <div id="nav_bar" class="navigation_bar">
                     <div class="navLogo">
-                        <img src="/tomishow/static/imgs/canhcam_logo.png"/>
+                        <img class="LOGO" loading="lazy" src="" alt="img"/>
                     </div>
                     <div class="menuItems">
-                        <span id="menuItems1" class="menu-item">Về chúng tôi</span>
-                        <span id="menuItems2" class="menu-item">Lĩnh vực chuyên môn</span>
-                        <span id="menuItems3" class="menu-item">Dịch vụ</span>
-                        <span id="menuItems4" class="menu-item">Luật sư của chúng tôi</span>
-                        <span id="menuItems5" class="menu-item">Quy trình</span>
-                        <span id="menuItems6" class="menu-item">Liên Hệ</span>
+                        <span id="menuItems1" class="menu-item"></span>
+                        <span id="menuItems2" class="menu-item"></span>
+                        <span id="menuItems3" class="menu-item"></span>
+                        <span id="menuItems4" class="menu-item"></span>
+                        <span id="menuItems5" class="menu-item"></span>
+                        <span id="menuItems6" class="menu-item"></span>
                     </div>
                     <div class="PhoneNumber">
+                        <img class="Phone_Icon" loading="lazy" src="" alt="img"/>
                         <div class="phone-row">
-                            <i class="fas fa-phone"></i>
-                            <p class="phone-number">028 6273 0815</p>
+                            <p class="phone-number"></p>
+                            <p class="consult-text"></p>
                         </div>
-                        <p class="consult-text">Tư vấn miễn phí 24/7</p>
                     </div>
                     <div class="PhoneMenu" onclick="toggleMenu()">Menu</div>
                 </div>
@@ -101,21 +177,31 @@
                 <div id="dark_overlay"></div>
                 <div class="side-menu" id="sideMenu">
                     <div class="close-btn" onclick="toggleMenu()">X</div>
+                    <style>
+                        .menu-item-mb{
+                            display: none;
+                        }
+                    </style>
                     <div class="SidemenuItems">
-                        <span id="menuItems1" onclick="toggleMenu()" class="menu-item">Về chúng tôi</span>
-                        <span id="menuItems2" onclick="toggleMenu()" class="menu-item">Lĩnh vực chuyên môn</span>
-                        <span id="menuItems3" onclick="toggleMenu()" class="menu-item">Dịch vụ</span>
-                        <span id="menuItems4" onclick="toggleMenu()" class="menu-item">Luật sư của chúng tôi</span>
-                        <span id="menuItems5" onclick="toggleMenu()" class="menu-item">Quy trình</span>
-                        <span id="menuItems6" onclick="toggleMenu()" class="menu-item">Liên Hệ</span>
+                        <span id="mb_menu_item1" onclick="toggleMenu()" class="menu-item-mb"></span>
+                        <span id="mb_menu_item2" onclick="toggleMenu()" class="menu-item-mb"></span>
+                        <span id="mb_menu_item3" onclick="toggleMenu()" class="menu-item-mb"></span>
+                        <span id="mb_menu_item4" onclick="toggleMenu()" class="menu-item-mb"></span>
+                        <span id="mb_menu_item5" onclick="toggleMenu()" class="menu-item-mb"></span>
+                        <span id="mb_menu_item6" onclick="toggleMenu()" class="menu-item-mb"></span>
                     </div>
+                </div>
+
+                <!-- Loading Overlay -->
+                <div class="loading-overlay">
+                    <div class="spinner"></div>
                 </div>
 
                 <!-- banner -->
                 <div class="banner">
                     <div class="banner1">
                         <span class="logo_left_text_banner" style="font-weight: 700;">EST.</span>
-                        <img class="logo_banner" src="/tomishow/static/imgs/logo.png"/>
+                        <img loading="lazy" class="logo_banner" src=""/>
                         <span class="logo_right_text_banner" style="font-weight: 700;">1986</span>
                     </div>
                     <h1 class="banner1_h1 big_title_banner"></h1>
@@ -129,7 +215,7 @@
                 <div id="section1">
                     <!-- content 1 -->
                     <div class="content1">
-                        <div class="content1_text">
+                        <div class="content1_text fade-in">
                             <h2 class="main_title_div1"></h2>
                             <div class="hr"></div>
                             <p class="main_text_div1"></p>
@@ -165,10 +251,16 @@
                                 height: 80px;
                                 line-height: 80px;
                                 border-radius: 500px;
-                                font-size: 46px;
-                                display: inline-block;
-                                font-size: 35px;
-                                text-align: center;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                            }
+                            .card_logo_left,
+                            .card_logo_mid,
+                            .card_logo_right{
+                                width: inherit;
+                                height: inherit;
+                                padding: 15px;
                             }
                             .heading{
                                 color: var(--head_color);
@@ -223,11 +315,11 @@
                                     width: 100%;
                                 }
                                 .content1_text p{
-                                    font-size: 15px;
+                                    font-size: 1rem;
                                 }
 
                                 .content1_text h2{
-                                    font-size: 20px;
+                                    font-size: 1.7rem;
                                 }
                                 .content1_text .hr {
                                     margin-bottom: 20px;
@@ -237,9 +329,9 @@
 
                         </style>
                         <!-- card items -->
-                        <div class="content1_card">
+                        <div class="content1_card fade-in">
                             <div class="card_items">
-                                <div class="card_logo"><i class="fa-solid fa-graduation-cap"></i></div>
+                                <div class="card_logo"><img loading="lazy" class="card_logo_left" src=""/></div>
                                 <div class="card_text">
                                     <p class="heading left_title"></p>
                                     <p class="texting left_text"></p>
@@ -248,7 +340,7 @@
                             </div>
                             
                             <div class="card_items">
-                                <div class="card_logo"><i class="fa-solid fa-graduation-cap"></i></div>
+                                <div class="card_logo"><img loading="lazy" class="card_logo_mid" src=""/></div>
                                 <div class="card_text">
                                     <p class="heading mid_title"></p>
                                     <p class="texting mid_text"></p>
@@ -256,7 +348,7 @@
                                 <div class="card_btn">Gặp nhóm chúng tôi</div>
                             </div>
                             <div class="card_items">
-                                <div class="card_logo"><i class="fa-solid fa-graduation-cap"></i></div>
+                                <div class="card_logo"><img loading="lazy" class="card_logo_right" src=""/></div>
                                 <div class="card_text">
                                     <p class="heading right_title"></p>
                                     <p class="texting right_text"></p>
@@ -268,13 +360,13 @@
 
                     <!-- content 2 -->
                     <div class="content2">
-                        <div class="content2_box1">
+                        <div class="content2_box1 fade-in">
                             <div class="content2_box1_text1">
                                 <h2 class="main_title_div2"></h2>
                                 <div class="hr"></div>
                                 <p class="main_text_div2"></p>
                             </div>
-                            <div class="content2_box1_text2">
+                            <div class="content2_box1_text2 fade-in">
                                 <div class="content2_box1_grid">
                                     <div class="grid_boxN">
                                         <div class="grid_number">1</div>
@@ -307,7 +399,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div id="content2_box2" class="content2_box2">
+                        <div id="content2_box2" class="content2_box2 fade-in">
                             <!-- render here -->
                         </div>
                     </div>
@@ -315,23 +407,23 @@
                 <div id="section2">
                     <!-- content 3 -->
                     <div class="content3">
-                        <div class="content3_box1">
+                        <div class="content3_box1 fade-in">
                                 <h2 class="main_title_div3"></h2>
                                 <div class="hr"></div>
                         </div>
-                        <div class="content3_box2">
+                        <div class="content3_box2 fade-in">
                             <div id="content3_box2_grid" class="content3_box2_grid">
                             <!-- item in here -->
                             </div>
                         </div>
-                        <div class="content3_box3">
+                        <div class="content3_box3 fade-in">
                             <p class="text_div3"></p>
                         </div>
                     </div>
                 </div>
                 <div id="section3">
                     <!-- content 4 -->
-                    <div class="content4">
+                    <div class="content4 fade-in">
                         <div class="content4_box1">
                             <h2 class="main_title_div4"></h2>
                             <div class="hr"></div>
@@ -346,24 +438,24 @@
                     </div>
                     <!-- content 5 -->
                     <div class="content5">
-                            <div class="content5_text1">
+                            <div class="content5_text1 fade-in">
                                     <p class="quote_div5"></p>
                                     <div class="RP author_div5"></div>
                                     <div class="CEO title_div5"></div>
                             </div>
-                            <div class="content5_img">
-                                <img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2023/01/photo-1491336477066-31156b5e4f35.jpeg"/>
+                            <div class="content5_img fade-in">
+                            <!-- imgs here -->
                             </div>
                     </div>
                 </div>
                 <div id="section4">
                     <!-- content 6 -->
-                    <div class="content6">
+                    <div class="content6 fade-in">
                         <div class="content6_text1">
                             <h2 class="main_title_div6"></h2>
                             <div class="hr"></div>
                         </div>
-                        <div class="Lawer_slider">
+                        <div class="Lawer_slider fade-in">
                             <!-- Carousel 2 -->
                             <div id="carousel2" class="swiper-container">
                                 <div class="swiper-wrapper">
@@ -377,31 +469,34 @@
                 <div id="section5">
                     <!-- content 7 -->
                     <div class="content7">
-                        <div class="content7_text1">
+                        <div class="content7_text1 fade-in">
                             <h2 class="main_title_div7"></h2>
                             <div class="hr"></div>
                         </div>
-                        <div class="content7_text2">
+                        <div class="content7_text2 fade-in">
                             <div class="inner_content7_text2">
                                 <div class="content7_texting">
                                     <p class="title_div7"></p>
                                     <div id="content7_grid" class="content7_grid">
+                                        <!-- items in here -->
                                     </div>
                                 </div>
                                 <!-- info_circle css -->
                                 <style>
                                     .center_circle_logo2{
                                         border-radius: 500px;
-                                        width: 50px;
-                                        height: 50px;
+                                        width: 60px;
+                                        height: 60px;
                                         color: var(--text2);
                                         text-align: center;
-                                        font-size: 30px;
+                                        font-size: 20px;
                                         background: rgb(20, 58, 123);
                                         align-items: center;
                                         justify-content: center;
                                         display: none;
                                         margin-bottom: 10px;
+                                        box-sizing: border-box !important;
+                                        padding: 8px;
                                     }
                                     .info_circle{
                                         width: 100%;
@@ -463,7 +558,7 @@
                                         margin-right: 5px;
                                     }
 
-                                    .logo_1,.logo_2,.logo_3,.logo_4,.logo_5{
+                                    .logo_1,.logo_2,.logo_3,.logo_4,.logo_5,.logo_6,.logo_7,.logo_8{
                                         position: absolute;
                                         background-color: rgb(20, 58, 123);
                                         border-radius: 500px;
@@ -494,6 +589,21 @@
                                     .logo_5{
                                         transform: translate(370%, 0%);
                                     }
+                                    .logo_6{
+                                        transform: translate(120%, 0%);
+                                    }
+                                    .logo_7{
+                                        transform: translate(-50%, -120%);
+                                    }
+                                    .logo_8{
+                                        transform: translate(-120%, -330%);
+                                    }
+                                    .logo_9{
+                                        transform: translate(-70%, -540%);
+                                    }
+                                    .logo_10{
+                                        transform: translate(100%, -690%);
+                                    }
                                     .center_circle_logo{
                                         width: 42px;
                                         height: 42px;
@@ -508,7 +618,7 @@
                                         margin: 0;
                                         font-weight: bold;
                                         margin-bottom: 5px;
-                                        
+                                        word-wrap: break-word;
                                     }
                                     .center_circle_subtext{
                                         font-size: 14px;
@@ -532,7 +642,7 @@
                                         display: flex;
                                             width: 100%;
                                             flex-direction: row;
-                                            justify-content: space-between;
+                                            justify-content: center;
                                             margin-bottom: 30px;
                                         }
                                         .center_circle_box{
@@ -540,6 +650,9 @@
                                             width: 80%;
                                             padding: 20px;
                                             border-radius: 5px;
+                                            display: flex;
+                                            align-items: center;
+                                            flex-direction: column;
                                         }
                                         .center_circle_logo {
                                             border-radius: 500px;
@@ -552,6 +665,8 @@
                                             display: flex;
                                             align-items: center;
                                             justify-content: center;
+                                            box-sizing: border-box !important;
+                                            padding: 8px;
                                         }
                                         .center_circle_subtext {
                                             text-align: left
@@ -592,28 +707,8 @@
                                         }
                                     }
                                 </style>
-                                <script>
-                                    function showText(index) {
-                                        // Ẩn tất cả các text
-                                        const texts = document.querySelectorAll('.center_circle div');
-                                        texts.forEach(text => {
-                                            text.classList.remove('active');
-                                        });
-
-                                        // Hiển thị text tương ứng
-                                        const selectedText = document.querySelector(`.circle_text${index}`);
-                                        if (selectedText) {
-                                            selectedText.classList.add('active');
-                                        }
-                                    }
-
-                                    // Hiển thị mặc định text1
-                                    document.addEventListener('DOMContentLoaded', () => {
-                                        showText(1);
-                                    });
-                                </script>
-                                <div class="info_circle">
-                                    <div class="inner_circle">
+                                <div class="info_circle fade-in">
+                                    <div id="inner_circle" class="inner_circle">
                                         <div class="center_circle">
                                             <div class="circle_text1 active">
                                             </div>
@@ -625,59 +720,24 @@
                                             </div>
                                             <div class="circle_text5">
                                             </div>
+                                            <div class="circle_text6">
+                                            </div>
+                                            <div class="circle_text7">
+                                            </div>
+                                            <div class="circle_text8">
+                                            </div>
+                                            <div class="circle_text9">
+                                            </div>
+                                            <div class="circle_text10">
+                                            </div>
                                         </div>
-                                        <div class="logo_1" onclick="showText(1)"><i class="fa-solid fa-graduation-cap"></i></div>
-                                        <div class="logo_2" onclick="showText(2)"><i class="fa-solid fa-graduation-cap"></i></div>
-                                        <div class="logo_3" onclick="showText(3)"><i class="fa-solid fa-graduation-cap"></i></div>
-                                        <div class="logo_4" onclick="showText(4)"><i class="fa-solid fa-graduation-cap"></i></div>
-                                        <div class="logo_5" onclick="showText(5)"><i class="fa-solid fa-graduation-cap"></i></div>
                                     </div>
                                 </div>
-                                <div class="info_circle_mobile">
-                                    <div class="circle_text_mobile">
-                                        <i class="fa-solid fa-graduation-cap center_circle_logo"></i>
-                                        <div class="center_circle_box">
-                                            <i class="fa-solid fa-graduation-cap center_circle_logo2"></i>
-                                            <p class="center_circle_text">1. Tuân thủ Hiến pháp và pháp luật.</p>
-                                            <p class="center_circle_subtext">Hoạt động nghề nghiệp của luật sư góp phần bảo vệ công lý, các quyền tự do, dân chủ của công dân, quyền, lợi ích hợp pháp của cá nhân, cơ quan, tổ chức, phát triển kinh tế - xã hội</p>
-                                        </div>
-                                    </div>
-                                    <div class="circle_text_mobile">
-                                        <i class="fa-solid fa-graduation-cap center_circle_logo"></i>
-                                        <div class="center_circle_box">
-                                            <i class="fa-solid fa-graduation-cap center_circle_logo2"></i>
-                                            <p class="center_circle_text">2. Tuân theo Quy tắc đạo đức và ứng xử nghề nghiệp.</p>
-                                            <p class="center_circle_subtext">Hoạt động nghề nghiệp của luật sư góp phần bảo vệ công lý, các quyền tự do, dân chủ của công dân, quyền, lợi ích hợp pháp của cá nhân, cơ quan, tổ chức, phát triển kinh tế - xã hội</p>
-                                        </div>
-                                    </div>
-                                    <div class="circle_text_mobile">
-                                        <i class="fa-solid fa-graduation-cap center_circle_logo"></i>
-                                        <div class="center_circle_box">
-                                            <i class="fa-solid fa-graduation-cap center_circle_logo2"></i>
-                                            <p class="center_circle_text">3. Độc lập, trung thực, tôn trọng sự thật khách quan</p>
-                                            <p class="center_circle_subtext">Hoạt động nghề nghiệp của luật sư góp phần bảo vệ công lý, các quyền tự do, dân chủ của công dân, quyền, lợi ích hợp pháp của cá nhân, cơ quan, tổ chức, phát triển kinh tế - xã hội</p>
-                                        </div>
-                                    </div>
-                                    <div class="circle_text_mobile">
-                                        <i class="fa-solid fa-graduation-cap center_circle_logo"></i>
-                                        <div class="center_circle_box">
-                                            <i class="fa-solid fa-graduation-cap center_circle_logo2"></i>
-                                            <p class="center_circle_text">4. Phương pháp điều chỉnh của luật hình sự</p>
-                                            <p class="center_circle_subtext">Hoạt động nghề nghiệp của luật sư góp phần bảo vệ công lý, các quyền tự do, dân chủ của công dân, quyền, lợi ích hợp pháp của cá nhân, cơ quan, tổ chức, phát triển kinh tế - xã hội</p>
-                                        </div>
-                                    </div>
-                                    <div class="circle_text_mobile">
-                                        <i class="fa-solid fa-graduation-cap center_circle_logo"></i>
-                                        <div class="center_circle_box">
-                                            <i class="fa-solid fa-graduation-cap center_circle_logo2"></i>
-                                            <p class="center_circle_text">5. Phương pháp quyền uy</p>
-                                            <p class="center_circle_subtext">Hoạt động nghề nghiệp của luật sư góp phần bảo vệ công lý, các quyền tự do, dân chủ của công dân, quyền, lợi ích hợp pháp của cá nhân, cơ quan, tổ chức, phát triển kinh tế - xã hội</p>
-                                        </div>
-                                    </div>
+                                <div class="info_circle_mobile fade-in">
 
                                 </div>
                             </div>
-                            <div class="content7_more_info_box">
+                            <div class="content7_more_info_box fade-in">
                                 <div class="content7_more_info">
                                     <div class="content7_more_info_img_text">
                                         <div id="overlay">
@@ -720,76 +780,21 @@
 
                     <!-- content 8 -->
                     <div class="content8">
-                        <div class="content8_text1">
+                        <div class="content8_text1 fade-in">
                             <h2>Hãy kết nối</h2>
                             <div class="hr"></div>
                         </div>
-                        <div class="content8_text2">
-                            <div class="icon_items">
-                                <div class="logo_items"><i class="fa-solid fa-graduation-cap"></i></div>
-                                <div class="content8_text2_subtext">VĂN PHÒNG CHÍNH</div>
-                                <div class="content8_text2_info">156 Nguyễn Văn Thủ, phường Đa Kao, quận 1</div>
-                            </div>
-                            <div class="icon_items">
-                                <div class="logo_items"><i class="fa-solid fa-graduation-cap"></i></div>
-                                <div class="content8_text2_subtext">SỐ ĐIỆN THOẠI</div>
-                                <div class="content8_text2_info"><strong>Điện thoại:</strong> 028 6273 0815</div>
-                                <div class="content8_text2_info"><strong>Lịch hẹn: canhcam.vn</strong></div>
-                            </div>
-                            <div class="icon_items">
-                                <div class="logo_items"><i class="fa-solid fa-graduation-cap"></i></div>
-                                <div class="content8_text2_subtext">FAX</div>
-                                <div class="content8_text2_info"><strong>Điện thoại:</strong> 028 6273 0815</div>
-                            </div>
-                            <div class="icon_items">
-                                <div class="logo_items"><i class="fa-solid fa-graduation-cap"></i></div>
-                                <div class="content8_text2_subtext">EMAIL</div>
-                                <div class="content8_text2_info">hello@dream-theme.com</div>
-                            </div>
+
+                        <div class="content8_text2 fade-in">
+                            <!-- items here -->
                         </div>
-                        <!-- css and js for google map -->
-                        <!-- <script>
-                            const iframe = document.querySelector('.draggable-iframe');
-                            let isDragging = false;
-                            let startX, startY, scrollLeft, scrollTop;
-
-                            iframe.addEventListener('mousedown', (e) => {
-                                isDragging = true;
-                                startX = e.pageX - iframe.offsetLeft;
-                                startY = e.pageY - iframe.offsetTop;
-                                scrollLeft = iframe.scrollLeft;
-                                scrollTop = iframe.scrollTop;
-                                iframe.style.cursor = 'grabbing';
-                            });
-                            const iframe = document.getElementById('your_iframe_id');
-                            if (iframe) {
-                                iframe.addEventListener('mousedown', (e) => {
-                                    // Mã xử lý khi sự kiện được kích hoạt
-                                });
-                            } else {
-                                console.error('Element with ID "your_iframe_id" not found.');
-                            }
 
 
-                            document.addEventListener('mousemove', (e) => {
-                                if (!isDragging) return;
-                                e.preventDefault();
-                                const x = e.pageX - startX;
-                                const y = e.pageY - startY;
-                                iframe.style.left = `${x}px`;
-                                iframe.style.top = `${y}px`;
-                            });
-
-                            document.addEventListener('mouseup', () => {
-                                isDragging = false;
-                                iframe.style.cursor = 'grab';
-                            });
-                        </script> -->
                         <style>
                             /* Thiết lập container */
                             .map-container {
                                 width: 100%;
-                                height: 355px;
+                                height: 350px;
                                 position: relative;
                                 overflow: hidden;
                             }
@@ -804,9 +809,9 @@
                             }
                         </style>
                         <!-- form and google map -->
-                        <div class="content8_text3">
+                        <div class="content8_text3 fade-in">
                             <div class="info_form">
-                                <div class="info_form_text"><h2 style="font-size: 2rem;color: black;font-family: Arial;font-weight: bold;">Nhận đánh giá trường hợp miễn phí ngay hôm nay!</h2></div>
+                                <div class="info_form_text"><h2>Nhận đánh giá trường hợp miễn phí ngay hôm nay!</h2></div>
                                 <div class="content8_text2_subtext">CÓ SẴN 24 GIỜ MỘT NGÀY!</div>
                                 <input class="form_items" placeholder="Name *"/>
                                 <input class="form_items" placeholder="Email *"/>
@@ -815,16 +820,10 @@
                                 <button class="info_form_btn">Nhận tư vấn miễn phí</button>
                             </div>
                             <div class="ggMap">
-                                <div class="info_form_text"><h2 style="font-size: 2rem;color: black;font-family: Arial;font-weight: bold;">Chúng tôi ở đây</h2></div>
-                                <div class="content8_text2_subtext">Thứ 2 - thứ 6 8:30 am - 5pm /  Điện thoại trực 24/7</div>
+                                <div class="info_form_text"><h2>Chúng tôi ở đây</h2></div>
+                                <div class="content8_text2_subtext time_div8"></div>
                                 <div class="map-container">
-                                    <iframe 
-                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31357.58288870064!2d106.61617240000001!3d10.7577528!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752e8ab9bb054d%3A0x36072ab090100a11!2zQ2jhu6MgQsOsbmggVMOieQ!5e0!3m2!1svi!2s!4v1730947398244!5m2!1svi!2s"
-                                        class="draggable-iframe"
-                                        allowfullscreen=""
-                                        loading="lazy"
-                                        referrerpolicy="no-referrer-when-downgrade"
-                                    ></iframe>
+
                                 </div>
 
                             </div>
@@ -833,128 +832,48 @@
                 </div>
                 <!-- content footer -->
                 <div class="footer">
-                    <div class="footer_content">
-                        <div class="footer_contact">
+                    <div class="footer_content fade-in">
+                        <div id="footer_contact" class="footer_contact">
+                            <div id="footer_items1" class="footer_items"></div>
+                            <div id="footer_items2" class="footer_items"></div>
+                            <div id="footer_items3" class="footer_items"></div>
+                            <div id="footer_items4" class="footer_items"></div>
                             <div class="footer_items">
-                                <h6>GỌI CHÚNG TÔI</h6>
-                                <p>028 6273 0815</p>
-                                <p>028 6273 0815 (Miễn phí)</p>
-                            </div>
-                            <div class="footer_items">
-                                <h6>ĐỊA CHỈ</h6>
-                                <p>156 Nguyễn Văn Thủ, phường Đa Kao, quận 1</p>
-                            </div>
-                            <div class="footer_items">
-                                <h6>MAIL</h6>
-                                <p>info@canhcam.com</p>
-                            </div>
-                            <div class="footer_items">
-                                <h6>GIỜ HÀNH CHÍNH</h6>
-                                <p>Mở cửa 24/7</p>
-                            </div>
-                            <div class="footer_items">
-                                <div class="social_logo">
-                                    <i class="fa-solid fa-graduation-cap"></i>
-                                    <i class="fa-solid fa-graduation-cap"></i>
-                                    <i class="fa-solid fa-graduation-cap"></i>
-                                    <i class="fa-solid fa-graduation-cap"></i>
+                                <div id="social_logo" class="social_logo">
                                 </div>
                             </div>
                         </div>
 
                         <div class="footer_daiary">
-                            <h6>Nhật ký của chúng tôi</h6>
-                            <div class="daiary_items">
-                                <div class="daiary_imgs">
-                                    <img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2023/01/olia-gozha-J4kK8b9Fgj8-unsplash-120x120.jpg"/>
-                                </div>
-                                <div class="daiary_text_box">
-                                    <p class="daiary_text">Thủ tục đăng ký đi nước ngoài làm việc như thế nào?</p>
-                                    <p class="daiary_date">January 3, 2023</p>
-                                </div>
-                            </div>
-                            <div class="daiary_items">
-                                <div class="daiary_imgs">
-                                    <img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2023/01/olia-gozha-J4kK8b9Fgj8-unsplash-120x120.jpg"/>
-                                </div>
-                                <div class="daiary_text">
-                                    <p class="daiary_text">Người lao động Việt Nam có thể đi làm việc ở nước ngoài không?</p>
-                                    <p class="daiary_date">January 30, 2018</p>
-                                </div>
-                            </div>
-                            <div class="daiary_items">
-                                <div class="daiary_imgs">
-                                    <img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2023/01/olia-gozha-J4kK8b9Fgj8-unsplash-120x120.jpg"/>
-                                </div>
-                                <div class="daiary_text_box">
-                                    <p class="daiary_text">Những lưu ý khi giao kết hợp đồng lao động với người sử dụng lao động nước ngoài</p>
-                                    <p class="daiary_date">January 30, 2018</p>
-                                </div>
-                            </div>
-                            <div class="daiary_items">
-                                <div class="daiary_imgs">
-                                    <img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2023/01/olia-gozha-J4kK8b9Fgj8-unsplash-120x120.jpg"/>
-                                </div>
-                                <div class="daiary_text_box">
-                                    <p class="daiary_text">Điều kiện để người Việt Nam đi nước ngoài làm việc</p>
-                                    <p class="daiary_date">January 30, 2018</p>
+                            <h6 id="footer_text1" class="footer_text1"></h6>
+                            <div id="footer_daiary" class="swiper-container">
+                                <div class="swiper-wrapper">
+                                    <!-- Các slide được thêm vào đây -->
                                 </div>
                             </div>
                         </div>
+
                         <div class="slider_comment">
-                            <h6>Lời nhận xét</h6>
+                            <h6 id="footer_text2" class="footer_text2"></h6>
                             <div class="comment_slider_carousel">
-                                <div id="carousel3" class="comment_slider_owl-carousel owl-theme">
-                                    <!-- items -->  
-                                    <div class="comment_sections">
-                                        <div class="comment_text">Nếu cơ quan điều tra có căn cứ xác định chủ cơ sở đã không thực hiện hoặc thực hiện không đúng các qui định về phòng cháy chữa cháy để dẫn tới hậu quả làm nhiều người chết….</div>
-                                        <div class="comment_info">
-                                            <div class="comment_info_img">
-                                                <img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2016/05/luat-su-120x120.webp"/>
-                                            </div>
-                                            <div class="comment_info_text">
-                                                <p>Luật sư Nguyễn Anh Thơm</p>
-                                                <p>Nhà kinh doanh </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="comment_sections">
-                                        <div class="comment_text">Nếu cơ quan điều tra có căn cứ xác định chủ cơ sở đã không thực hiện hoặc thực hiện không đúng các qui định về phòng cháy chữa cháy để dẫn tới hậu quả làm nhiều người chết….</div>
-                                        <div class="comment_info">
-                                            <div class="comment_info_img">
-                                                <img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2016/05/luat-su-120x120.webp"/>
-                                            </div>
-                                            <div class="comment_info_text">
-                                                <p>Luật sư Nguyễn Anh Thơm</p>
-                                                <p>Nhà kinh doanh </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="comment_sections">
-                                        <div class="comment_text">Nếu cơ quan điều tra có căn cứ xác định chủ cơ sở đã không thực hiện hoặc thực hiện không đúng các qui định về phòng cháy chữa cháy để dẫn tới hậu quả làm nhiều người chết….</div>
-                                        <div class="comment_info">
-                                            <div class="comment_info_img">
-                                                <img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2016/05/luat-su-120x120.webp"/>
-                                            </div>
-                                            <div class="comment_info_text">
-                                                <p>Luật sư Nguyễn Anh Thơm</p>
-                                                <p>Nhà kinh doanh </p>
-                                            </div>
-                                        </div>
+                                <div class="swiper-container" id="carousel3">
+                                    <div class="swiper-wrapper">
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
                     <div class="copyright">
                         <div class="footer_hr"></div>
                         <div class="copyright_items">
-                            <div class="copyright_logo"><img src="https://demo.canhcam.com/the7-law/wp-content/uploads/2023/01/CANHCAMLAW.png" alt="copyright_logo"/></div>
-                            <div class="copyright_text">© Canhcam 2018. Đã đăng ký Bản quyền.</div>
+                            <div class="copyright_logo"><img id="copyright_logo" loading="lazy" src="" alt="copyright_logo"/></div>
+                            <div id="copyright_text" class="copyright_text"></div>
                         </div>
                     </div>
 
                 </div>
+                
                 <script type="text/javascript" src="/tomishow/static/src/js/API_div1.js"></script>
                 <script type="text/javascript" src="/tomishow/static/src/js/API_div2.js"></script>
                 <script type="text/javascript" src="/tomishow/static/src/js/API_div3.js"></script>
@@ -962,10 +881,40 @@
                 <script type="text/javascript" src="/tomishow/static/src/js/API_div5.js"></script>
                 <script type="text/javascript" src="/tomishow/static/src/js/API_div6.js"></script>
                 <script type="text/javascript" src="/tomishow/static/src/js/API_div7.js"></script>
-                <script type="text/javascript" src="/tomishow/static/src/js/Details.js"></script>
                 <script type="text/javascript" src="/tomishow/static/src/js/Home.js"></script>
                 <script type="text/javascript" src="/tomishow/static/src/js/API_banner.js"></script>
                 <script type="text/javascript" src="/tomishow/static/src/js/API_footer.js"></script>
+                <script type="text/javascript" src="/tomishow/static/src/js/API_nav.js"></script>
+                <script type="text/javascript" src="/tomishow/static/src/js/API_div8.js"></script>
+                <!-- refesh css -->
+                <script>
+                    function updateCSS() {
+                        // Lấy tất cả các thẻ link phù hợp
+                        var linkElements = document.querySelectorAll('link[rel="stylesheet"][href*="/tomishow/static/src/css"]');
+
+                        // Lặp qua từng thẻ link
+                        linkElements.forEach(function(linkElement) {
+                            // Tạo số ngẫu nhiên
+                            var randomNumber = Math.floor(Math.random() * 1000000000000000);
+
+                            // Lấy href hiện tại của link
+                            var currentHref = linkElement.getAttribute('href');
+
+                            // Loại bỏ đuôi cũ nếu đã tồn tại (nếu có '?v=' trước đó)
+                            var baseHref = currentHref.split('?v=')[0];
+
+                            // Thêm đuôi mới với số ngẫu nhiên
+                            var newHref = baseHref + "?v=" + randomNumber;
+
+                            // Cập nhật thuộc tính href
+                            linkElement.setAttribute('href', newHref);
+                        });
+                    }
+                    setTimeout(updateCSS, 500);
+                </script>
+                
+
+
             </t>
         </template>
     </data>

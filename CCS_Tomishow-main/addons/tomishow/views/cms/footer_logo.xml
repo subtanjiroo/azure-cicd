@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_form_cms_footer_logo" model="ir.ui.view">
+        <field name="name">cms.footer.logo.form</field>
+        <field name="model">cms.footer.logo</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="icon" widget="image"/>
+                        <field name="link"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_" model="ir.actions.act_window">
+        <field name="name">Thêm hình và Icon</field>
+        <field name="res_model">cms.footer.logo</field>
+        <field name="view_mode">form</field>
+        <field name="res_id">1</field>
+        <field name="view_id" ref="view_form_cms_footer_logo"/>
+        <field name="target">main</field>
+    </record>
+</odoo> 

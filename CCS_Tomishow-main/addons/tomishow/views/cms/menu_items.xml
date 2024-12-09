@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <menuitem id="menu_root_chatbox" name="Cms">
-        <menuitem id="menu_item_header" name="Header" action="action_cms_header"/>
-        <!--        <menuitem id="menu_item_footer" name="Footer" action="action_view_footer"/>-->
-        <menuitem id="menu_item_div_1" name="Div 1" action="action_cms_div1"/>
-        <menuitem id="menu_item_div_2" name="Div 2" action="action_cms_div2"/>
-        <menuitem id="menu_item_div_3" name="Div 3" action="action_cms_div3"/>
-        <menuitem id="menu_item_div_4" name="Div 4" action="action_cms_div4"/>
-        <menuitem id="menu_item_div_5" name="Div 5" action="action_cms_div5"/>
-        <menuitem id="menu_item_div_6" name="Div 6" action="action_cms_div6"/>
-        <menuitem id="menu_item_div_7" name="Div 7" action="action_cms_div7"/>
-
+        <menuitem sequence="1" id="menu_item_nav" name="Navigation" action="action_cms_navigation"/>
+        <menuitem sequence="2" id="menu_item_header" name="Header" action="action_cms_header"/>
+        <menuitem sequence="3" id="menu_item_div_1" name="Div 1" action="action_cms_div1"/>
+        <menuitem sequence="4" id="menu_item_div_2" name="Div 2" action="action_cms_div2"/>
+        <menuitem sequence="5" id="menu_item_div_3" name="Div 3" action="action_cms_div3"/>
+        <menuitem sequence="6" id="menu_item_div_4" name="Div 4" action="action_cms_div4"/>
+        <menuitem sequence="7" id="menu_item_div_5" name="Div 5" action="action_cms_div5"/>
+        <menuitem sequence="8" id="menu_item_div_6" name="Div 6" action="action_cms_div6"/>
+        <menuitem sequence="9" id="menu_item_div_7" name="Div 7" action="action_cms_div7"/>
+        <menuitem sequence="10" id="menu_item_div_8" name="Div 8" action="action_cms_div8"/>
+        <menuitem sequence="11" id="menu_item_footer" name="Footer" action="action_cms_footer"/>
     </menuitem>
 </odoo>
